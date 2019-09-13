@@ -1,0 +1,289 @@
+# i3 config file (v4)
+
+# TODO R Scratchpad
+# TODO cycle through scrathpads
+# TODO tmux update window
+# TODO simplenote vim, scratchpad
+# TODO flex tmux term scratchpad
+# TODO ncmcpp scratchpad
+# TODO sound control scratchpad
+
+#+++++					aliases
+# modifier keys
+set $m Mod4
+set $a Mod1
+set $s Shift
+set $c Ctrl
+# terminal
+set $term urxvt
+# workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+#+++++					settings
+# title bar fonts
+font pango:Hack, FontAwesome 9
+# gap size
+gaps inner 20
+# remove window titles
+default_border none
+default_floating_border none
+# enable auto back and forth
+workspace_auto_back_and_forth yes
+
+
+#+++++					modes
+# resize window (you can also use the mouse for that)
+set $mode_resize [default] 10 [alt] 5 [Shift] 2
+mode "$mode_resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        bindsym $a+h resize shrink width 5 px or 5 ppt
+        bindsym $a+k resize grow height 5 px or 5 ppt
+        bindsym $a+j resize shrink height 5 px or 5 ppt
+        bindsym $a+l resize grow width 5 px or 5 ppt
+
+        bindsym $s+h resize shrink width 2 px or 2 ppt
+        bindsym $s+k resize grow height 2 px or 2 ppt
+        bindsym $s+j resize shrink height 2 px or 2 ppt
+        bindsym $s+l resize grow width 2 px or 2 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+set $mode_launcher [a]nki [b]rave [c]hromium [d]esmume [f]irefox [g]top [n]cmpcpp [p]psspp [q]ute [s]lack 
+mode "$mode_launcher" {
+    bindsym a exec --no-startup-id anki; mode "default"
+    bindsym b exec --no-startup-id brave; mode "default"
+    bindsym c exec --no-startup-id chromium; mode "default"
+    bindsym d exec --no-startup-id desmume; mode "default"
+    bindsym f exec --no-startup-id firefox; mode "default"
+    bindsym g exec --no-startup-id $term -e gtop; mode "default"
+    bindsym n exec --no-startup-id $term -e ncmpcpp; mode "default"
+    bindsym q exec --no-startup-id qutebrowser; mode "default"
+    bindsym s exec --no-startup-id slack; mode "default"
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+set $mode_wallpaper [s]fw [r]andom    [p]r[e]view
+mode "$mode_wallpaper" {
+    bindsym r exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpaper/
+    bindsym s exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpaper/sfw/
+    # implement [c]hoose
+
+    # switch to workspace
+    bindsym e workspace "preview"
+    bindsym p workspace "preview"
+    bindsym 1 workspace $ws1
+    bindsym 2 workspace $ws2
+    bindsym 3 workspace $ws3
+    bindsym 4 workspace $ws4
+    bindsym 5 workspace $ws5
+    bindsym 6 workspace $ws6
+    bindsym 7 workspace $ws7
+    bindsym 8 workspace $ws8
+    bindsym 9 workspace $ws9
+    bindsym 0 workspace $ws10
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
+
+#+++++					start stuff
+# start i3bar
+
+# TODO yellow on nagbar
+# colors
+set $c_black #000000
+set $c_darkgray #454545
+set $c_gray #808080
+set $c_red #b30b0b
+set $c_white #ffffff
+
+bar {
+	font pango: Hack 9, SauceCodePro Nerd Font Mono 9
+	position top
+        status_command i3status
+
+        colors {
+                # Text color to be used for the statusline.
+                statusline              $c_white
+                # Text color to be used for the separator.
+                separator               $c_gray
+                # Background color of the bar.
+                background              $c_black
+
+                focused_workspace       $c_white $c_white $c_black
+                active_workspace        #fdf6e3 #6c71c4 #fdf6e3
+                inactive_workspace      $c_black $c_black $c_gray
+                urgent_workspace        $c_red $c_red $c_white
+
+        }
+}
+
+#                       <colorclass>    <border>        <background>    <text>
+client.focused          $c_darkgray     $c_darkgray     $c_black        #6c71c4
+client.focused_inactive #073642         #073642         #eee8d5         #6c71c4
+client.unfocused        $c_black        $c_black        $c_gray         #586e75
+client.urgent           #d33682         #d33682         #fdf6e3         #dc322f
+
+exec --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id compton --config /home/sarrost/.config/compton/compton.conf
+exec_always --no-startup-id dunst
+exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpaper/sfw/
+exec --no-startup-id unclutter
+exec --no-startup-id nm-applet
+
+#+++++					bindings
+# launcher mode
+bindsym $m+slash mode "$mode_launcher"
+# lock screen
+bindsym $m+$s+slash exec --no-startup-id i3lock --fuzzy --once
+
+# focus the parent container
+bindsym $m+a focus parent
+
+# switch to previous workspace
+bindsym $m+b workspace back_and_forth
+
+# reload the configuration file
+bindsym $m+$s+c reload
+
+# start program launcher
+bindsym $m+d exec rofi -show run
+bindsym $m+$a+d exec dmenu_run
+
+# change container layout
+bindsym $m+e layout toggle split; exec notify-send "layout tiling"
+# exit i3 (logs you out of your X session)
+bindsym $m+$s+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# enter fullscreen mode
+bindsym $m+f fullscreen toggle
+
+# change focus
+bindsym $m+h focus left
+# move focused window
+bindsym $m+$s+h move left
+
+# change focus
+bindsym $m+j focus down
+# move focused window
+bindsym $m+$s+j move down
+
+# change focus
+bindsym $m+k focus up
+# move focused window
+bindsym $m+$s+k move up
+
+# change focus
+bindsym $m+l focus right
+# move focused window
+bindsym $m+$s+l move right
+
+# toggle between hide state and show state
+bindsym $m+m bar mode toggle
+
+# take screenshot
+bindsym $m+p exec --no-startup-id deepin-screenshot -f
+bindsym $m+$s+p exec --no-startup-id deepin-screenshot
+
+# kill focused window
+bindsym $m+q kill
+
+# resize mode
+bindsym $m+r mode "$mode_resize"
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $m+$s+r restart
+
+# change container layout
+bindsym $m+s layout stacking; exec notify-send "layout stacking"
+
+# split in orientation
+bindsym $m+t split toggle; exec notify-send "split toggle"
+
+# change container layout
+bindsym $m+w layout tabbed; exec notify-send "layout tabbed"
+
+# wallpaper mode
+bindsym $m+$a+w mode "$mode_wallpaper"
+
+# split in orientation
+bindsym $m+v split v; exec notify-send "split vertical"
+bindsym $m+$a+v split h; exec notify-send "split horizontal"
+
+
+# switch to workspace
+bindsym $m+1 workspace $ws1
+bindsym $m+2 workspace $ws2
+bindsym $m+3 workspace $ws3
+bindsym $m+4 workspace $ws4
+bindsym $m+5 workspace $ws5
+bindsym $m+6 workspace $ws6
+bindsym $m+7 workspace $ws7
+bindsym $m+8 workspace $ws8
+bindsym $m+9 workspace $ws9
+bindsym $m+0 workspace $ws10
+# move focused container and change to workspace
+bindsym $m+$s+1 move container to workspace $ws1 workspace $ws1
+bindsym $m+$s+2 move container to workspace $ws2 workspace $ws2
+bindsym $m+$s+3 move container to workspace $ws3 workspace $ws3
+bindsym $m+$s+4 move container to workspace $ws4 workspace $ws4
+bindsym $m+$s+5 move container to workspace $ws5 workspace $ws5
+bindsym $m+$s+6 move container to workspace $ws6 workspace $ws6
+bindsym $m+$s+7 move container to workspace $ws7 workspace $ws7
+bindsym $m+$s+8 move container to workspace $ws8 workspace $ws8
+bindsym $m+$s+9 move container to workspace $ws9 workspace $ws9
+bindsym $m+$s+0 move container to workspace $ws10 workspace $ws10
+# move focused container to workspace
+bindsym $m+$c+1 move container to workspace $ws1
+bindsym $m+$c+2 move container to workspace $ws2
+bindsym $m+$c+3 move container to workspace $ws3
+bindsym $m+$c+4 move container to workspace $ws4
+bindsym $m+$c+5 move container to workspace $ws5
+bindsym $m+$c+6 move container to workspace $ws6
+bindsym $m+$c+7 move container to workspace $ws7
+bindsym $m+$c+8 move container to workspace $ws8
+bindsym $m+$c+9 move container to workspace $ws9
+bindsym $m+$c+0 move container to workspace $ws10
+
+# start a terminal
+bindsym $m+Return exec --no-startup-id $term
+
+# toggle tiling / floating
+bindsym $m+space floating toggle
+# change focus between tiling / floating windows
+bindsym $m+$s+space focus mode_toggle
+
+bindsym $m+period scratchpad show
+bindsym $m+$s+period move scratchpad
+
+# Pulse Audio controls
+bindsym $m+Right exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym $m+Left exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym $m+KP_Insert exec --no-startup-id pactl set-sink-mute 0 toggle && notify-send "[muted]  $(pacmd list-sinks | awk '/muted/ { print $2 }')" # mute sound
+
+# Sreen brightness controls
+bindsym $m+Up exec --no-startup-id xbacklight -inc 20 && notify-send "[brightness]  $(xbacklight -get)"
+bindsym $m+Down exec --no-startup-id xbacklight -dec 20 && notify-send "[brightness]  $(xbacklight -get)"
+
+bindsym $m+$s+Up exec --no-startup-id xbacklight -set 100 && notify-send "[brightness]  full"
+bindsym $m+$s+Down exec --no-startup-id xbacklight -set 0 && notify-send "[brightness]  off"
+
+# end
