@@ -1,0 +1,3 @@
+set selection-clipboard clipboard
+set highlight-active-color #bc0000
+set highlight-color #bc3200
