@@ -1,5 +1,6 @@
 #!/bin/sh
 alias	c="clear" \
+    bash='bash --rcfile .config/bash/.bashrc' \
     calcurse='calcurse -D "$HOME/.config/calcurse" -C "$HOME/.config/calcurse"' \
 	g="git" \
 	ga="git add" \
@@ -27,5 +28,6 @@ alias	c="clear" \
     r='SHELL=/usr/local/bin/r.shell ranger' \
     sstart='sudo systemctl start' \
     sstop='sudo systemctl stop' \
+    tmux='tmux -f .config/tmux/.tmux.conf' \
     z="zathura"
 	
