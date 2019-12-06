@@ -63,7 +63,7 @@ mode "$mode_resize" {
         bindsym Escape mode "default"
 }
 
-set $mode_launcher [a]nki [b]rave [c]hromium [d]esmume [f]irefox [g]top [n]cmpcpp [p]psspp [q]ute [s]lack 
+set $mode_launcher [a]nki [b]rave [c]hromium [d]esmume [f]irefox [g]top [n]cmpcpp [p]psspp [q]ute [s]lack [t]or
 mode "$mode_launcher" {
     bindsym a exec --no-startup-id anki; mode "default"
     bindsym b exec --no-startup-id brave; mode "default"
@@ -74,6 +74,7 @@ mode "$mode_launcher" {
     bindsym n exec --no-startup-id $term -e ncmpcpp; mode "default"
     bindsym q exec --no-startup-id qutebrowser; mode "default"
     bindsym s exec --no-startup-id slack; mode "default"
+    bindsym t exec --no-startup-id tor-browser; mode "default"
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

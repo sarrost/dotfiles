@@ -11,8 +11,10 @@ dw    ~/Downloads
 dt    ~/dotfiles
 h     ~
 li    ~/Library
+mo    ~/Mount
 mu    ~/Music
 pi    ~/Pictures
 pr    ~/Projects
 re    ~/Repos
+s    ~/.scripts/scripts/.local/bin
 vi    ~/Videos

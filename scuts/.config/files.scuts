@@ -1,0 +1,13 @@
+al      ~/.config/aliasrc
+co      ~/.config/compton/compton.conf
+di      ~/.config/dirs.scuts
+du      ~/.config/dunst/dunstrc
+fi      ~/.config/files.scuts
+i3      ~/.config/i3/config
+mp      ~/.config/mpd/mpd.conf
+ncb     ~/.config/ncmpcpp/bindings
+ncc     ~/.config/ncmpcpp/config
+nm      ~/.config/neomutt/neomuttrc
+ro      ~/.config/rofi/config.rasi
+za      ~/.config/zathura/zathurarc
+vi	~/.config/nvim/init.vim

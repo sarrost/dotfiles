@@ -1,8 +1,7 @@
 # if you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export EDITOR='vim'
-export MANPAGER="vim -c 'set ft=neoman' -"
+export EDITOR='nvim'
+#export MANPAGER="vim -c 'set ft=neoman' -"
 export ZSH=/usr/share/oh-my-zsh
 export ZSH_CUSTOM=$HOME/.zsh
 
@@ -145,5 +144,3 @@ if [[ -n ${TMUX} && -n ${commands[tmux]} ]];then
                         TERM=screen
         esac
 fi
-
-
