@@ -2,7 +2,7 @@
 These are the dotfiles for my (Arch) Linux setup (optinally) deployed and managed
 with [GNU Stow](https://www.gnu.org/software/stow/).
 
-[Preview 1](previews/1.png)
+![alt text](previews/1.png "Desktop Preview")
 
 # Features
 * calcurse
