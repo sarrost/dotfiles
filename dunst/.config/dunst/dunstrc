@@ -7,13 +7,13 @@
     notification_height = 0
     separator_height = 2
     padding = 8
-    horizontal_padding = 8
+    horizontal_padding = 16
     frame_width = 0
     sort = yes
     idle_threshold = 120
 
     ### Text ###
-    font = Hack 8
+    font = Hack 12
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -41,7 +41,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    startup_notification = true
+    startup_notification = false
     verbosity = mesg
 
     ### Legacy
@@ -104,20 +104,20 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#9f9f9f"
-    foreground = "#000"
+    background = "#990000"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#9f9f9f"
-    foreground = "#000"
+    background = "#990000"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
     background = "#ffffff"
     foreground = "#000"
     frame_color = "#ff0000"
-    timeout = 0
+    timeout = 10
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

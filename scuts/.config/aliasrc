@@ -6,6 +6,7 @@ alias	c="clear" \
 	ga="git add" \
 	gcm="git commit -m" \
 	gp="git pull" \
+    hc="herbstclient" \
 	l="clear && echo "" && ls" \
 	lk="clear && echo "" && ls -aC" \
 	ll="clear && echo "" && ls -l" \
@@ -26,6 +27,9 @@ alias	c="clear" \
     353="cd ~/Academia/353" \
     jj="cd ~/Repos/Jargon/services && l" \
     r='SHELL=/usr/local/bin/r.shell ranger' \
+    igpu='sudo set-intel.sh' \
+    dgpu='sudo set-nvidia.sh' \
+    ssys='sudo systemctl' \
     sstart='sudo systemctl start' \
     sstop='sudo systemctl stop' \
     tmux='tmux -f .config/tmux/.tmux.conf' \
