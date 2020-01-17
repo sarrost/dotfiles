@@ -18,4 +18,4 @@ xi      ~/.xinitrc
 xp      ~/.xprofile
 za      ~/.config/zathura/zathurarc
 s       ~/.local/bin/
-
+tm      ~/.tmux.conf
