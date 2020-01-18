@@ -8,10 +8,9 @@ nnoremap <right> xp
 
 """ alpha
 " paste here
-nmap cvv cvl
+"nmap cvv cvl
 " delete file
-nnoremap <M-D> :Delete
-nnoremap <M-e> :CommandT<CR>
+"nnoremap <M-e> :CommandT<CR>
 " open file under cursor
 nnoremap <C-g> :vsplit gf<CR>
 " git
@@ -21,9 +20,9 @@ nnoremap <C-h> <C-W>H
 " move between windows
 nnoremap <M-h> <C-W>h
 " help menu
-nnoremap <M-H> :CommandTHelp<CR>
+"nnoremap <M-H> :CommandTHelp<CR>
 "" map C-i back to C-i
-"nnoremap <F7> <C-i>
+nnoremap <F7> <C-i>
 " move window
 nnoremap <C-j> <C-W>J
 " move between windows
@@ -37,14 +36,14 @@ nnoremap <C-l> <C-W>L
 " move between windows
 nnoremap <M-l> <C-W>l
 " search in file
-nnoremap <M-L> :CommandTLine<CR>
+"nnoremap <M-L> :CommandTLine<CR>
 
 nnoremap <M-m> :Move 
 nnoremap <M-M> :Startify<CR>
 """ Toggle NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " command-t
-nnoremap <M-o> :CommandTMRU<CR>
+"nnoremap <M-o> :CommandTMRU<CR>
 nnoremap <leader>n :noh<CR><CR>
 " shell
 nnoremap <leader>ri :RunInInteractiveShell<space>
@@ -71,8 +70,8 @@ nnoremap <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colo
 
 """ misc
 " quick indenting
-nnoremap <tab> V>
-nnoremap <s-tab> V<
+"nnoremap <tab> V>
+"nnoremap <s-tab> V<
 " fullscreen buffer
 nnoremap <M-`> :only<CR>
 " equal size windows
@@ -84,13 +83,14 @@ nnoremap <M-+> <C-W>_<C-W><bar>
 " horizontal maximize
 nnoremap <M-_> <C-W>_
 " quicker command-t
-nnoremap : :CommandTCommand<CR>
+"nnoremap : :CommandTCommand<CR>
 " quicker cmds
 nnoremap ; :
 
 " reload nvim
 nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim<CR>
 
+" git stuff
 nnoremap <leader>ga :Gadd<CR>
 nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>gc :Gcommit<CR>
@@ -100,9 +100,22 @@ nnoremap <leader>gp :Gpull<CR>
 nnoremap <leader>gP :Gpush<CR>
 nnoremap <leader>gs :Gstatus<CR>
 
+" fzf `directory`
+nnoremap <leader>fd :Files %:p:h<CR>
+" fzf `cmd line`
+nnoremap <leader>fc :Files 
+" fzf `git` repo
+nnoremap <leader>fg :GFiles<CR>
+" fzf `git` repo
+nnoremap <leader>fb :Buffers<CR>
+" fzf `marks`
+nnoremap <leader>fm :Marks<CR>
+" fzf `scripts`
+nnoremap <leader>fs :Files ~/.local/bin/<CR>
+
+nnoremap <leader>sw :SudoWrite<CR>
 
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-

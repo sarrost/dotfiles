@@ -77,3 +77,17 @@ augroup MyNERDTree
     autocmd User NERDTreeInit call behaviour#attempt_select_last_file()
 augroup END
 
+
+"function! s:Marks()
+"    marks abcdef.
+"
+"    echo 'Jump to mark: '
+"
+"    let marks = nr2char(getchar())
+"
+"    redraw 
+"
+"    execute 'normal! `' . marks
+"endfunction
+
+"command! Marks call s:Marks()
