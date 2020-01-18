@@ -16,6 +16,8 @@ with [GNU Stow](https://www.gnu.org/software/stow/).
 * [ranger](https://ranger.github.io/)
 * [rofi](https://github.com/davatorium/rofi)
 * [sxhkd](https://github.com/baskerville/sxhkd)
+* [tmux](https://github.com/tmux/tmux/wiki)
+* [xorg](https://www.x.org/wiki/)
 * [zathura](https://pwmt.org/projects/zathura/)
 * [zsh](https://www.zsh.org/)
 
