@@ -1,4 +1,8 @@
+# `zathura` config file.
+
 set selection-clipboard clipboard
 set font "hack normal 9"
 set highlight-active-color "#bc0000"
 set highlight-color "#bc3200"
+
+#vi:syntax=bash

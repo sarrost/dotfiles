@@ -1,4 +1,6 @@
+# dunst config file.
 [global]
+
     ### Display ###
     monitor = 0
     follow = mouse
@@ -44,27 +46,7 @@
     startup_notification = false
     verbosity = mesg
 
-    ### Legacy
-
-    # Use the Xinerama extension instead of RandR for multi-monitor support.
-    # This setting is provided for compatibility with older nVidia drivers that
-    # do not support RandR and using it on systems that support RandR is highly
-    # discouraged.
-    #
-    # By enabling this setting dunst will not be able to detect when a monitor
-    # is connected or disconnected which might break follow mode if the screen
-    # layout changes.
-    force_xinerama = false
-
     ### mouse
-
-    # Defines action of mouse event
-    # Possible values are:
-    # * none: Don't do anything.
-    # * do_action: If the notification has exactly one action, or one is marked as default,
-    #              invoke it. If there are multiple and no default, open the context menu.
-    # * close_current: Close current notification.
-    # * close_all: Close all notifications.
     mouse_left_click = close_current
     mouse_middle_click = do_action
     mouse_right_click = close_all
@@ -72,34 +54,26 @@
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
 [experimental]
+
     # Calculate the dpi to use on a per-monitor basis.
-    # If this setting is enabled the Xft.dpi value will be ignored and instead
-    # dunst will attempt to calculate an appropriate dpi value for each monitor
-    # using the resolution and physical size. This might be useful in setups
-    # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
 
 [shortcuts]
 
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-
     # Close notification.
-    close = ctrl+space
+    close = mod4+F9
 
     # Close all notifications.
-    close_all = ctrl+shift+space
+    close_all = mod4+F10
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    history = mod4+F11
 
     # Context menu.
-    context = ctrl+shift+period
+    context = mod4+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
