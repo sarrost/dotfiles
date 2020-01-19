@@ -99,6 +99,7 @@ nnoremap <leader>gm :Gmerge<CR>
 nnoremap <leader>gp :Gpull<CR>
 nnoremap <leader>gP :Gpush<CR>
 nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gg :Gstatus<CR>
 
 " fzf `directory`
 nnoremap <leader>fd :Files %:p:h<CR>
@@ -114,6 +115,9 @@ nnoremap <leader>fm :Marks<CR>
 nnoremap <leader>fs :Files ~/.local/bin/<CR>
 
 nnoremap <leader>sw :SudoWrite<CR>
+
+
+nnoremap <leader>mp :MarkdownPreview<CR>
 
 " Or map each action separately
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

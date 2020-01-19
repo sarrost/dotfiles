@@ -1,6 +1,6 @@
 hi ColorColumn      ctermbg=235
 hi Comment          ctermfg=238
-hi CursorLine       gui=underline   cterm=underline
+hi CursorLine       cterm=none ctermbg=232
 hi CursorLineNR     cterm=bold  ctermfg=202
 hi Directory        ctermfg=9
 hi Folded           ctermfg=238 ctermbg=16
@@ -21,3 +21,11 @@ hi Type         ctermfg=202
 hi VertSplit        ctermfg=16
 hi VimOption        ctermfg=203
 hi Visual       ctermbg=215
+hi Todo             cterm=bold  ctermbg=234
+
+
+" Change Color when entering Insert Mode
+autocmd InsertEnter * highlight  CursorLine cterm=bold 
+
+" Revert Color to default when leaving Insert Mode
+autocmd InsertLeave * highlight  CursorLine ctermbg=232

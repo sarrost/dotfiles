@@ -69,5 +69,5 @@ let g:LanguageClient_serverCommands = {
 
 """ Deoplete
 let g:deoplete#enable_at_startup = 1
-inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<TAB>"
+"inoremap <expr><c-j> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><c-k> pumvisible() ? "\<C-p>" : "\<TAB>"

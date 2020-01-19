@@ -56,11 +56,6 @@ augroup MyAutocmds
 	autocmd VimResized * execute "normal! \<c-w>="
 augroup END
 
-" Change Color when entering Insert Mode
-autocmd InsertEnter * highlight  CursorLine cterm=bold 
-
-" Revert Color to default when leaving Insert Mode
-autocmd InsertLeave * highlight  CursorLine cterm=underline
 
 
 """ NERDTree
@@ -78,16 +73,3 @@ augroup MyNERDTree
 augroup END
 
 
-"function! s:Marks()
-"    marks abcdef.
-"
-"    echo 'Jump to mark: '
-"
-"    let marks = nr2char(getchar())
-"
-"    redraw 
-"
-"    execute 'normal! `' . marks
-"endfunction
-
-"command! Marks call s:Marks()
