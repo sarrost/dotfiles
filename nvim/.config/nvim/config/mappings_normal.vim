@@ -70,8 +70,8 @@ nnoremap <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colo
 
 """ misc
 " quick indenting
-"nnoremap <tab> V>
-"nnoremap <s-tab> V<
+nnoremap <tab> V>
+nnoremap <s-tab> V<
 " fullscreen buffer
 nnoremap <M-`> :only<CR>
 " equal size windows
@@ -114,6 +114,7 @@ nnoremap <leader>fm :Marks<CR>
 " fzf `scripts`
 nnoremap <leader>fs :Files ~/.local/bin/<CR>
 
+
 nnoremap <leader>sw :SudoWrite<CR>
 
 
@@ -123,3 +124,11 @@ nnoremap <leader>mp :MarkdownPreview<CR>
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+
+" System clipboard paste.
+nnoremap <C-p> "*p
+nnoremap <M-p> h"*p
+
+" Open line in normal mode.
+nnoremap <M-O> O<ESC>
+nnoremap <M-o> o<ESC>

@@ -3,7 +3,7 @@ call plug#begin('~/.vim/plugged')
 "Plug 'haya14busa/is.vim'
 "Plug 'haya14busa/vim-asterisk'
 "Plug 'osyo-manga/vim-anzu'
-"Plug 'junegunn/limelight.vim'
+Plug 'junegunn/limelight.vim'
 "Plug 'junegunn/goyo.vim'
 "Plug 'junegunn/vim-easy-align'
 "Plug 'svermeulen/vim-subversive'
@@ -51,3 +51,7 @@ endfor
 source ~/.simplenoterc
 
 noremap <plug>(slash-after) zz
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
