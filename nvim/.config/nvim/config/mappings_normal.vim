@@ -101,6 +101,9 @@ nnoremap <leader>gP :Gpush<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gg :Gstatus<CR>
 
+
+" fzf `git` repo
+nnoremap <leader>ff :GFiles<CR>
 " fzf `directory`
 nnoremap <leader>fd :Files %:p:h<CR>
 " fzf `cmd line`
