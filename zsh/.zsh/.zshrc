@@ -1,6 +1,8 @@
 # if you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+
 export ZSH=/usr/share/oh-my-zsh
 export ZSH_CUSTOM=$HOME/.zsh
 

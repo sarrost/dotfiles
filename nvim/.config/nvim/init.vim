@@ -1,16 +1,22 @@
 """ Load plugins.
 call plug#begin('~/.vim/plugged')
+"""         Searching
+Plug 'wincent/loupe'                        " better seacch
+Plug 'junegunn/vim-slash'                   " clear highlighting on move
+Plug 'brooth/far.vim'
+
 "Plug 'haya14busa/is.vim'
 "Plug 'haya14busa/vim-asterisk'
 "Plug 'osyo-manga/vim-anzu'
+Plug 'svermeulen/vim-yoink'
+
+
 Plug 'junegunn/limelight.vim'
 "Plug 'junegunn/goyo.vim'
 "Plug 'junegunn/vim-easy-align'
 Plug 'svermeulen/vim-subversive'
-Plug 'brooth/far.vim'
 
 Plug 'junegunn/vim-peekaboo'                " peek registers when CTRL-R and @
-Plug 'junegunn/vim-slash'                   " center screen on search
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'tpope/vim-eunuch'                     " useful file ops cmds
 Plug 'tpope/vim-repeat'
@@ -30,13 +36,11 @@ Plug 'junegunn/goyo.vim'                    " done
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'neomake/neomake'
-Plug 'nikvdp/neomux'
+"Plug 'nikvdp/neomux'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'                   " busy
 Plug 'tpope/vim-jdaddy'                     " more textobj
 Plug 'tpope/vim-surround'                   " more textobj
-Plug 'wincent/ferret'                       " <l>a, <l>s, <l>S
-Plug 'wincent/loupe'
 Plug 'umaumax/neoman.vim'
 
 call plug#end()
@@ -50,6 +54,7 @@ endfor
 
 source ~/.simplenoterc
 
+" center search result.
 noremap <plug>(slash-after) zz
 
 " Color name (:help cterm-colors) or ANSI code
@@ -66,3 +71,6 @@ nmap S <plug>(SubversiveSubstituteToEndOfLine)
 "nmap <leader>s <plug>(SubversiveSubstituteRange)
 "xmap <leader>s <plug>(SubversiveSubstituteRange)
 "nmap <leader>ss <plug>(SubversiveSubstituteWordRange)
+
+nmap <leader>n <Plug>(LoupeClearHighlight)
+
