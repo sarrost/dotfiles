@@ -102,6 +102,7 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gg :Gstatus<CR>
 
 
+"""         FZF
 " fzf `git` repo
 nnoremap <leader>ff :GFiles<CR>
 " fzf `directory`
@@ -128,10 +129,35 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 
-" System clipboard paste.
-nnoremap <C-p> "*p
-nnoremap <M-p> h"*p
-
 " Open line in normal mode.
 nnoremap <M-O> O<ESC>
 nnoremap <M-o> o<ESC>
+
+" Center on movement.
+nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
+
+
+"""         Yoink
+" Change yank history
+nmap [y <plug>(YoinkRotateBack)
+nmap ]y <plug>(YoinkRotateForward)
+" Change paste
+nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
+nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
+" Remaps
+nmap y <plug>(YoinkYankPreserveCursorPosition)
+xmap y <plug>(YoinkYankPreserveCursorPosition)
+
+
+"""         Subversive
+" s for substitute
+nmap s <plug>(SubversiveSubstitute)
+nmap ss <plug>(SubversiveSubstituteLine)
+nmap S <plug>(SubversiveSubstituteToEndOfLine)
+" substitute <motion1> over <motion1> with <input>.
+nmap <C-s> <plug>(SubversiveSubstituteRange)
+xmap <C-s> <plug>(SubversiveSubstituteRange)
