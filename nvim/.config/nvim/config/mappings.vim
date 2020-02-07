@@ -7,10 +7,6 @@ nnoremap <left> xhP
 nnoremap <right> xp
 
 """ alpha
-" paste here
-"nmap cvv cvl
-" delete file
-"nnoremap <M-e> :CommandT<CR>
 " open file under cursor
 nnoremap <C-g> :vsplit gf<CR>
 " git
@@ -50,8 +46,6 @@ nnoremap <leader>ri :RunInInteractiveShell<space>
 " rotate windows
 nnoremap <M-r> <C-W>r
 nnoremap <M-R> <C-W>R
-" reload vim
-nnoremap <leader>R :source ~/.vimrc<CR>
 " substitute
 nmap <leader>S <Plug>(FerretAcks)
 " horizontal splits
@@ -69,9 +63,6 @@ nnoremap <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colo
 
 
 """ misc
-" quick indenting
-nnoremap <tab> V>
-nnoremap <s-tab> V<
 " fullscreen buffer
 nnoremap <M-`> :only<CR>
 " equal size windows
@@ -88,7 +79,7 @@ nnoremap <M-_> <C-W>_
 nnoremap ; :
 
 " reload nvim
-nnoremap <silent> <leader>r :source ~/.config/nvim/init.vim<CR>
+nnoremap <silent> <leader>R :source ~/.config/nvim/init.vim<CR>
 
 " git stuff
 nnoremap <leader>ga :Gadd<CR>
@@ -101,22 +92,6 @@ nnoremap <leader>gP :Gpush<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gg :Gstatus<CR>
 
-
-"""         FZF
-" fzf `git` repo
-nnoremap <leader>ff :GFiles<CR>
-" fzf `directory`
-nnoremap <leader>fd :Files %:p:h<CR>
-" fzf `cmd line`
-nnoremap <leader>fc :Files 
-" fzf `git` repo
-nnoremap <leader>fg :GFiles<CR>
-" fzf `git` repo
-nnoremap <leader>fb :Buffers<CR>
-" fzf `marks`
-nnoremap <leader>fm :Marks<CR>
-" fzf `scripts`
-nnoremap <leader>fs :Files ~/.local/bin/<CR>
 
 
 nnoremap <leader>sw :SudoWrite<CR>
@@ -136,11 +111,11 @@ nnoremap <M-o> o<ESC>
 " Center on movement.
 nnoremap <C-u> <C-u>zz
 nnoremap <C-d> <C-d>zz
-
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
+nnoremap G Gzz
 
-
+""""""          Copy pasta (registers, clipboard, etc.)
 """         Yoink
 " Change yank history
 nmap [y <plug>(YoinkRotateBack)
@@ -152,7 +127,6 @@ nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(Yo
 nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)
 
-
 """         Subversive
 " s for substitute
 nmap s <plug>(SubversiveSubstitute)
@@ -161,3 +135,22 @@ nmap S <plug>(SubversiveSubstituteToEndOfLine)
 " substitute <motion1> over <motion1> with <input>.
 nmap <C-s> <plug>(SubversiveSubstituteRange)
 xmap <C-s> <plug>(SubversiveSubstituteRange)
+
+"""         FZF
+function! FilesGit()
+    let l:isGit = strlen(system("git rev-parse --is-inside-work-tree 2>/dev/null"))
+    execute l:isGit > 0 ? 'GFiles': 'Files %:p:h'
+endfunction
+
+nnoremap <silent> '' :call FilesGit()<CR>
+nnoremap <silent> 'g :Rg<CR>
+nnoremap <silent> 'b :Buffers<CR>
+nnoremap <silent> 'd :Files ~/dotfiles<CR>
+nnoremap <silent> 'l :Lines<CR>
+nnoremap <silent> 'm :Marks<CR>
+nnoremap <silent> 's :Files ~/.scripts<CR>
+
+
+
+" change working dir to current file dir in window.
+autocmd BufEnter * silent! lcd %:p:h

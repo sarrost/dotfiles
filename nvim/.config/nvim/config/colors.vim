@@ -22,7 +22,7 @@ hi VertSplit        ctermfg=16
 hi VimOption        ctermfg=203
 hi Visual       ctermbg=215
 hi Todo             cterm=bold  ctermbg=234
-
+hi MatchParen       cterm=bold,italic  ctermbg=232
 
 " Change Color when entering Insert Mode
 autocmd InsertEnter * highlight  CursorLine cterm=bold 
