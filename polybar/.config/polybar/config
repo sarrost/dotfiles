@@ -1,0 +1,330 @@
+; vim:filetype=dosini
+
+[bar/msi]
+monitor = eDP-1-1
+background = 0
+font-0 = "Hack:pixelsize=9;2"
+font-1 = "Source Han Sans JP:style=Regular:size=11;2"
+font-2 = "FontAwesome:style=Regular:size=11;2"
+font-3 = "SauceCodePro Nerd Font Mono:size=11;2"
+font-4 = "Wuncon Siji:pixelsize=11;2"
+font-5 = "Noto Sans Symbols2:style=Regular:pixelsize=11;2"
+
+modules-left = system-gpu-intel system-gpu-nvidia cpu system-memory-used memory system-memory-free
+modules-center = wm-workspaces
+modules-right = mpd charsperminute date pulseaudio battery wireless-network
+
+height = 20
+tray-position = right
+padding = 3
+module-margin = 1
+offset-y = 5
+
+[bar/msi-nvidia]
+monitor = eDP-1-1
+background = 0
+font-0 = "Hack:pixelsize=9;2"
+font-1 = "Source Han Sans JP:style=Regular:size=11;2"
+font-2 = "FontAwesome:style=Regular:size=11;2"
+font-3 = "SauceCodePro Nerd Font Mono:size=11;2"
+font-4 = "Wuncon Siji:pixelsize=11;2"
+font-5 = "Noto Sans Symbols2:style=Regular:pixelsize=11;2"
+
+modules-left = system-gpu-intel system-gpu-nvidia cpu system-memory-used memory system-memory-free
+modules-center = wm-workspaces
+modules-right = mpd charsperminute date pulseaudio battery wireless-network
+
+height = 20
+tray-position = right
+padding = 3
+module-margin = 1
+offset-y = 5
+
+[bar/msi-hdmi]
+monitor = HDMI-0
+background = 0
+font-0 = "Hack:pixelsize=10;2"
+font-1 = "Source Han Sans JP:style=Regular:size=11;2"
+font-2 = "FontAwesome:style=Regular:size=11;2"
+font-3 = "SauceCodePro Nerd Font Mono:size=11;2"
+font-4 = "Wuncon Siji:pixelsize=11;2"
+font-5 = "Noto Sans Symbols2:style=Regular:pixelsize=11;2"
+
+modules-center = wm-workspaces-hdmi
+
+height = 20
+tray-position = right
+padding = 3
+module-margin = 1
+offset-y = 5
+
+[module/mpd]
+type = internal/mpd
+
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+interval = 5
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume> <bar-volume>
+
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+;format-muted = <label-muted>
+
+label-muted = 🔇 
+label-muted-foreground = #666
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+; Right and Middle click (unreleased)
+click-right = pavucontrol &
+; click-middle = 
+
+bar-volume-width = 10
+bar-volume-foreground-0 = ${xrdb:color2}
+bar-volume-foreground-1 = ${xrdb:color2}
+bar-volume-foreground-2 = ${xrdb:color2}
+bar-volume-foreground-3 = ${xrdb:color2}
+bar-volume-foreground-4 = ${xrdb:color2}
+bar-volume-foreground-5 = ${xrdb:color3}
+bar-volume-foreground-6 = ${xrdb:color1}
+bar-volume-gradient = false
+bar-volume-indicator = ━
+bar-volume-indicator-font = 0
+bar-volume-fill = ━
+bar-volume-fill-font = 0
+bar-volume-empty = ━
+bar-volume-empty-font = 0
+bar-volume-empty-foreground = ${xrdb:color0}
+
+
+[module/charsperminute]
+type = custom/script
+exec = charsperminute
+tail = true
+format =  <label> 
+
+[module/wm-workspaces]
+type = custom/script
+exec = herbstworkspaces laptop
+tail = true
+
+[module/wm-workspaces-hdmi]
+type = custom/script
+exec = herbstworkspaces hdmi
+tail = true
+
+
+[module/date]
+type = internal/date
+date =  %Y %b %d  %Hh%M%
+
+[module/system-gpu-intel]
+type = custom/script
+exec = sysgpuintel
+interval = 10
+format =  <label>%
+
+[module/system-gpu-nvidia]
+type = custom/script
+exec = sysgpunvidia
+interval = 10
+format = ✇ <label>%
+
+[module/battery]
+type = internal/battery
+full-at = 90
+battery = BAT1
+adapter = ADP1
+poll-interval = 5
+
+
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
+
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging =  %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = 
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+
+[module/wired-network]
+type = internal/network
+interface = enp3s0
+
+[module/wireless-network]
+type = internal/network
+interface = wlo1
+interval = 3.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <label-connected> 
+format-packetloss = <animation-packetloss> <label-connected>
+label-connected = %essid% %downspeed:9%  %signal%% 
+label-connected-foreground = #eefafafa
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500�
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+
+; Available tags:
+;   <label> (default)
+;   <bar-load>
+;   <ramp-load>
+;   <ramp-coreload>
+format = <label> <ramp-coreload>
+
+; Available tokens:
+;   %percentage% (default) - total cpu load averaged over all cores
+;   %percentage-sum% - Cumulative load on all cores
+;   %percentage-cores% - load percentage for each core
+;   %percentage-core[1-9]% - load percentage for specific core
+label = %percentage%%
+
+; Spacing between individual per-core ramps
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+
+[module/system-memory-used]
+type = custom/script
+exec = sysmemused
+interval = 10
+format = <label>
+
+[module/system-memory-free]
+type = custom/script
+exec = sysmemfree
+interval = 10
+format = <label>
+
+[module/memory]
+type = internal/memory
+interval = 3
+
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+;   <bar-swap-used>
+;   <bar-swap-free>
+format = <bar-used>
+
+; Only applies if <bar-used> is used
+bar-used-indicator =
+bar-used-width = 40
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
+
