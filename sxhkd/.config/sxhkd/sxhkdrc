@@ -145,7 +145,6 @@ super + ctrl + space
 super + BackSpace
 	herbstclient cycle_monitor
 
-
 # cycle window focus
 super + {shift +,_}{Tab}
 	herbstclient cycle_all {-1,+1}
