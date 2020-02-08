@@ -1,0 +1,36 @@
+#! /bin/sh
+
+# ~/.xprofile is executed at the beginning of the X user session - before 
+# the window manager is started. Start daemons and other here.
+
+# Enable dGPU without switching.
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+
+# Enable dGPU with switching.
+optimus.sh
+
+# Daemons and other.
+start_dunst &           # notifications with 'dunst'
+start_sxhkd &           # hotkey daemon
+start_compton &         # window compositor.
+start_entr &            # script to manage 'entr' tasks.
+unclutter &             # hide mouse when not needed.
+nm-applet &             # network manager systray.
+mpd &                   # music player daemon.
+transmission-daemon &   # torrent daemon. 
+tmuxcustomconf &        # change tmux conf location.
+
+# Needed for urxvt to work properly.
+xrdb ~/.Xresources
+
+# Input method.
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
+# Start input method daemon.
+ibus-daemon -drx
+
+# Set wallpaper.
+setwallpaper &
