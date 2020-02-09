@@ -35,5 +35,13 @@ ibus-daemon -drx
 # Set wallpaper.
 setwallpaper &
 
-setxkbmap us -option 'caps:ctrl_modifier'
-xcape -e 'Caps_Lock=Escape'
+# Make L_Ctrl act as Super (destroys R_Super).
+setxkbmap us -option ctrl:swap_lwin_lctl
+# Swap Esc and Caps, and make Caps aditionally act as Ctrl_Modifier.
+setxkbmap us -option caps:swapescape    
+spare_modifier="Hyper_L"            
+xmodmap -e "keycode 66 = $spare_modifier"
+xmodmap -e "remove mod4 = $spare_modifier" 
+xmodmap -e "add Control = $spare_modifier"
+xmodmap -e "keycode 253 = Escape"         
+xcape -e "$spare_modifier=Escape"
