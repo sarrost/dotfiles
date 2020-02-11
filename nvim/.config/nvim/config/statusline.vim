@@ -38,6 +38,3 @@ set statusline+=%#SignColumn#
 set statusline+=%4p%%\ 
 set statusline+=%#LineNr#
 set statusline+=\ \ 
-
-"set statusline+=%{anzu#search_status()}
-
