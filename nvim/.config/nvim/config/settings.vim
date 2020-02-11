@@ -1,3 +1,6 @@
+"""
+" Place all non-mapping settings, configurations and custom functions here.
+"""
 let mapleader=" "
 set clipboard+=unnamedplus
 set cursorline
@@ -15,18 +18,90 @@ set shiftwidth=4
 set switchbuf=usetab
 set tabstop=4			    " display tabs as 4 spaces
 set wildmenu	            " completion in status line
-
-""" neomake
-" When writing a buffer (no delay).
-call neomake#configure#automake('w')
+set virtualedit=block
 
 
+""""""          Autocompletion
+"""         Deoplete
+let g:deoplete#enable_at_startup = 1
+
+"""         LanguageClient
+" (fzf) required for operations modifying multiple buffers like rename.
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['/usr/bin/pyls'],
+    \ 'javascript': ['/usr/bin/javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'tex': ['/usr/bin/texlab'],
+    \ }
+
+"""         UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+
+""""""          Copy pasta (registers, clipboard etc.)
+"""         Yoink
+let g:yoinkMaxItems = 20
+let g:yoinkSyncNumberedRegisters = 1
+let g:yoinkMoveCursorToEndOfPaste = 1
+let g:yoinkSavePersistently = 1
+
+"""         Subversive
+let g:subversiveCurrentTextRegister = 1
+let g:subversivePreserveCursorPosition = 1
+
+"""         Peekaboo
+let g:peekaboo_window = 'topleft 23new'
+
+
+""""""          Easier reading
+"""         Limelight
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+" Always on in Goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+
+""""""          Editing
+"""         Auto-pairs
+let g:AutoPairsFlyMode = 1
+
+
+""""""          Eye candy
 """ indentLine
 let g:indentLine_bgcolor_term = 16
 let g:indentLine_enabled = 1	" hide tabs by default
 
 
-""" NERDTree
+""""""          File browsing
+"""         FZF
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" remove statusline from fzf window
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
+
+"""             NERDTree
 let g:NERDTreeWinsize=40
 " remove ? reminder
 let g:NERDTreeMinimalUI=1
@@ -38,36 +113,23 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 
-" auto resize windows when vim is resized
-" counteracts psuedo-fullscreen
-augroup MyAutocmds
-	autocmd!
-	autocmd VimResized * execute "normal! \<c-w>="
-augroup END
+""""""          Misc
+"""         neomake
+" When writing a buffer (no delay).
+call neomake#configure#automake('w')
 
 
-""" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+""""""          Searching
+let g:far#source = 'rgnvim'
 
 
-""" LanguageClient
-" (fzf) required for operations modifying multiple buffers like rename.
-set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/bin/pyls'],
-    \ 'javascript': ['/usr/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'tex': ['/usr/bin/texlab'],
-    \ }
+""""""          Syntax highlighters
 
-""" Deoplete
-let g:deoplete#enable_at_startup = 1
-"
-" navigate current dir
-nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
 
+
+""""""          ~Custom
+" change working dir to current file dir in window.
+autocmd BufEnter * silent! lcd %:p:h
 
 " kill trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
@@ -81,14 +143,6 @@ autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <
 
 " convert tabs to spaces on save
 autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :retab<CR>
-
-
-function! GetBufferList()
-  redir =>buflist
-  silent! ls!
-  redir END
-  return buflist
-endfunction
 
 
 " toggle qf/loc list
@@ -112,7 +166,7 @@ function! ToggleList(bufname, pfx)
   endif
 endfunction
 
-nmap <silent> \ll :call ToggleList("Location List", 'l')<CR>
+nmap <silent> \i :call ToggleList("Location List", 'l')<CR>
 nmap <silent> \ee :call ToggleList("Quickfix List", 'c')<CR>
 
 
@@ -123,9 +177,17 @@ augroup MyAutocmds
 	autocmd VimResized * execute "normal! \<c-w>="
 augroup END
 
+" auto resize windows when vim is resized
+" counteracts psuedo-fullscreen
+augroup MyAutocmds
+	autocmd!
+	autocmd VimResized * execute "normal! \<c-w>="
+augroup END
 
 
-"""         NERDTree
+" navigate current dir
+nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+
 " select last file opened.
 function! settings#attempt_select_last_file() abort
 	let l:previous=expand('#:t')
@@ -138,39 +200,3 @@ augroup MyNERDTree
     autocmd!
     autocmd User NERDTreeInit call settings#attempt_select_last_file()
 augroup END
-
-
-""""""          Copy pasta (registers, clipboard etc.)
-"""         Yoink
-let g:yoinkMaxItems = 20
-let g:yoinkSyncNumberedRegisters = 1
-let g:yoinkMoveCursorToEndOfPaste = 1
-let g:yoinkSavePersistently = 1
-
-"""         Subversive
-let g:subversiveCurrentTextRegister = 1
-let g:subversivePreserveCursorPosition = 1
-
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-
-
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-endif
