@@ -42,6 +42,9 @@ super + shift + d
 super + e
 	createscript_rofi
 
+super + shift + e
+	emoji_rofi
+
 # fullscreen
 super + f
 	herbstclient fullscreen toggle
@@ -86,6 +89,9 @@ super + o
 super + p
 	herbstclient pseudotile toggle
 
+super + shift + p
+	scrot
+
 # close and remove client
 super + q
     herbstclient close_and_remove
@@ -102,9 +108,18 @@ super + ctrl + shift + {q,r}
 super + r
 	herbstclient remove
 
+super + shift + r
+	record_rofi
+
+super + ctrl + r
+	record_rofi kill
+
 # toggle floating layout
 super + s
 	herbstclient floating toggle
+
+super + shift + s
+	screenkeytoggle
 
 # launch split terminal
 super + Return
