@@ -123,14 +123,14 @@ nnoremap <M-M> :Startify<CR>
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 " command-t
 "nnoremap <M-o> :CommandTMRU<CR>
-nnoremap <leader>n :noh<CR><CR>
+nnoremap <silent><leader>n :noh<CR>
 " shell
-nnoremap <leader>ri :RunInInteractiveShell<space>
+"nnoremap <leader>ri :RunInInteractiveShell<space>
 " rotate windows
 nnoremap <M-r> <C-W>r
 nnoremap <M-R> <C-W>R
 " substitute
-nmap <leader>S <Plug>(FerretAcks)
+"nmap <leader>S <Plug>(FerretAcks)
 " horizontal splits
 nnoremap <M-s> :split<CR>
 nnoremap <M-S> :new<CR>
@@ -141,9 +141,6 @@ nnoremap <M-V> :vnew<CR>
 nnoremap <M-x> <C-W>x
 " write
 nnoremap <leader>w :saveas 
-" toggle hidden characters
-nnoremap <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
-
 
 """ misc
 " fullscreen buffer
@@ -161,10 +158,6 @@ nnoremap <M-_> <C-W>_
 " quicker cmds
 nnoremap ; :
 
-" reload nvim
-nnoremap <silent> <leader>R :source ~/.config/nvim/init.vim<CR>
-
-
 " Open line in normal mode.
 nnoremap <M-O> O<ESC>
 nnoremap <M-o> o<ESC>
@@ -177,3 +170,20 @@ nnoremap <C-b> <C-b>zz
 nnoremap G Gzz
 " center search result.
 noremap <plug>(slash-after) zz
+
+
+" clear registers
+function! ClearRegs()
+    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+    for r in regs
+        call setreg(r, [])
+    endfor
+    echo 'Registers cleared.'
+endfunction
+nnoremap <silent> <leader>C :call ClearRegs()<CR>
+
+" reload nvim
+nnoremap <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded.'<CR>
+
+" toggle hidden characters
+nnoremap <silent> <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>:echo 'Toggle hidden characters.'<CR>

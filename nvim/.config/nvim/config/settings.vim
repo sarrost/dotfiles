@@ -2,7 +2,7 @@
 " Place all non-mapping settings, configurations and custom functions here.
 """
 let mapleader=" "
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 set cursorline
 set expandtab			    " spaces rule the world now
 set foldmethod=indent 		" also auto folds file
@@ -51,10 +51,6 @@ let g:yoinkSavePersistently = 1
 """         Subversive
 let g:subversiveCurrentTextRegister = 1
 let g:subversivePreserveCursorPosition = 1
-
-"""         Peekaboo
-let g:peekaboo_window = 'topleft 23new'
-
 
 """"""          Easier reading
 """         Limelight

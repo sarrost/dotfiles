@@ -15,7 +15,7 @@ hi Search           ctermbg=202     ctermfg=16
 hi IncSearch        cterm=bold      ctermbg=255     ctermfg=16
 hi SignColumn       ctermbg=232
 hi SpecialKey       ctermfg=238
-hi StatusLine       ctermfg=9
+hi StatusLine       ctermfg=232     ctermbg=238
 hi StatusLineNC     ctermfg=234     ctermbg=9
 hi TabLineFill      ctermfg=234
 hi Type             ctermfg=202

@@ -9,7 +9,7 @@ Plug 'honza/vim-snippets'
 
 """         Copy pasta (registers, clipboard etc.)
 Plug 'svermeulen/vim-yoink'                 " ✓ save and manipulate yank history
-Plug 'svermeulen/vim-subversive'            " ✓ substitute text with register content
+Plug 'svermeulen/vim-subversive'            " ✓✓  substitute text with register content
 Plug 'junegunn/vim-peekaboo'                " ✓ peek registers when CTRL-R and @
 
 """         Easier reading
@@ -20,8 +20,8 @@ Plug 'umaumax/neoman.vim'
 """         Editing
 Plug 'christoomey/vim-sort-motion'          " ✓ gs
 Plug 'junegunn/vim-easy-align'              " add complex align motion
-Plug 'tpope/vim-surround'                   " ✓ manipulate surrounding characters
-Plug 'jiangmiao/auto-pairs'                 " ✓ auto insert closing brackets
+Plug 'tpope/vim-surround'                   " ✓✓ manipulate surrounding characters
+Plug 'jiangmiao/auto-pairs'                 " ✓✓ auto insert closing brackets
 Plug 'svermeulen/vim-macrobatics'           " improved macros
 
 """         Eye candy
@@ -57,6 +57,7 @@ Plug 'neomake/neomake'
 "Plug 'nikvdp/neomux'
 "Plug 'wellle/targets.vim'
 "Plug 'omtom/tcomment_vim'
+"Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-unimpaired'
 
 call plug#end()
