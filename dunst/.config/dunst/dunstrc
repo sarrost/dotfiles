@@ -10,12 +10,12 @@
     separator_height = 2
     padding = 8
     horizontal_padding = 16
-    frame_width = 0
+    frame_width = 1
     sort = yes
     idle_threshold = 120
 
     ### Text ###
-    font = Hack 12
+    font = Hack 14
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -47,7 +47,7 @@
     verbosity = mesg
 
     ### mouse
-    mouse_left_click = close_current
+    mouse_left_click = do_action
     mouse_middle_click = do_action
     mouse_right_click = close_all
 
@@ -78,12 +78,12 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#990000"
+    background = "#242424"
     foreground = "#ffffff"
     timeout = 10
 
 [urgency_normal]
-    background = "#990000"
+    background = "#242424"
     foreground = "#ffffff"
     timeout = 10
 
