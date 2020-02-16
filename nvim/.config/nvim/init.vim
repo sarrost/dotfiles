@@ -25,6 +25,7 @@ Plug 'jiangmiao/auto-pairs'                 " ✓✓ auto insert closing bracket
 Plug 'svermeulen/vim-macrobatics'           " improved macros
 
 """         Eye candy
+Plug 'unblevable/quick-scope'               " ✓ highlight unique char in words for easy jumping
 Plug 'ryanoasis/vim-devicons'               " ✓ fancy file icons
 Plug 'Yggdroot/indentLine'
 
@@ -46,7 +47,7 @@ Plug 'wincent/loupe'                        " ✓ better search
 Plug 'junegunn/vim-slash'                   " ✓ clear highlighting on move
 
 """         Syntax highlighters
-Plug 'kovetskiy/sxhkd-vim'                  " syntax highlighting
+Plug 'kovetskiy/sxhkd-vim'                  " ✓ syntax highlighting
 
 Plug 'mrtazz/simplenote.vim'                " simplenote integration
 Plug 'donRaphaco/neotex'
@@ -59,8 +60,14 @@ Plug 'neomake/neomake'
 "Plug 'omtom/tcomment_vim'
 "Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-unimpaired'
+Plug 'mhinz/vim-signify'
+Plug 'valloric/MatchTagAlways'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
+
+" default updatetime 4000ms is not good for async update
+set updatetime=100
 
 """ Load config files.
 let s:config_dir = '$HOME/.config/nvim/config/'

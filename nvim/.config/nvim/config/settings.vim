@@ -196,3 +196,12 @@ augroup MyNERDTree
     autocmd!
     autocmd User NERDTreeInit call settings#attempt_select_last_file()
 augroup END
+
+
+
+
+
+
+
+ highlight QuickScopePrimary cterm=underline,bold
+ highlight QuickScopeSecondary cterm=underline,bold,italic
