@@ -101,8 +101,8 @@ super + shift + q
     herbstclient close_or_remove
 
 # reload/quit session
-super + ctrl + shift + {q,r}
-    herbstclient {quit, reload}
+super + ctrl + shift + {q}
+    herbstclient {quit}
 
 # remove focused frame and merge with neighbour
 super + r
@@ -111,7 +111,7 @@ super + r
 super + shift + r
 	record_rofi
 
-super + ctrl + r
+super + ctrl + shift + r
 	record_rofi kill
 
 # toggle floating layout
@@ -120,6 +120,16 @@ super + s
 
 super + shift + s
 	screenkeytoggle
+
+super + alt + shift + s
+	screenkeytoggle 1
+
+super + alt + s
+	speechxsel
+
+super + ctrl + alt + s
+	speechxsel stop
+
 
 # launch split terminal
 super + Return
@@ -148,6 +158,10 @@ super + apostrophe
 # toggle scratchpad
 super + backslash
 	scratchpad toggle
+
+# launch `pass_rofi` script
+super + shift + backslash
+	pass_rofi
 
 # cycle through tags
 super + {comma,period}
