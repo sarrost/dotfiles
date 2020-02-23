@@ -14,7 +14,8 @@ export EDITOR="nvim"
 export GTK2_RC_FILES=/home/sarrost/.gtkrc-2.0
 export MANPAGER="nvim -c 'set ft=neoman' -"
 export READER="zathura"
-export TERMINAL="urxvt"
+#export TERMINAL="urxvt"
+export TERMINAL="st"
 export ZDOTDIR="$HOME/.zsh/"
 
 # Start graphical server if not already running.

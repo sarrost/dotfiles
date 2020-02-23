@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 # .xinitrc is executed automatically when you run startx.
 
