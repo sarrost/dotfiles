@@ -10,9 +10,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Where to find cursor themes.
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 
-# zsh home dir.
-export ZSH_CUSTOM=$HOME/.zsh
-
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
 
@@ -39,4 +36,4 @@ source /usr/share/doc/pkgfile/command-not-found.zsh 2>/dev/null
 source /home/sarrost/.config/broot/launcher/bash/br
 
 # Load configs
-for f in $ZSH_CUSTOM/config/*.zsh; do source "$f"; done
+for f in $ZDOTDIR/config/*.zsh; do source "$f"; done
