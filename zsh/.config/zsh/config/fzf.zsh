@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
+
 # Setup fzf
 # ---------
 if [[ ! "$PATH" == */home/sarrost/.fzf/bin* ]]; then
