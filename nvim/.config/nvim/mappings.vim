@@ -12,8 +12,8 @@ nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 " Change paste
-nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
-nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
 " Remaps
 nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)
@@ -186,4 +186,7 @@ nnoremap <silent> <leader>C :call ClearRegs()<CR>
 nnoremap <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded.'<CR>
 
 " toggle hidden characters
-nnoremap <silent> <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>:echo 'Toggle hidden characters.'<CR>
+nnoremap <silent> <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
+
+
+nnoremap Y y$

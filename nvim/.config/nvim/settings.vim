@@ -2,7 +2,7 @@
 " Place all non-mapping settings, configurations and custom functions here.
 """
 let mapleader=" "
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 set cursorline
 set expandtab			    " spaces rule the world now
 set foldmethod=indent 		" also auto folds file
@@ -21,24 +21,25 @@ set wildmenu	            " completion in status line
 set virtualedit=block
 
 
-""""""          Autocompletion
-"""         Deoplete
-let g:deoplete#enable_at_startup = 1
+""" Load config files.
+for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
+    exe 'source' f
+endfor
 
 """         LanguageClient
 " (fzf) required for operations modifying multiple buffers like rename.
-set hidden
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/bin/pyls'],
-    \ 'javascript': ['/usr/bin/javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'tex': ['/usr/bin/texlab'],
-    \ }
+"set hidden
+"let g:LanguageClient_serverCommands = {
+"    \ 'python': ['/usr/bin/pyls'],
+"    \ 'javascript': ['/usr/bin/javascript-typescript-stdio'],
+"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+"    \ 'tex': ['/usr/bin/texlab'],
+"    \ }
 
 """         UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
 """"""          Copy pasta (registers, clipboard etc.)
@@ -69,7 +70,7 @@ let g:AutoPairsFlyMode = 1
 
 """"""          Eye candy
 """ indentLine
-let g:indentLine_bgcolor_term = 16
+let g:indentLine_bgcolor_term = "none"
 let g:indentLine_enabled = 1	" hide tabs by default
 
 
@@ -199,9 +200,8 @@ augroup END
 
 
 
+highlight QuickScopePrimary cterm=underline,bold
+highlight QuickScopeSecondary cterm=underline,bold,italic
 
 
-
-
- highlight QuickScopePrimary cterm=underline,bold
- highlight QuickScopeSecondary cterm=underline,bold,italic
+exe 'source $HOME/.config/nvim/mappings.vim'

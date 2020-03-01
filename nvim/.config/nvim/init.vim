@@ -1,16 +1,17 @@
 """ Load plugins.
 call plug#begin('~/.vim/plugged')
 
+Plug 'svermeulen/vim-yoink'                 " ✓✓ save and manipulate yank history
+
 """         Autocompletion
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 """         Copy pasta (registers, clipboard etc.)
-Plug 'svermeulen/vim-yoink'                 " ✓ save and manipulate yank history
-Plug 'svermeulen/vim-subversive'            " ✓✓  substitute text with register content
-Plug 'junegunn/vim-peekaboo'                " ✓ peek registers when CTRL-R and @
+Plug 'svermeulen/vim-subversive'            " ✓✓ substitute text with register content
+Plug 'junegunn/vim-peekaboo'                " ✓✓ peek registers when CTRL-R and @
 
 """         Easier reading
 Plug 'junegunn/limelight.vim'
@@ -30,7 +31,7 @@ Plug 'ryanoasis/vim-devicons'               " ✓ fancy file icons
 Plug 'Yggdroot/indentLine'
 
 """         File browsing
-Plug 'scrooloose/nerdtree'
+Plug 'vifm/vifm.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'                     " ✓ fuzzy file finder
 
@@ -44,12 +45,13 @@ Plug 'brooth/far.vim'
 Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting 
 Plug 'haya14busa/vim-asterisk'              " ✓ fancier star Searching
 Plug 'wincent/loupe'                        " ✓ better search
+Plug 'markonm/traces.vim'
 Plug 'junegunn/vim-slash'                   " ✓ clear highlighting on move
 
 """         Syntax highlighters
 Plug 'kovetskiy/sxhkd-vim'                  " ✓ syntax highlighting
 
-Plug 'mrtazz/simplenote.vim'                " simplenote integration
+"Plug 'mrtazz/simplenote.vim'                " simplenote integration
 Plug 'donRaphaco/neotex'
 Plug 'junegunn/vim-github-dashboard'
 Plug 'neomake/neomake'
@@ -60,20 +62,20 @@ Plug 'neomake/neomake'
 "Plug 'omtom/tcomment_vim'
 "Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-unimpaired'
-Plug 'mhinz/vim-signify'
-Plug 'valloric/MatchTagAlways'
-Plug 'mattn/emmet-vim'
+"Plug 'mhinz/vim-signify'
+"Plug 'valloric/MatchTagAlways'
+"Plug 'mattn/emmet-vim'
+"Plug 'reedes/vim-pencil'
+"Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 call plug#end()
 
 " default updatetime 4000ms is not good for async update
 set updatetime=100
 
-""" Load config files.
-let s:config_dir = '$HOME/.config/nvim/config/'
-let s:config_files = [ 'colors.vim', 'settings.vim', 'mappings.vim', 'statusline.vim' ]
-for filename in s:config_files
-    exec 'source ' . s:config_dir . filename
-endfor
+exe 'source $HOME/.config/nvim/settings.vim'
 
-source ~/.simplenoterc
+echo "Welcome!"
