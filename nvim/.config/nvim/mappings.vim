@@ -1,24 +1,49 @@
-""""""          Autocompletion
-"""         LanguageClient-neovim
-" Or map each action separately
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+"""					Macrobatics
+" Play/record macros
+nmap <silent> <M-q> <plug>(Mac_Play)
+nmap <C-q> <plug>(Mac_RecordNew)
+" Rotate macro history
+nmap [q <plug>(Mac_RotateBack)
+nmap ]q <plug>(Mac_RotateForward)
+" Append/prepend to macro
+nmap >q <plug>(Mac_Append)
+nmap <q <plug>(Mac_Prepend)
+" Store macro in register
+nmap <M-Q> <plug>(Mac_StoreCurrent)
+" List macros
+nmap \q :Macros<CR>
 
 
-""""""          Copy pasta (registers, clipboard, etc.)
-"""         Yoink
+"""					Vim-lsp
+nnoremap <silent> ]n :LspNextDiagnostic<CR>
+nnoremap <silent> [n :LspPreviousDiagnostic<CR>
+nnoremap <silent> \ld :LspDocumentDiagnostics<CR>
+nnoremap <silent> \ls :LspDocumentSymbol<CR>
+nnoremap <silent> >d :LspDefinition<CR>
+nnoremap <silent> >D :LspDeclaration<CR>
+nnoremap <silent> <d :LspPeekDefinition<CR>
+nnoremap <silent> <D :LspPeekDeclaration<CR>
+
+
+"""					IndentLines
+" Toggle indent lines
+nnoremap <silent> \<tab> :IndentLinesToggle<CR>
+
+
+""""""					Copy pasta (registers, clipboard, etc.)
+"""				 Yoink
 " Change yank history
 nmap [y <plug>(YoinkRotateBack)
 nmap ]y <plug>(YoinkRotateForward)
 " Change paste
-nmap p <plug>(YoinkPaste_p)
-nmap P <plug>(YoinkPaste_P)
+nmap <expr> p yoink#canSwap() ? '<plug>(YoinkPostPasteSwapBack)' : '<plug>(YoinkPaste_p)'
+nmap <expr> P yoink#canSwap() ? '<plug>(YoinkPostPasteSwapForward)' : '<plug>(YoinkPaste_P)'
 " Remaps
 nmap y <plug>(YoinkYankPreserveCursorPosition)
 xmap y <plug>(YoinkYankPreserveCursorPosition)
 
-"""         Subversive
+
+"""				 Subversive
 " s for substitute
 nmap s <plug>(SubversiveSubstitute)
 nmap ss <plug>(SubversiveSubstituteLine)
@@ -28,24 +53,24 @@ nmap <C-s> <plug>(SubversiveSubstituteRange)
 xmap <C-s> <plug>(SubversiveSubstituteRange)
 
 
-""""""          Easier reading
-"""         Limelight
+""""""					Easier reading
+"""				 Limelight
 nmap <M-l> <Plug>(Limelight)
 xmap <M-l> <Plug>(Limelight)
 nnoremap <Leader>l :Limelight!!<CR>
 
 
-""""""          Editing
+""""""					Editing
 
 
-""""""          Eye candy
+""""""					Eye candy
 
 
-""""""          File browsing
-"""         FZF
+""""""					File browsing
+"""				 FZF
 function! FilesGit()
-    let l:isGit = strlen(system("git rev-parse --is-inside-work-tree 2>/dev/null"))
-    execute l:isGit > 0 ? 'GFiles': 'Files %:p:h'
+		let l:isGit = strlen(system("git rev-parse --is-inside-work-tree 2>/dev/null"))
+		execute l:isGit > 0 ? 'GFiles': 'Files %:p:h'
 endfunction
 
 nnoremap <silent> '' :call FilesGit()<CR>
@@ -58,29 +83,29 @@ nnoremap <silent> 'n :Files ~/Documents/notes<CR>
 nnoremap <silent> 's :Files ~/.scripts<CR>
 
 
-""""""          Misc
-"""         Eunuch
+""""""					Misc
+"""				 Eunuch
 nnoremap <leader>sw :SudoWrite<CR>
 
-"""         Fugitive
-nnoremap <leader>ga :Gadd<CR>
-nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gc :Gcommit<CR>
-nnoremap <leader>gf :Gfetch<CR>
-nnoremap <leader>gm :Gmerge<CR>
-nnoremap <leader>gp :Gpull<CR>
-nnoremap <leader>gP :Gpush<CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gg :Gstatus<CR>
+"""				 Fugitive
+nnoremap \ga :Gadd<CR>
+nnoremap \gb :Gblame<CR>
+nnoremap \gc :Gcommit<CR>
+nnoremap \gf :Gfetch<CR>
+nnoremap \gm :Gmerge<CR>
+nnoremap \gp :Gpull<CR>
+nnoremap \gP :Gpush<CR>
+nnoremap \gs :Gstatus<CR>
+nnoremap \gg :Gstatus<CR>
 
 
-""""""          Searching
+""""""					Searching
 
 
-""""""          Syntax highlighters
+""""""					Syntax highlighters
 
 
-""""""          ~Custom
+""""""					~Custom
 """ Arrows
 " Move entire line
 nnoremap <down> ddp
@@ -94,26 +119,8 @@ nnoremap <right> xp
 nnoremap <C-g> :vsplit gf<CR>
 " git
 nnoremap <M-g> :G<CR>
-" move window
-nnoremap <C-h> <C-W>H
-" move between windows
-nnoremap <M-h> <C-W>h
 " help menu
 "nnoremap <M-H> :CommandTHelp<CR>
-"" map C-i back to C-i
-nnoremap <F7> <C-i>
-" move window
-nnoremap <C-j> <C-W>J
-" move between windows
-nnoremap <M-j> <C-W>j
-" move window
-nnoremap <C-k> <C-W>K
-" move between windows
-nnoremap <M-k> <C-W>k
-" move window
-nnoremap <C-l> <C-W>L
-" move between windows
-nnoremap <M-l> <C-W>l
 " search in file
 "nnoremap <M-L> :CommandTLine<CR>
 
@@ -174,19 +181,40 @@ noremap <plug>(slash-after) zz
 
 " clear registers
 function! ClearRegs()
-    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
-    for r in regs
-        call setreg(r, [])
-    endfor
-    echo 'Registers cleared.'
+		let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+		for r in regs
+				call setreg(r, [])
+		endfor
+		echo 'Registers cleared.'
 endfunction
-nnoremap <silent> <leader>C :call ClearRegs()<CR>
+nnoremap <silent> \cr :call ClearRegs()<CR>
 
 " reload nvim
-nnoremap <silent> <leader>R :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded.'<CR>
+nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded.'<CR>
 
 " toggle hidden characters
-nnoremap <silent> <leader>z :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
+nnoremap <silent> \hi :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
 
 
+
+
+
+" make this actually useful
 nnoremap Y y$
+
+
+
+" move between windows
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+" move window
+nnoremap <C-W>h <C-W>H
+nnoremap <C-W>j <C-W>J
+nnoremap <C-W>k <C-W>K
+nnoremap <C-W>l <C-W>L
+
+""" auto-pairs
+let g:AutoPairsShortcutToggle = '\ap'

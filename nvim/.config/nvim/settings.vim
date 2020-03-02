@@ -2,125 +2,41 @@
 " Place all non-mapping settings, configurations and custom functions here.
 """
 let mapleader=" "
-set clipboard+=unnamedplus
 set cursorline
-set expandtab			    " spaces rule the world now
-set foldmethod=indent 		" also auto folds file
 set hidden
-set inccommand=nosplit      " show effects of command incrementally.
+"set inccommand=nosplit      " show effects of command incrementally.
 set incsearch
-set listchars=eol:¬,space:␣,trail:+,tab:>\ 
+set listchars=eol:¬,space:␣,trail:+,tab:>\
 set number	                " line numbers
 set numberwidth=6
 set relativenumber
 set scrolloff=10
-set shiftwidth=4
 set switchbuf=usetab
-set tabstop=4			    " display tabs as 4 spaces
+
 set wildmenu	            " completion in status line
 set virtualedit=block
+set splitbelow
 
+" tabs are \t, they occupy to columns, spaces are promoted
+" to tab upon expansion
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set noexpandtab
+
+" map C-i back to C-i
+nnoremap <F7> <C-i>
 
 """ Load config files.
 for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
-    exe 'source' f
+	exe 'source' f
 endfor
-
-"""         LanguageClient
-" (fzf) required for operations modifying multiple buffers like rename.
-"set hidden
-"let g:LanguageClient_serverCommands = {
-"    \ 'python': ['/usr/bin/pyls'],
-"    \ 'javascript': ['/usr/bin/javascript-typescript-stdio'],
-"    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-"    \ 'tex': ['/usr/bin/texlab'],
-"    \ }
 
 """         UltiSnips
 "let g:UltiSnipsExpandTrigger="<tab>"
 "let g:UltiSnipsJumpForwardTrigger="<tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-
-""""""          Copy pasta (registers, clipboard etc.)
-"""         Yoink
-let g:yoinkMaxItems = 20
-let g:yoinkSyncNumberedRegisters = 1
-let g:yoinkMoveCursorToEndOfPaste = 1
-let g:yoinkSavePersistently = 1
-
-"""         Subversive
-let g:subversiveCurrentTextRegister = 1
-let g:subversivePreserveCursorPosition = 1
-
-""""""          Easier reading
-"""         Limelight
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-" Always on in Goyo
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-
-""""""          Editing
-"""         Auto-pairs
-let g:AutoPairsFlyMode = 1
-
-
-""""""          Eye candy
-""" indentLine
-let g:indentLine_bgcolor_term = "none"
-let g:indentLine_enabled = 1	" hide tabs by default
-
-
-""""""          File browsing
-"""         FZF
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" remove statusline from fzf window
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-endif
-
-"""             NERDTree
-let g:NERDTreeWinsize=40
-" remove ? reminder
-let g:NERDTreeMinimalUI=1
-" let space space ^# return from nerdtree window
-let g:NERDTreeCreatePrefix='silent keepalt keepjumps'
-"nmap <buffer> <expr> - g:NERDTreeMapUpdir
-let NERDTreeMapUpdir='-'
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-
-""""""          Misc
-"""         neomake
-" When writing a buffer (no delay).
-call neomake#configure#automake('w')
-
-
-""""""          Searching
-let g:far#source = 'rgnvim'
-
-
-""""""          Syntax highlighters
 
 
 
@@ -129,17 +45,17 @@ let g:far#source = 'rgnvim'
 autocmd BufEnter * silent! lcd %:p:h
 
 " kill trailing whitespace on save
-fun! <SID>StripTrailingWhitespaces()
+function! StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
     %s/\s\+$//e
     call cursor(l, c)
-endfun
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+endfunction
+nnoremap <silent> \ws :call StripTrailingWhitespaces()<CR>
 
 
 " convert tabs to spaces on save
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :retab<CR>
+"autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :retab<CR>
 
 
 " toggle qf/loc list
@@ -205,3 +121,5 @@ highlight QuickScopeSecondary cterm=underline,bold,italic
 
 
 exe 'source $HOME/.config/nvim/mappings.vim'
+
+set clipboard+=unnamedplus
