@@ -6,17 +6,22 @@ set cursorline
 set hidden
 "set inccommand=nosplit      " show effects of command incrementally.
 set incsearch
-set listchars=eol:¬,space:␣,trail:+,tab:>\
+set listchars=eol:¬,space:␣,trail:+,tab:\ ┊
 set number	                " line numbers
 set numberwidth=6
 set relativenumber
 set scrolloff=10
-set switchbuf=usetab
-
 set wildmenu	            " completion in status line
 set virtualedit=block
 set splitbelow
-
+set switchbuf=usetab
+" how often swap file is written to disk. Plugins may use
+" this for updating UI.
+set updatetime=20
+" Always use clipboard instead of + and * regs. This might
+" give an error sometimes if you use `xclip` instead of say
+" `xsel`.
+set clipboard+=unnamedplus
 " tabs are \t, they occupy to columns, spaces are promoted
 " to tab upon expansion
 set tabstop=2
@@ -25,7 +30,7 @@ set shiftwidth=2
 set noexpandtab
 
 " map C-i back to C-i
-nnoremap <F7> <C-i>
+"nnoremap <F7> <C-i>
 
 """ Load config files.
 for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
@@ -43,19 +48,6 @@ endfor
 """"""          ~Custom
 " change working dir to current file dir in window.
 autocmd BufEnter * silent! lcd %:p:h
-
-" kill trailing whitespace on save
-function! StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfunction
-nnoremap <silent> \ws :call StripTrailingWhitespaces()<CR>
-
-
-" convert tabs to spaces on save
-"autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :retab<CR>
 
 
 " toggle qf/loc list
@@ -122,4 +114,3 @@ highlight QuickScopeSecondary cterm=underline,bold,italic
 
 exe 'source $HOME/.config/nvim/mappings.vim'
 
-set clipboard+=unnamedplus

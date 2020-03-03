@@ -1,12 +1,23 @@
-""" Load plugins.
-call plug#begin('~/.vim/plugged')
+"〖愛〗Neovim configuration file.
+"
+"		~/.config/nvim/init.vim
+"
+" To keep things clean and orderly don't do anything other
+" than load plugins in this file.
+"
+" Put all mappings, including plugin related mappings, in
+" `./mappings.vim`. Do everything else in `./settings.vim`,
+" it is sourced at the end of this file.
 
-Plug 'svermeulen/vim-yoink'                 " ✓✓ save and manipulate yank history
+
+" Load plugins using `vim-plug`. Plugin categories arbitrary,
+" just another attempt to keep things orderly.
+call plug#begin('~/.vim/plugged')
 
 """         Autocompletion
 Plug 'prabirshrestha/async.vim'							" ✓ provide async interface for vim-lsp
 Plug 'prabirshrestha/vim-lsp'								" ✓ provide lsp support
-Plug 'Shougo/deoplete.nvim', 
+Plug 'Shougo/deoplete.nvim',
 	\ { 'do': ':UpdateRemotePlugins' }				" ✓ provide completion menu support
 Plug 'lighttiger2505/deoplete-vim-lsp'			" ✓ support for vim-lsp and deoplete
 Plug 'sirver/UltiSnips'
@@ -15,6 +26,7 @@ Plug 'thomasfaingnaert/vim-lsp-snippets'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 """         Copy pasta (registers, clipboard etc.)
+Plug 'svermeulen/vim-yoink'                 " ✓✓ save and manipulate yank history
 Plug 'svermeulen/vim-subversive'            " ✓✓ substitute text with register content
 Plug 'junegunn/vim-peekaboo'                " ✓✓ peek registers when CTRL-R and @
 
@@ -51,19 +63,25 @@ Plug 'glts/vim-magnum'											" ✓ big int library
 
 """         Searching
 Plug 'brooth/far.vim'
-Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting 
+Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting
 Plug 'haya14busa/vim-asterisk'              " ✓ fancier star Searching
 Plug 'wincent/loupe'                        " ✓ better search
-Plug 'markonm/traces.vim'										" ✓ highlights patterns and ranges 
+Plug 'markonm/traces.vim'										" ✓ highlights patterns and ranges
 Plug 'junegunn/vim-slash'                   " ✓ clear highlighting on move
 
 """         Syntax highlighters
 Plug 'kovetskiy/sxhkd-vim'                  " ✓ syntax highlighting
 
+Plug 'mzlogin/vim-markdown-toc'
+
 " Plug 'inkarkat/vim-SpellCheck'
 "Plug 'kamykn/spelunker.vim'
 "Plug 'svermeulen/vim-matchup'
 "Plug 'svermeulen/CamelCaseMotion'
+"Plug 'mattn/emmet-vim'
+
+"Plug 'wellle/targets.vim'
+"Plug 'reedes/vim-pencil'
 
 "Plug 'donRaphaco/neotex'
 "Plug 'junegunn/vim-github-dashboard'
@@ -71,15 +89,12 @@ Plug 'kovetskiy/sxhkd-vim'                  " ✓ syntax highlighting
 "Plug 'gabrielelana/vim-markdown'
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 "Plug 'nikvdp/neomux'
-"Plug 'wellle/targets.vim'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'valloric/MatchTagAlways'
-"Plug 'mattn/emmet-vim'
-"Plug 'reedes/vim-pencil'
 
 call plug#end()
 
-" default updatetime 4000ms is not good for async update
-set updatetime=100
-
+" source settings
 exe 'source $HOME/.config/nvim/settings.vim'
+
+

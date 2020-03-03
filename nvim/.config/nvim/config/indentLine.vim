@@ -1,2 +1,4 @@
+
+let g:indentLine_enabled = 0	
 let g:indentLine_bgcolor_term = "none"
-let g:indentLine_enabled = 1	" hide tabs by default
+let g:indentLine_char = '┊'

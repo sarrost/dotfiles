@@ -36,14 +36,6 @@ hi Special					ctermfg=92
 hi Title						ctermfg=99
 
 
-hi Win							ctermfg=none		ctermbg=none		cterm=none
-hi Border														ctermbg=none
-hi CmdLine					cterm=bold			ctermbg=none ctermfg=51
-hi TopLine					ctermbg=none		ctermfg=51
-hi TopLineSel				ctermfg=255
-hi OtherWin					cterm=italic ctermbg=none ctermfg=none
-
-
 """ vim-lsp plugin
 hi LspErrorHighlight											ctermbg=none		cterm=bold,italic
 hi LspErrorText							ctermfg=35		ctermbg=none    cterm=bold,italic,underline
@@ -59,3 +51,7 @@ augroup lsp_float_colours
 			\   'winhighlight', 'Normal:StatusLine')
 augroup end
 
+" git-gutter plugin
+hi GitGutterAdd							cterm=bold		ctermfg=51
+hi GitGutterChange					cterm=bold		ctermfg=48
+hi GitGutterDelete					cterm=bold		ctermfg=56

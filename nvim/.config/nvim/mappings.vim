@@ -55,9 +55,7 @@ xmap <C-s> <plug>(SubversiveSubstituteRange)
 
 """"""					Easier reading
 """				 Limelight
-nmap <M-l> <Plug>(Limelight)
-xmap <M-l> <Plug>(Limelight)
-nnoremap <Leader>l :Limelight!!<CR>
+nnoremap \li :Limelight!!<CR>:echo "Toggle limelight"<CR>
 
 
 """"""					Editing
@@ -85,7 +83,7 @@ nnoremap <silent> 's :Files ~/.scripts<CR>
 
 """"""					Misc
 """				 Eunuch
-nnoremap <leader>sw :SudoWrite<CR>
+nnoremap \sw :SudoWrite<CR>
 
 """				 Fugitive
 nnoremap \ga :Gadd<CR>
@@ -124,7 +122,7 @@ nnoremap <M-g> :G<CR>
 " search in file
 "nnoremap <M-L> :CommandTLine<CR>
 
-nnoremap <M-m> :Move 
+nnoremap <M-m> :Move
 nnoremap <M-M> :Startify<CR>
 """ Toggle NERDTree
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
@@ -147,7 +145,7 @@ nnoremap <M-V> :vnew<CR>
 " exchange window
 nnoremap <M-x> <C-W>x
 " write
-nnoremap <leader>w :saveas 
+nnoremap <leader>w :saveas
 
 """ misc
 " fullscreen buffer
@@ -190,7 +188,7 @@ endfunction
 nnoremap <silent> \cr :call ClearRegs()<CR>
 
 " reload nvim
-nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded.'<CR>
+nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded'<CR>
 
 " toggle hidden characters
 nnoremap <silent> \hi :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
@@ -218,3 +216,24 @@ nnoremap <C-W>l <C-W>L
 
 """ auto-pairs
 let g:AutoPairsShortcutToggle = '\ap'
+
+
+nnoremap \sp :set spell!<CR>
+
+
+"""					git-gutter
+nnoremap <silent> \gu :GitGutterToggle<CR>:echo "Toggle git gutter!"<CR>
+
+
+" kill trailing whitespace on save
+function! StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>ws :call StripTrailingWhitespaces()<CR>:echo "'" . expand('%:f') . "' stripped of all trailing whitespace"<CR>
+
+
+"""					Goyo
+nnoremap \go :Goyo<CR>
