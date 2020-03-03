@@ -1,7 +1,9 @@
 # My Dotfiles
-These are the dotfiles for my (Arch) Linux setup (optionally) deployed and managed
-with [GNU Stow](https://www.gnu.org/software/stow/). Included are the configurations
-for programs such as neovim, zsh, tmux, herbstluftwm, etc.
+These are the dotfiles for my (Arch) Linux setup 
+(optionally) deployed and managed with 
+[GNU Stow](https://www.gnu.org/software/stow/). Included are 
+the configurations for programs such as neovim, zsh, tmux, 
+herbstluftwm, etc.
 
 ![Desktop Preview](previews/desktop.png "Desktop Preview")
 
@@ -38,21 +40,23 @@ circumstances.
 # Usage
 
 You have two options. Simply copy-pasta what you need from 
-the relevant files, or you can install and use [GNU Stow](https://www.gnu.org/software/stow/). If
-you are unfamiliar with `stow` then follow the instructions below.
+the relevant files, or you can install and use 
+[GNU Stow](https://www.gnu.org/software/stow/). If you are 
+unfamiliar with `stow` then follow the instructions below.
 
 ## Stow
-The files in this repo are organized as such so as to make deployment
-convenient. Clone this repo to your home directory with `git-clone`:
+The files in this repo are organized as such so as to make 
+deployment convenient. Clone this repo to your home 
+directory with `git-clone`:
 
 ```bash
 $ git clone https://github.com/sarrost/dotfiles
 ```
 
-Enter the root of the directory 
+Enter the root of the directory:
 
 ```bash
-$ cd dotfiles
+$ cd ~/dotfiles
 ```
 
 Then run the following command:
@@ -98,18 +102,21 @@ configurations present in this repo:
 
 Configured with some cool plugins and features such as:
 
+![zsh FZF](previews/zsh-fzf-integration.gif "zsh FZF")
+|:--:| 
+| FZF (bindkey) integration |
+
+![Menu completion](previews/zsh-menu-complete.gif "Menu completion")
+|:--:| 
+| (Menu enabled) completion |
+
 |![Syntax highlighting](previews/zsh-syntax-highlighting.png "Syntax highlighting")|
 |:--:| 
 | Syntax highlighting |
 
-(Menu enabled) completion
-![Menu completion](previews/zsh-menu-complete.gif "Menu completion")
-
-Notifications for time consuming commands upon completion
 ![zsh notifications](previews/zsh-notification.png "zsh notifications")
-
-FZF (bindkey) integration
-![zsh FZF](previews/zsh-fzf-integration.gif "zsh FZF")
+|:--:| 
+| Notifications for time consuming commands upon completion |
 
 All configuration files are stored in `~/.config/zsh`. This 
 is not default behaviour.
