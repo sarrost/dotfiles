@@ -98,8 +98,9 @@ configurations present in this repo:
 
 Configured with some cool plugins and features such as:
 
-Syntax highlighting
-![Syntax highlighting](previews/zsh-syntax-highlight.png "Syntax highlighting")
+|![Syntax highlighting](previews/zsh-syntax-highlighting.png "Syntax highlighting")|
+|:--:| 
+| Syntax highlighting |
 
 (Menu enabled) completion
 ![Menu completion](previews/zsh-menu-complete.gif "Menu completion")
@@ -108,7 +109,7 @@ Notifications for time consuming commands upon completion
 ![zsh notifications](previews/zsh-notification.png "zsh notifications")
 
 FZF (bindkey) integration
-![zsh FZF](previews/zsh-fzf.png "zsh FZF")
+![zsh FZF](previews/zsh-fzf-integration.gif "zsh FZF")
 
 All configuration files are stored in `~/.config/zsh`. This 
 is not default behaviour.
