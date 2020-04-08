@@ -1,0 +1,45 @@
+" Command used to edit files in various contexts.  
+set vicmd=nvim
+" Rely on internal applications to perform file operations.
+set syscalls
+" Maximum number of stored items in all histories.
+set history=100
+" Don't follow links on l or Enter.  
+set nofollowlinks
+" Natural sort of (version) numbers within text.
+set sortnumbers
+" Maximum number of changes that can be undone.
+set undolevels=100
+" Use Vim's format of help file (has highlighting and 
+" "hyperlinks").
+set vimhelp
+" Format for displaying time in file list.
+set timefmt=%m/%d\ %H:%M
+" Show list of matches on tab completion in c.d-line mode.
+set wildmenu
+" Display completions in a form of popup with descriptions of the matches
+set wildstyle=popup
+
+" Display suggestions in normal, visual and view modes for keys, marks and
+" registers (at most 5 files).  In other view, when available.
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+
+" Ignore case in search patterns unless it contains at least one uppercase
+" letter. Both must be set
+set ignorecase
+set smartcase
+" Use increment searching (search while typing)
+set incsearch
+" Try to leave some space from cursor to upper/lower border in lists
+set scrolloff=5
+
+" Set status line look
+set statusline="%u:%g %14A %14d %8E"
+" Saved between sessions
+set vifminfo=dhistory,chistory,shistory
+" Enable miller columns
+set millerview
+" Enable preview pane
+set quickview
+" Hide "../"
+set dotdirs=rootparent

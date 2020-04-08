@@ -1,1 +1,0 @@
-nnoremap gmu ~/Music

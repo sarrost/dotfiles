@@ -1,1 +1,0 @@
-nnoremap gpi ~/Pictures
