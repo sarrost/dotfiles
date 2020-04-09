@@ -29,11 +29,38 @@ if executable('typescript-language-server')
     \ })
 endif
 
+" LaTeX
+if (executable('pyls'))
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'texlab',
+        \ 'cmd': {server_info->['texlab']},
+        \ 'whitelist': ['tex'],
+        \ })
+endif
+
+
+" HTML
+if executable('html-languageserver')                         
+  au User lsp_setup call lsp#register_server({               
+    \ 'name': 'html-languageserver',                     
+    \ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},                                   
+    \ 'whitelist': ['html'],                             
+  \ })                                                       
+endif        
+
+" " CSS, LESS, SASS
+" if executable('css-languageserver')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'css-languageserver',
+"         \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+"         \ 'whitelist': ['css', 'less', 'sass'],
+"         \ })
+" endif
+
+
 set foldmethod=expr
   \ foldexpr=lsp#ui#vim#folding#foldexpr()
   \ foldtext=lsp#ui#vim#folding#foldtext()
-
-nnoremap <tab> zA
 
 let g:lsp_fold_enabled = 1
 set nofoldenable

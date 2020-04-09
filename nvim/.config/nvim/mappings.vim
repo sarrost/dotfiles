@@ -1,19 +1,3 @@
-"""					Macrobatics
-" Play/record macros
-nmap <silent> <M-q> <plug>(Mac_Play)
-nmap <C-q> <plug>(Mac_RecordNew)
-" Rotate macro history
-nmap [q <plug>(Mac_RotateBack)
-nmap ]q <plug>(Mac_RotateForward)
-" Append/prepend to macro
-nmap >q <plug>(Mac_Append)
-nmap <q <plug>(Mac_Prepend)
-" Store macro in register
-nmap <M-Q> <plug>(Mac_StoreCurrent)
-" List macros
-nmap \q :Macros<CR>
-
-
 """					Vim-lsp
 nnoremap <silent> ]n :LspNextDiagnostic<CR>
 nnoremap <silent> [n :LspPreviousDiagnostic<CR>
@@ -54,14 +38,36 @@ xmap <C-s> <plug>(SubversiveSubstituteRange)
 
 
 """"""					Easier reading
-"""				 Limelight
+"""					Limelight
 nnoremap \li :Limelight!!<CR>:echo "Toggle limelight"<CR>
+
+"""					Goyo
+nnoremap \go :Goyo<CR>
 
 
 """"""					Editing
+"""					auto-pairs
+let g:AutoPairsShortcutToggle = '\ap'
+
+"""					Macrobatics
+" Play/record macros
+nmap <silent> <M-q> <plug>(Mac_Play)
+nmap <C-q> <plug>(Mac_RecordNew)
+" Rotate macro history
+nmap [q <plug>(Mac_RotateBack)
+nmap ]q <plug>(Mac_RotateForward)
+" Append/prepend to macro
+nmap >q <plug>(Mac_Append)
+nmap <q <plug>(Mac_Prepend)
+" Store macro in register
+nmap <M-Q> <plug>(Mac_StoreCurrent)
+" List macros
+nmap \q :Macros<CR> 
 
 
 """"""					Eye candy
+"""					git-gutter
+nnoremap <silent> \gu :GitGutterToggle<CR>:echo "Toggle git gutter!"<CR>
 
 
 """"""					File browsing
@@ -74,11 +80,14 @@ endfunction
 nnoremap <silent> '' :call FilesGit()<CR>
 nnoremap <silent> 'g :Rg<CR>
 nnoremap <silent> '; :Buffers<CR>
-nnoremap <silent> 'd :Files ~/dotfiles<CR>
+nnoremap <silent> 'd :Files $RICE_DOTFILES_DIR<CR>
 nnoremap <silent> 'l :Lines<CR>
 nnoremap <silent> 'm :Marks<CR>
 nnoremap <silent> 'n :Files ~/Documents/notes<CR>
-nnoremap <silent> 's :Files ~/.scripts<CR>
+nnoremap <silent> 's :Files $RICE_SCRIPTS_DIR<CR>
+
+"""					Vifm
+nnoremap <silent> - :Vifm<CR>
 
 
 """"""					Misc
@@ -100,11 +109,14 @@ nnoremap \gg :Gstatus<CR>
 """"""					Searching
 
 
-""""""					Syntax highlighters
 
+""""""					Vanilla vim
+" quicker cmds
+nnoremap ; :
 
-""""""					~Custom
-""" Arrows
+"make this actually useful
+nnoremap Y y$
+
 " Move entire line
 nnoremap <down> ddp
 nnoremap <up> ddkP
@@ -112,56 +124,25 @@ nnoremap <up> ddkP
 nnoremap <left> xhP
 nnoremap <right> xp
 
-""" alpha
+" move between windows
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
+
+" move window
+nnoremap <C-W>h <C-W>H
+nnoremap <C-W>j <C-W>J
+nnoremap <C-W>k <C-W>K
+nnoremap <C-W>l <C-W>L
+
 " open file under cursor
 nnoremap <C-g> :vsplit gf<CR>
-" git
-nnoremap <M-g> :G<CR>
-" help menu
-"nnoremap <M-H> :CommandTHelp<CR>
-" search in file
-"nnoremap <M-L> :CommandTLine<CR>
 
-nnoremap <M-m> :Move
-nnoremap <M-M> :Startify<CR>
-""" Toggle NERDTree
-nnoremap <silent> <C-n> :NERDTreeToggle<CR>
-" command-t
-"nnoremap <M-o> :CommandTMRU<CR>
 nnoremap <silent><leader>n :noh<CR>
-" shell
-"nnoremap <leader>ri :RunInInteractiveShell<space>
-" rotate windows
-nnoremap <M-r> <C-W>r
-nnoremap <M-R> <C-W>R
-" substitute
-"nmap <leader>S <Plug>(FerretAcks)
-" horizontal splits
-nnoremap <M-s> :split<CR>
-nnoremap <M-S> :new<CR>
-" vertical splits
-nnoremap <M-v> :vsplit<CR>
-nnoremap <M-V> :vnew<CR>
-" exchange window
-nnoremap <M-x> <C-W>x
-" write
-nnoremap <leader>w :saveas
 
-""" misc
 " fullscreen buffer
 nnoremap <M-`> :only<CR>
-" equal size windows
-nnoremap <M-=> <C-W>=
-" vertical maximize
-nnoremap <M--> <C-W><bar>
-" maximize
-nnoremap <M-+> <C-W>_<C-W><bar>
-" horizontal maximize
-nnoremap <M-_> <C-W>_
-" quicker command-t
-"nnoremap : :CommandTCommand<CR>
-" quicker cmds
-nnoremap ; :
 
 " Open line in normal mode.
 nnoremap <M-O> O<ESC>
@@ -176,7 +157,6 @@ nnoremap G Gzz
 " center search result.
 noremap <plug>(slash-after) zz
 
-
 " clear registers
 function! ClearRegs()
 		let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
@@ -190,40 +170,8 @@ nnoremap <silent> \cr :call ClearRegs()<CR>
 " reload nvim
 nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded'<CR>
 
-" toggle hidden characters
-nnoremap <silent> \hi :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
-
-
-
-
-
-" make this actually useful
-nnoremap Y y$
-
-
-
-" move between windows
-nnoremap <C-h> <C-W>h
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-l> <C-W>l
-
-" move window
-nnoremap <C-W>h <C-W>H
-nnoremap <C-W>j <C-W>J
-nnoremap <C-W>k <C-W>K
-nnoremap <C-W>l <C-W>L
-
-""" auto-pairs
-let g:AutoPairsShortcutToggle = '\ap'
-
-
-nnoremap \sp :set spell!<CR>
-
-
-"""					git-gutter
-nnoremap <silent> \gu :GitGutterToggle<CR>:echo "Toggle git gutter!"<CR>
-
+" toggle spell-checking
+nnoremap <silent> \sp :set spell!<CR>:echo "Toggle spelling"<CR>
 
 " kill trailing whitespace on save
 function! StripTrailingWhitespaces()
@@ -234,6 +182,5 @@ function! StripTrailingWhitespaces()
 endfunction
 nnoremap <silent> <leader>ws :call StripTrailingWhitespaces()<CR>:echo "'" . expand('%:f') . "' stripped of all trailing whitespace"<CR>
 
-
-"""					Goyo
-nnoremap \go :Goyo<CR>
+" toggle hidden characters
+nnoremap <silent> \hi :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>

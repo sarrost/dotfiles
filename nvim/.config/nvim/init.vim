@@ -12,18 +12,18 @@
 
 " Load plugins using `vim-plug`. Plugin categories arbitrary,
 " just another attempt to keep things orderly.
-call plug#begin('~/.vim/plugged')
+call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
-"""         Autocompletion
+"""         Auto-completion
 Plug 'prabirshrestha/async.vim'							" ✓ provide async interface for vim-lsp
 Plug 'prabirshrestha/vim-lsp'								" ✓ provide lsp support
 Plug 'Shougo/deoplete.nvim',
 	\ { 'do': ':UpdateRemotePlugins' }				" ✓ provide completion menu support
 Plug 'lighttiger2505/deoplete-vim-lsp'			" ✓ support for vim-lsp and deoplete
-Plug 'sirver/UltiSnips'
-Plug 'honza/vim-snippets'
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+Plug 'sirver/UltiSnips'											" ✓ snippet management
+Plug 'honza/vim-snippets'										" ✓ snippets source
+Plug 'thomasfaingnaert/vim-lsp-snippets'		" ✓ lsp snippet source (dunno if this actually works)
+Plug 'thomasfaingnaert/vim-lsp-ultisnips'		" ✓ compatibility
 
 """         Copy pasta (registers, clipboard etc.)
 Plug 'svermeulen/vim-yoink'                 " ✓✓ save and manipulate yank history
@@ -31,9 +31,9 @@ Plug 'svermeulen/vim-subversive'            " ✓✓ substitute text with regist
 Plug 'junegunn/vim-peekaboo'                " ✓✓ peek registers when CTRL-R and @
 
 """         Easier reading
-Plug 'junegunn/limelight.vim'
-Plug 'junegunn/goyo.vim'
-Plug 'umaumax/neoman.vim'
+Plug 'junegunn/limelight.vim'								" ✓ kkhyperfocus paragraphs
+Plug 'junegunn/goyo.vim'										" ✓ distraction free vim
+Plug 'umaumax/neoman.vim'										" nvim as a pager
 
 """         Editing
 Plug 'christoomey/vim-sort-motion'          " ✓ provide sorting op (gs)
@@ -43,26 +43,27 @@ Plug 'junegunn/vim-easy-align'              " add complex align motion
 Plug 'svermeulen/vim-macrobatics'           " ✓ provide improved macro functionality
 Plug 'tpope/vim-commentary'									" ✓ provide commenting op (gc)
 Plug 'tpope/vim-surround'                   " ✓✓ manipulate surrounding characters
+Plug 'svermeulen/vim-matchup'								" ✓ operate on matching sets of text
+Plug 'mzlogin/vim-markdown-toc'							" create table of content in md
 
 """         Eye candy
 Plug 'unblevable/quick-scope'               " ✓ highlight unique char in words for easy jumping
 Plug 'ryanoasis/vim-devicons'               " ✓ fancy file icons
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'									" ✓ show 
+Plug 'airblade/vim-gitgutter'								" ✓ show git diff in gutter, provide diff text obj
 
 """         File browsing
-Plug 'vifm/vifm.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'vifm/vifm.vim'												" ✓ file browser
 Plug 'junegunn/fzf.vim'                     " ✓ fuzzy file finder
 
 """         Misc
-Plug 'tpope/vim-fugitive'                   " git wrapper
-Plug 'tpope/vim-eunuch'                     " useful file ops cmds
+Plug 'tpope/vim-fugitive'                   " ✓ git wrapper
+Plug 'tpope/vim-eunuch'                     " ✓ useful file ops cmds
 Plug 'tpope/vim-repeat'											" ✓ support repeat op for plugins
 Plug 'glts/vim-magnum'											" ✓ big int library
 
 """         Searching
-Plug 'brooth/far.vim'
+Plug 'brooth/far.vim'												" 
 Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting
 Plug 'haya14busa/vim-asterisk'              " ✓ fancier star Searching
 Plug 'wincent/loupe'                        " ✓ better search
@@ -72,17 +73,17 @@ Plug 'junegunn/vim-slash'                   " ✓ clear highlighting on move
 """         Syntax highlighters
 Plug 'kovetskiy/sxhkd-vim'                  " ✓ syntax highlighting
 
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'skywind3000/asynctasks.vim'
+Plug 'skywind3000/asyncrun.vim'
 
-" Plug 'inkarkat/vim-SpellCheck'
-"Plug 'kamykn/spelunker.vim'
-"Plug 'svermeulen/vim-matchup'
-"Plug 'svermeulen/CamelCaseMotion'
-"Plug 'mattn/emmet-vim'
+" Plug 'inkarkat/vim-SpellCheck'						" 
+"Plug 'kamykn/spelunker.vim'								" 
+"Plug 'svermeulen/CamelCaseMotion'					" 
+Plug 'mattn/emmet-vim'											" 
+"Plug 'machakann/vim-sandwich'
 
-"Plug 'wellle/targets.vim'
-"Plug 'reedes/vim-pencil'
-
+"Plug 'wellle/targets.vim'									" 
+"Plug 'reedes/vim-pencil'										" 
 "Plug 'donRaphaco/neotex'
 "Plug 'junegunn/vim-github-dashboard'
 "Plug 'neomake/neomake'
@@ -95,6 +96,6 @@ Plug 'mzlogin/vim-markdown-toc'
 call plug#end()
 
 " source settings
-exe 'source $HOME/.config/nvim/settings.vim'
+exe 'source $XDG_CONFIG_HOME/nvim/settings.vim'
 
-
+"sedm0784/vim-you-autocorrect/

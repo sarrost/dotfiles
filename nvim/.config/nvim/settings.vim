@@ -37,10 +37,6 @@ for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
 	exe 'source' f
 endfor
 
-"""         UltiSnips
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<tab>"
-"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 
 
@@ -90,27 +86,12 @@ augroup MyAutocmds
 augroup END
 
 
-" navigate current dir
-nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
-
-" select last file opened.
-function! settings#attempt_select_last_file() abort
-	let l:previous=expand('#:t')
-	if l:previous != ''
-		call search('\v<' . l:previous . '>')
-	endif
-endfunction
-
-augroup MyNERDTree
-    autocmd!
-    autocmd User NERDTreeInit call settings#attempt_select_last_file()
-augroup END
-
-
-
 highlight QuickScopePrimary cterm=underline,bold
 highlight QuickScopeSecondary cterm=underline,bold,italic
 
 
 exe 'source $HOME/.config/nvim/mappings.vim'
 
+
+let g:asyncrun_open = 8
+nnoremap <silent> \pb :AsyncTask project-build<CR>

@@ -31,7 +31,7 @@ hi VertSplit				ctermfg=16
 hi VimOption				ctermfg=47
 hi Visual						ctermbg=240			ctermfg=255
 hi Todo							cterm=bold			ctermbg=234
-hi MatchParen				ctermbg=232			cterm=bold,italic
+hi MatchParen				ctermbg=none			cterm=bold,underline,italic
 hi Special					ctermfg=92
 hi Title						ctermfg=99
 
