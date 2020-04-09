@@ -3,7 +3,7 @@
 # CTRL-Z starts previously suspended process.
 fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
-    bg 
+    bg &>/dev/null
     zle redisplay
     fg &>/dev/null
   else
