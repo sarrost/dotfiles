@@ -1,3 +1,7 @@
+#〖愛〗Simple X Hotkey Daemon configuration file.
+#
+# Place all global shortucuts in this file.
+
 # use/move to tag
 super + {_,shift+}{1-9}
 	herbstclient {use_index,move_index} {0-8}
@@ -50,7 +54,7 @@ super + f
 	herbstclient fullscreen toggle
 
 # launch gimp
-super + g
+super + shift + g
 	gimp
 
 # focus client
@@ -130,6 +134,8 @@ super + alt + s
 super + ctrl + alt + s
 	speechxsel stop
 
+super + alt + shift + z
+	betterlockscreen -l blur
 
 # launch split terminal
 super + Return
@@ -177,4 +183,3 @@ super + BackSpace
 # cycle window focus
 super + {shift +,_}{Tab}
 	herbstclient cycle_all {-1,+1}
-
