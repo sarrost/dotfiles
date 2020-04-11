@@ -1,8 +1,16 @@
 #!/bin/zsh
 
+#〖愛〗Zsh configuration file.
+#
 # This file is loaded for all interactive instances of
 # zsh.
+#
+# Tho keep things clean and orderly majority of the actual
+# configuration is housed in `./config`. All `.zsh` files
+# in that dir are automatically sourced.
 
+
+# This is done in `zshenv` and here again.
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # If not running interactively, don't do anything
@@ -25,5 +33,5 @@ for f in $ZDOTDIR/config/*.zsh; do source "$f"; done
 source /usr/share/doc/pkgfile/command-not-found.zsh \
     2>/dev/null
 
+# For `thefuck`, has to be last
 eval $(thefuck --alias)
-
