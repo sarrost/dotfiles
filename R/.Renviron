@@ -1,0 +1,1 @@
+R_HISTFILE = ${XDG_DATA_HOME}/R/.Rhistory
