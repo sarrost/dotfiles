@@ -1,7 +1,5 @@
 "〖愛〗Neovim configuration file.
 "
-"		~/.config/nvim/init.vim
-"
 " To keep things clean and orderly don't do anything other
 " than load plugins in this file.
 "
