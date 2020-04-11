@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# ~/.xprofile is executed at the beginning of the X user session - before 
-# the window manager is started. Start daemons and other here.
+#〖愛〗Xprofile configuration file.
+#
+# This file is executed at the beginning of the X user 
+# session--before the window manager is started. Start 
+# daemons and run commands/scripts here.
 
 # Enable dGPU without switching.
 # xrandr --setprovideroutputsource modesetting NVIDIA-0
@@ -9,6 +12,11 @@
 
 # Enable dGPU with switching.
 optimus.sh
+
+# Disable screen blanking
+xset s off
+xset s noblank
+xset -dpms
 
 # Daemons and other.
 start_dunst &           # notifications with 'dunst'
@@ -20,6 +28,8 @@ nm-applet &             # network manager systray.
 mpd &                   # music player daemon.
 transmission-daemon &   # torrent daemon. 
 tmuxcustomconf &        # change tmux conf location.
+protonmail_start &
+
 
 # Set wallpaper.
 setwallpaper &
@@ -31,20 +41,8 @@ xrdb ~/.Xresources
 # Input method.
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
+export QT4_IM_MODULE=xim
+export QT_IM_MODULE=xim
 
 # Start input method daemon.
 ibus-daemon -drx
-
-# Make L_Ctrl act as Super (destroys R_Super).
-#setxkbmap us -option ctrl:swap_lwin_lctl
-# Swap Esc and Caps, and make Caps aditionally act as Ctrl_Modifier.
-#setxkbmap us -option caps:swapescape    
-#spare_modifier="Control_L"            
-#xmodmap -e "keycode 66 = $spare_modifier"
-#xmodmap -e "remove Control = $spare_modifier" 
-#xmodmap -e "add Control = $spare_modifier"
-#xmodmap -e "keycode 253 = Escape"         
-#xcape -e "$spare_modifier=Escape"
-
-

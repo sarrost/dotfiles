@@ -1,58 +1,26 @@
+!〖愛〗Xresources configuration file.
+!
+! This file is used to configure X resources such as,
+! terminal settings, X font settings, Xcursor theme,
+! XScreenSaver theme, and low level X applications, etc.
+
+! Cursor theme
 Xcursor.theme: Oxygen Black
 
-!*.font:	Hack:pixelsize=22:antialias=true:autohint=true;
-
+!-----------------------------------------------------------
+! Terminal
+!-----------------------------------------------------------
+! Font settings
 st.font: Hack:pixelsize=22:antialias=true:autohint=true;
-
 st.termname: st-256color
+
+! padding
 st.borderpx: 10
-!URxvt.perl-ext-common: resize-font
-!
-!! URxvt terminal configuration
-!URxvt.internalBorder: 4
-!URxvt*font: xft:Hack:size=18:antialias=true, \
-!		xft:SauceCodePro Nerd Font Mono:size=18, \
-!        xft:SauceCodePro for Powerline:size=18, \
-!		xft:Source Han Sans JP:antialias=true
-!
-!!URxvt*letterSpace: -1
-*background: black
-*foreground: white
-*cursorColor: white
-!URxvt.scrollBar: false
-!
+
 !! map ctrl-i to F7
-!!URxvt.keysym.Control-i: \033[18~
-!
-!background
-*color0: #000000
-*color8: #585858
+!st.keysym.Control-i: \033[18~
 
-*color1: #12d1db
-*color9: #12d1db
-
-! executable !light
-*color2: #4286ab
-*color10: #4286ab
-
-! !dark red
-*color3: #002a94
-*color11: #002a94
-
-!directory !red
-*color4: #0b70b3
-*color12: #0b70b3
-
-*color5: #4aa18d
-*color13: #4aa18d
-
-!sym link !harsh pink
-*color6: #09e8a5
-*color14: #09e8a5
-
-! white and gray
-*color7: #d8d8d8
-*color15: #f8f8f8
+!		Colors
 
 !Normal      Bright
 !--------    -------
@@ -64,3 +32,31 @@ st.borderpx: 10
 !5 Magenta   13 Magenta
 !6 Cyan      14 Cyan
 !7 White     15 White
+
+*background: black
+*foreground: white
+*cursorColor: white
+
+*color0: #000000
+*color8: #585858
+
+*color1: #12d1db
+*color9: #12d1db
+
+*color2: #4286ab
+*color10: #4286ab
+
+*color3: #002a94
+*color11: #002a94
+
+*color4: #0b70b3
+*color12: #0b70b3
+
+*color5: #4aa18d
+*color13: #4aa18d
+
+*color6: #09e8a5
+*color14: #09e8a5
+
+*color7: #d8d8d8
+*color15: #f8f8f8
