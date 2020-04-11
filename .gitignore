@@ -5,3 +5,4 @@ zsh/.config/zsh/config/goodls.zsh
 zsh/.config/zsh/config/shortcuts.zsh
 vifm/.config/vifm/vifminfo
 vifm/.config/vifm/vifm-help.txt
+vifm/.config/vifm/config/shortcuts.vifm
