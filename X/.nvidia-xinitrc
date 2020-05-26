@@ -1,4 +1,9 @@
 #!/bin/sh
+#
+#〖愛〗Nvidia-xrun configuration file.
+#
+# This script is run when `nvidia-xrun` is executed. Do
+# nothing here. Calls .xinitrc if no args are given.
 
 if [ $# -gt 0 ]; then
   $*
