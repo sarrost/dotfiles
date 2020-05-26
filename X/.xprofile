@@ -6,21 +6,8 @@
 # session--before the window manager is started. Start 
 # daemons and run commands/scripts here.
 
-# Enable dGPU without switching.
-# xrandr --setprovideroutputsource modesetting NVIDIA-0
-# xrandr --auto
-
-# Enable dGPU with switching.
-optimus.sh
-
-# Disable screen blanking
-xset s off
-xset s noblank
-xset -dpms
-
 # Daemons and other.
 start_dunst &           # notifications with 'dunst'
-start_sxhkd &           # hotkey daemon
 start_compton &         # window compositor.
 start_entr &            # script to manage 'entr' tasks.
 unclutter &             # hide mouse when not needed.
@@ -28,7 +15,7 @@ nm-applet &             # network manager systray.
 mpd &                   # music player daemon.
 transmission-daemon &   # torrent daemon. 
 tmuxcustomconf &        # change tmux conf location.
-protonmail_start &
+# protonmail_start &
 
 
 # Set wallpaper.
@@ -38,11 +25,11 @@ remapkeys &
 # Needed for urxvt to work properly.
 xrdb ~/.Xresources
 
-# Input method.
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT4_IM_MODULE=xim
-export QT_IM_MODULE=xim
+# # Input method.
+# export GTK_IM_MODULE=ibus
+# export XMODIFIERS=@im=ibus
+# export QT4_IM_MODULE=xim
+# export QT_IM_MODULE=xim
 
 # Start input method daemon.
 ibus-daemon -drx
