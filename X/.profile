@@ -23,18 +23,9 @@ export MANPAGER="nvim -c 'set ft=neoman' -"
 export READER="zathura"
 export TERMINAL="st"
 
+
 # RICE (Treated like XDG DIRs, but custom)
 export RICE_MEDIA_DIR="$HOME/media"
-export RICE_ANIME_DIR="$RICE_MEDIA_DIR/anime"
-export RICE_ARTICLES_DIR="$RICE_MEDIA_DIR/article"
-export RICE_CODE_DIR="$HOME/code"
-export RICE_DOTFILES_DIR="$HOME/dt"
-export RICE_GAMES_DIR="$RICE_MEDIA_DIR/game"
-export RICE_LIBRARY_DIR="$RICE_MEDIA_DIR/lib"
-export RICE_MOUNT_DIR="$HOME/mnt"
-export RICE_NOTES_DIR="$XDG_DOCUMENTS_DIR/notes"
-export RICE_REPOSITORY_DIR="$HOME/repo"
-export RICE_SCRIPTS_DIR="$HOME/sh/scripts"
 
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -47,6 +38,18 @@ export XDG_PUBLICSHARE_DIR="$HOME/.public"
 export XDG_TEMPLATES_DIR="$HOME/tp"
 export XDG_VIDEOS_DIR="$RICE_MEDIA_DIR/vid"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+export RICE_ANIME_DIR="$RICE_MEDIA_DIR/anime"
+export RICE_ARTICLES_DIR="$RICE_MEDIA_DIR/article"
+export RICE_CODE_DIR="$HOME/code"
+export RICE_DOTFILES_DIR="$HOME/dt"
+export RICE_GAMES_DIR="$RICE_MEDIA_DIR/game"
+export RICE_LIBRARY_DIR="$RICE_MEDIA_DIR/lib"
+export RICE_MOUNT_DIR="$HOME/mnt"
+export RICE_NOTES_DIR="$XDG_DOCUMENTS_DIR/notes"
+export RICE_REPOSITORY_DIR="$HOME/repo"
+export RICE_SCRIPTS_DIR="$HOME/sh/scripts"
+
 
 # OCD
 export GOPATH="$HOME/.local/go"
@@ -85,4 +88,4 @@ export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/.pyrc
 #export VIMINIT="source $XDG_CONFIG_HOME/vim/.vimrc"
 
 # Start graphical server if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x i3 >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec nvidia-xrun
