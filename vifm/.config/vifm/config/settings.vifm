@@ -39,7 +39,13 @@ set statusline="%u:%g %14A %14d %8E"
 set vifminfo=dhistory,chistory,shistory
 " Enable miller columns
 set millerview
+ set milleroptions=lsize:1,csize:2
 " Enable preview pane
 set quickview
 " Hide "../"
-set dotdirs=rootparent
+" set dotdirs=rootparent
+" Flags enable legacy behaviour
+set cpoptions=fs
+
+autocmd DirEnter * !vpwd "`pwd`" &
+

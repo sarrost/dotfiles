@@ -45,6 +45,7 @@ endfor
 " change working dir to current file dir in window.
 autocmd BufEnter * silent! lcd %:p:h
 
+autocmd BufEnter * silent! !vpwd "`pwd`"
 
 " toggle qf/loc list
 function! ToggleList(bufname, pfx)
@@ -86,8 +87,6 @@ augroup MyAutocmds
 augroup END
 
 
-highlight QuickScopePrimary cterm=underline,bold
-highlight QuickScopeSecondary cterm=underline,bold,italic
 
 
 exe 'source $HOME/.config/nvim/mappings.vim'

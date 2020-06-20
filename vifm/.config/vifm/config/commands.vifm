@@ -20,4 +20,14 @@ command! mkcd :mkdir -p %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
 
+
+
+
+" did='a'
+" if $did == 'a'
+" 	:split
+" else
+" 	:only
+" endif
+
 " vim: filetype=vifm

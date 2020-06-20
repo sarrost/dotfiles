@@ -1,3 +1,7 @@
+" map C-i back to C-i
+map <F13> <C-i>
+
+
 """					Vim-lsp
 nnoremap <silent> ]n :LspNextDiagnostic<CR>
 nnoremap <silent> [n :LspPreviousDiagnostic<CR>
@@ -62,7 +66,7 @@ nmap <q <plug>(Mac_Prepend)
 " Store macro in register
 nmap <M-Q> <plug>(Mac_StoreCurrent)
 " List macros
-nmap \q :Macros<CR> 
+nmap \q :Macros<CR>
 
 
 """"""					Eye candy
@@ -79,12 +83,12 @@ endfunction
 
 nnoremap <silent> '' :call FilesGit()<CR>
 nnoremap <silent> 'g :Rg<CR>
-nnoremap <silent> '; :Buffers<CR>
-nnoremap <silent> 'd :Files $RICE_DOTFILES_DIR<CR>
+nnoremap <silent> 'b :Buffers<CR>
 nnoremap <silent> 'l :Lines<CR>
 nnoremap <silent> 'm :Marks<CR>
-nnoremap <silent> 'n :Files ~/Documents/notes<CR>
-nnoremap <silent> 's :Files $RICE_SCRIPTS_DIR<CR>
+nnoremap <silent> 'n :Files $RICE_NOTES_DIR<CR>
+nnoremap <silent> 's :Files $XDG_CONFIG_HOME/cf<CR>
+nnoremap <silent> 'h :Help<CR>
 
 """					Vifm
 nnoremap <silent> - :Vifm<CR>
@@ -92,7 +96,7 @@ nnoremap <silent> - :Vifm<CR>
 
 """"""					Misc
 """				 Eunuch
-nnoremap \sw :SudoWrite<CR>
+nnoremap \sw :SudoWrite<CR>:echo "'" . expand('%:f') . "', sudo written"<CR>
 
 """				 Fugitive
 nnoremap \ga :Gadd<CR>
@@ -101,9 +105,8 @@ nnoremap \gc :Gcommit<CR>
 nnoremap \gf :Gfetch<CR>
 nnoremap \gm :Gmerge<CR>
 nnoremap \gp :Gpull<CR>
-nnoremap \gP :Gpush<CR>
-nnoremap \gs :Gstatus<CR>
-nnoremap \gg :Gstatus<CR>
+nnoremap <silent> \gP :Gpush<CR>:echo "Git push done!"<CR>
+nnoremap <silent> \gg :Gstatus<CR>
 
 
 """"""					Searching
@@ -168,7 +171,7 @@ endfunction
 nnoremap <silent> \cr :call ClearRegs()<CR>
 
 " reload nvim
-nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:echo '(N)vim reloaded'<CR>
+nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:edit<CR>:echo '(N)vim reloaded'<CR>
 
 " toggle spell-checking
 nnoremap <silent> \sp :set spell!<CR>:echo "Toggle spelling"<CR>
@@ -184,3 +187,7 @@ nnoremap <silent> <leader>ws :call StripTrailingWhitespaces()<CR>:echo "'" . exp
 
 " toggle hidden characters
 nnoremap <silent> \hi :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>:echo 'Toggle hidden characters.'<CR>
+
+
+
+nnoremap <silent> <space><space> /<\~\~><CR>:noh<CR>4xa

@@ -55,3 +55,8 @@ augroup end
 hi GitGutterAdd							cterm=bold		ctermfg=51
 hi GitGutterChange					cterm=bold		ctermfg=48
 hi GitGutterDelete					cterm=bold		ctermfg=56
+
+
+
+highlight QuickScopePrimary cterm=underline,bold
+highlight QuickScopeSecondary cterm=underline,bold,italic

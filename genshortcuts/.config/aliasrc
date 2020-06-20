@@ -6,11 +6,10 @@
 # shell aliases in this file.
 
 alias	\
-bash='bash --rcfile .config/bash/.bashrc' \
-activate='source bin/activate' \
-vifm='vifmrun' \
-sc='sc-im' \
-calcurse='calcurse -D "$HOME/.config/calcurse" -C "$HOME/.config/calcurse"' \
+activate="source bin/activate" \
+vifm="source $FILE_BROWSER" \
+sc="sc-im" \
+calcurse="calcurse -D "$HOME/.config/calcurse" -C "$HOME/.config/calcurse"" \
 g="git" \
 hc="herbstclient" \
 ls="ls --color=auto" \
@@ -26,7 +25,7 @@ py="python3" \
 pym="python3 manage.py" \
 s="sudo" \
 t="tig" \
-v="nvim" \
+v="source $EDITOR" \
 ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
 301="cd ~/Academia/301" \
 326="cd ~/Academia/326" \
@@ -40,5 +39,8 @@ dgpu='sudo set-nvidia.sh' \
 sys='sudo systemctl' \
 tmux='tmux -f .config/tmux/.tmux.conf' \
 z="zathura" \
+torr="transmission-remote-cli" \
 PQ="pacman -Q | grep" \
 LG="clear && echo "" && ls | grep" \
+vs="source vs" \
+

@@ -1,35 +1,37 @@
 #!/bin/sh
 
 #〖愛〗Xprofile configuration file.
-#
-# This file is executed at the beginning of the X user 
+
+# This script is executed at the beginning of the X user 
 # session--before the window manager is started. Start 
 # daemons and run commands/scripts here.
 
 # Daemons and other.
 start_dunst &           # notifications with 'dunst'
 start_compton &         # window compositor.
-start_entr &            # script to manage 'entr' tasks.
+start_transmission &		# torrent daemon. 
 unclutter &             # hide mouse when not needed.
-nm-applet &             # network manager systray.
 mpd &                   # music player daemon.
-transmission-daemon &   # torrent daemon. 
-tmuxcustomconf &        # change tmux conf location.
-# protonmail_start &
+# nm-applet &             # network manager systray.
+# tmuxcustomconf &        # change tmux conf location.
+# start_protonmail &
+start_mpd_trigger &
 
-
-# Set wallpaper.
+# Set wallpaper
 setwallpaper &
-remapkeys &
 
-# Needed for urxvt to work properly.
+# Needed for st to work properly
 xrdb ~/.Xresources
 
-# # Input method.
-# export GTK_IM_MODULE=ibus
-# export XMODIFIERS=@im=ibus
-# export QT4_IM_MODULE=xim
-# export QT_IM_MODULE=xim
+# Input method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export XMODIFIER="@im=fcitx"
+fcitx & 
 
-# Start input method daemon.
-ibus-daemon -drx
+# Remap certain keys
+remapkeys &
+
+# Disable screen blanking and screen saver
+$(sleep 10; xset -dpms; xset s off) &

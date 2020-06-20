@@ -3,6 +3,8 @@
 """ Load plugins
 source ~/.local/share/vifm/Plugin/vifm_devicons/SETUP
 
+let $VIFM_SERVER_NAME = v:servername
+
 """ Load config files.
 source ~/.config/vifm/config/settings.vifm
 source ~/.config/vifm/config/mappings.vifm

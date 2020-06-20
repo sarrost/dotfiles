@@ -1,7 +1,9 @@
 ##### connection settings #####
 mpd_host = localhost
 mpd_port = 6600
-mpd_music_dir = ~/Music
+mpd_music_dir = ~/md/music
+lyrics_directory = ~/md/music/.lyrics
+ncmpcpp_directory = ~/.local/share/ncmpcpp
 
 ##### music visualizer #####
 ##
@@ -239,7 +241,7 @@ visualizer_look = "+|"
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-execute_on_song_change = ". /home/sarrost/.local/bin/utils/albumart_ncmpcpp"
+#execute_on_song_change = 
 #
 ##
 ## Note: Custom command that will be executed each time player state

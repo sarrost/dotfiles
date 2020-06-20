@@ -2,6 +2,6 @@
 
 # This script houses some misc bindings for zsh.
 
-bindkey -s "^F" "vifm\n"
-bindkey -s "^H" "cd .. && clear\n"
-bindkey -s "^S" "clear && cf\n"
+bindkey -s "^E" "clear && source vpwd_nvim\n"
+bindkey -s "^F" "clear && source vpwd_vifm\n"
+bindkey -s "^S" "clear && source vpwd_cf\n"

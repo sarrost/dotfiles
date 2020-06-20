@@ -5,28 +5,28 @@
     * tweaking my theme and having access to all of the colors here is handy. */
 
 /* red 360000 */
-    base03: #002b36;
-    base02: #6e0000; /* red */
-    base01: #586e75;
-    base00: #657b83;
-    base0: #839496;
-    base1: #93a1a1;
-    base2: #eee8d5;
-    base3: #fdf6e3;
-    yellow: #b58900;
-    orange: #cb4b16;
-    red: #dc322f;
-    magenta: #ffffff;
-    violet: #6c71c4;
-    blue: #c40808; /*red*/
-    cyan: #2aa198;
-    green: #859900;
+	base03:		#002b36;
+	base02:		#013d2d; 
+	base01:		#586e75;
+	base00:		#657b83;
+	base0:		#839496;
+	base1:		#93a1a1;
+	base2:		#eee8d5;
+	base3:		#fdf6e3;
+	yellow:		#b58900;
+	orange:		#cb4b16;
+	red:			#dc322f;
+	magenta:	#00ffbb;
+	violet:		#6c71c4;
+	blue:			#00ffbb;
+	cyan:			#2aa198;
+	green:		#859900;
 
 	font: "Hack 12";
 
-    transparent-background: rgba ( 0, 0, 0, 0 % );
-    foreground:                  @magenta;
-    background:                  rgba ( 0, 0, 0, 90 % );
+	transparent-background:			rgba ( 0, 0, 0, 0 % );
+	foreground:									@magenta;
+	background:                  rgba ( 0, 0, 0, 90 % );
 
     normal-foreground:           @foreground;
     normal-background:           @transparent-background;
@@ -182,4 +182,4 @@ element selected {
 }
 */
 
-/* vi:syntax=css:
+/* vim: filetype=css

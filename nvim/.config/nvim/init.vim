@@ -91,9 +91,20 @@ Plug 'mattn/emmet-vim'											"
 "Plug 'tpope/vim-unimpaired'
 "Plug 'valloric/MatchTagAlways'
 
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " source settings
 exe 'source $XDG_CONFIG_HOME/nvim/settings.vim'
+
+
+autocmd BufRead,BufNewFile ~/doc/anki/blank.html nmap <buffer> j gj
+autocmd BufRead,BufNewFile ~/doc/anki/blank.html nmap <buffer> k gk
+autocmd BufRead,BufNewFile ~/doc/anki/blank.html nmap <buffer> q guiwysiwtb<CR>
+autocmd BufRead,BufNewFile ~/doc/anki/blank.html nmap <buffer> Q gUiwysiwtb<CR>
+autocmd BufRead,BufNewFile ~/doc/anki/blank.html nmap <buffer> <C-q> o<br><br><br><CR><CR><ESC>2j02k
+
+
 
 "sedm0784/vim-you-autocorrect/
