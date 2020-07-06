@@ -1,13 +1,13 @@
 "〖愛〗Darqua Fruit vifm colorscheme
 
-hi AuxWin																					cterm=none
+hi AuxWin																						cterm=none
 hi Border						ctermbg=none
-hi CmdLine					ctermbg=none		ctermfg=51		cterm=bold
-hi OtherWin					ctermbg=none		ctermfg=none	cterm=italic		
+hi CmdLine					ctermbg=none		ctermfg=51			cterm=bold
+hi OtherWin					ctermbg=none		ctermfg=none		cterm=italic		
 hi TabLine					ctermbg=none		ctermfg=38
-hi TabLineSel				ctermbg=none		ctermfg=49		cterm=bold
+hi TabLineSel				ctermbg=none		ctermfg=49			cterm=bold
 hi TopLine					ctermbg=none		ctermfg=51
 hi TopLineSel												ctermfg=255
-hi Win							ctermbg=none		ctermfg=none	cterm=none
+hi Win							ctermbg=none		ctermfg=none		cterm=none
 hi StatusLine				ctermbg=none		ctermfg=48
 hi Selected													ctermfg=93
