@@ -38,7 +38,7 @@ set incsearch
 " Try to leave some space from cursor to upper/lower border in lists
 set scrolloff=5
 " Saved between sessions
-set vifminfo=dhistory,chistory,shistory
+set vifminfo=chistory,shistory
 " Enable preview pane
 set quickview
 " Flags enable legacy behaviour

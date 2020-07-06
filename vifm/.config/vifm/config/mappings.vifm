@@ -40,6 +40,12 @@ nnoremap <C-k> :tabprev<CR>
 nnoremap <M-q> :tabnext 1<CR>
 nnoremap <M-w> :tabnext 2<CR>
 nnoremap <M-e> :tabnext 3<CR>
+nnoremap <M-r> :tabnext 4<CR>
+nnoremap <M-t> :tabnext 5<CR>
+nnoremap <M-y> :tabnext 6<CR>
+nnoremap <M-u> :tabnext 7<CR>
+nnoremap <M-i> :tabnext 8<CR>
+nnoremap <M-o> :tabnext 9<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "		REMAPS
