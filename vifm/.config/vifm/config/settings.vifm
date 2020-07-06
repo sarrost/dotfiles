@@ -1,4 +1,4 @@
-"〖愛〗vifm settings file.
+"〖愛〗vifm settings file
 
 " Set status line look
 set statusline="%u:%g %14A %14d %8E"
