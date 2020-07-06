@@ -5,7 +5,7 @@ fileviewer *.pdf
     \ vifmimg clear
 
 " Audio
-fileviewer *.mp3 mp3info
+fileviewer *.mp3 mediainfo
 fileviewer *.flac soxi
 
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,
@@ -21,15 +21,15 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,
 
 " View using vifmimg script
 
-" Web
-filextype *.html,*.htm
-        \ {Open with dwb}
-        \ dwb %f %i &,
-        \ {Open with firefox}
-        \ firefox %f &,
-        \ {Open with uzbl}
-        \ uzbl-browser %f %i &,
-filetype *.html,*.htm links, lynx
+" " Web
+" filextype *.html,*.htm
+"         \ {Open with dwb}
+"         \ dwb %f %i &,
+"         \ {Open with firefox}
+"         \ firefox %f &,
+"         \ {Open with uzbl}
+"         \ uzbl-browser %f %i &,
+" filetype *.html,*.htm links, lynx
 
 " Object
 filetype *.o nm %f | less
@@ -170,9 +170,9 @@ filextype * devour %f
 
 
 " Directories
-filextype */
-        \ {View in thunar}
-        \ Thunar %f &
+" filextype */
+"         \ {View in thunar}
+"         \ Thunar %f &
 
 fileviewer */,.*/
 				\ tree --dirsfirst -C -L 2 %f; stat %f & 

@@ -1,3 +1,10 @@
+"〖愛〗vifm settings file.
+
+" Set status line look
+set statusline="%u:%g %14A %14d %8E"
+" Enable miller columns
+set millerview
+set milleroptions=lsize:1,csize:2
 " Command used to edit files in various contexts.  
 set vicmd=nvim
 " Rely on internal applications to perform file operations.
@@ -19,11 +26,9 @@ set timefmt=%m/%d\ %H:%M
 set wildmenu
 " Display completions in a form of popup with descriptions of the matches
 set wildstyle=popup
-
 " Display suggestions in normal, visual and view modes for keys, marks and
 " registers (at most 5 files).  In other view, when available.
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
-
 " Ignore case in search patterns unless it contains at least one uppercase
 " letter. Both must be set
 set ignorecase
@@ -32,20 +37,13 @@ set smartcase
 set incsearch
 " Try to leave some space from cursor to upper/lower border in lists
 set scrolloff=5
-
-" Set status line look
-set statusline="%u:%g %14A %14d %8E"
 " Saved between sessions
 set vifminfo=dhistory,chistory,shistory
-" Enable miller columns
-set millerview
- set milleroptions=lsize:1,csize:2
 " Enable preview pane
 set quickview
-" Hide "../"
-" set dotdirs=rootparent
 " Flags enable legacy behaviour
 set cpoptions=fs
-
+" Turn off wrapping in quick view
+set nowrap
+" [script] Change vpwd upon entering new dir
 autocmd DirEnter * !vpwd "`pwd`" &
-

@@ -1,33 +1,17 @@
-" :com[mand][!] command_name action
-" The following macros can be used in a command
-" %a is replaced with the user arguments.
-" %c the current file under the cursor.
-" %C the current file under the cursor in the other directory.
-" %f the current selected file, or files.
-" %F the current selected file, or files in the other directory.
-" %b same as %f %F.
-" %d the current directory name.
-" %D the other window directory name.
-" %m run the command in a menu window
+"〖愛〗vifm commands file
 
-command! df df -h %m 2> /dev/null
-command! diff vim -d %f %F
-command! zip zip -r %f.zip %f
-command! run !! ./%f
-command! make !!make %a
-command! mkd !mkdir -p %a
-command! mkcd :mkdir -p %a | cd %a
-command! vgrep vim "+grep %a"
-command! reload :write | restart
+" Create dir
+com! mkd !mkdir -p %a
+" Create and switch to dir
+com! mkcd :mkdir -p %a | cd %a
+" Reload
+com! reload :write | restart
 
-
-
-
-" did='a'
-" if $did == 'a'
-" 	:split
-" else
-" 	:only
-" endif
+com! zip zip -r %f.zip %f
+com! df df -h %m 2> /dev/null
+com! diff vim -d %f %F
+com! run !! ./%f
+com! make !!make %a
+com! vgrep vim "+grep %a"
 
 " vim: filetype=vifm

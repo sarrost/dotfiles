@@ -1,4 +1,4 @@
-" vifm configuration file.
+"〖愛〗vifm configuration file.
 
 """ Load plugins
 source ~/.local/share/vifm/Plugin/vifm_devicons/SETUP
@@ -13,6 +13,6 @@ source ~/.config/vifm/config/commands.vifm
 source ~/.config/vifm/config/shortcuts.vifm
 
 """ Load colorscheme
-colorscheme aqua_aqua_fruit
+colorscheme darqua-fruit.vifm
 
 " vim: filetype=vifm

@@ -1,65 +1,8 @@
-" Enter command mode
-nnoremap ; :
-vnoremap ; :
-nnoremap <space> <nop>
+"〖愛〗vifm mappings file
 
-" Launch terminal window with current dir
-" nnoremap <CR> :!($TERMINAL sh -c "cd %d; $SHELL") & disown<CR>
-
-" Quit
-nnoremap - :q<CR>
-
-" " Open file in existing instance of gvim
-" nnoremap o :!nvim --remote-tab-silent %f<cr>
-" " Open file in new instance of gvim
-" nnoremap O :!nvim %f<cr>
-
-" " Open file in the background using its default program
-" nnoremap gb :file &<cr>l
-
-" " Start shell in current directory
-" nnoremap s :shell<cr>
-" " Display sorting dialog
-" nnoremap S :sort<cr>
-
-" Cycle split view
-nnoremap <C-t> <C-w>z:!vifmsplittoggle &<CR>
-
-nnoremap <C-v> q:
-
-" Toggle visibility of preview window
-nnoremap w :view<cr>
-vnoremap w :view<cr>gv
-
-" Yank current directory path to clipboard
-nnoremap <silent> yd :!pwdclipboard &<CR>
-
-" Yank current file path to clipboard
-nnoremap <silent> yf :!pwdclipboard %f &<CR>
-
-
-
-" Mappings for faster renaming
-nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
-nnoremap A cw
-
-" " Open editor to edit vifmrc and apply settings after returning to vifm
-" nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
-" " Open gvim to edit vifmrc
-" nnoremap ,C :!gvim --remote-tab-silent $MYVIFMRC &<cr>
-
-" ?Toggle wrap setting on ,w key
-nnoremap ,w :set wrap!<cr>
-
-" Increase/decrease pane size
-nnoremap <C-l> <C-w>+
-nnoremap <C-h> <C-w>-
-
-nnoremap re :!bulkrename -a -i %f<CR>
-
-nnoremap <space>re :reload<CR>
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"		VIEWS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set miller view
 nnoremap <space>m :set millerview<CR>
 " set ls view
@@ -72,5 +15,81 @@ nnoremap <space>C :set viewcolumns=<CR>
 " set tree view
 nnoremap <space>t :tree!<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"		PANES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" switch panes
+nnoremap <space> <nop>
+nnoremap <C-n> <space>
+" Increase/decrease pane size
+nnoremap <C-l> <C-w>+
+nnoremap <C-h> <C-w>-
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
 
-nnoremap <C-j> <space>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"		TABS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" New tab
+nnoremap <C-t> :tabnew<CR>
+" Cycle tabs
+nnoremap <C-j> :tabnext<CR>
+nnoremap <C-k> :tabprev<CR>
+" Switch to numbered tab
+nnoremap <M-q> :tabnext 1<CR>
+nnoremap <M-w> :tabnext 2<CR>
+nnoremap <M-e> :tabnext 3<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"		REMAPS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" map C-i back to C-i
+map <F13> <C-i>
+" Quit
+nnoremap - :q<CR>
+" Enter command mode
+nnoremap ; :
+vnoremap ; :
+" Tag a file
+nnoremap T t
+" Enter view mode in view pane
+nnoremap o <s-tab>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"		MISC
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cycle split view
+nnoremap <C-p> <C-w>z:!vifmsplittoggle &<CR>
+" Display sorting dialog
+nnoremap so :sort<cr>
+" Edit command in external editor
+nnoremap <C-v> q:
+" Reload
+nnoremap <space>re :reload<CR>
+" [program] Rename files
+nnoremap re :!vimv %f<CR>
+vnoremap re :!vimv %f<CR>
+" Launch terminal window with current dir
+nnoremap S :!($TERMINAL sh -c "cd %d; $SHELL") & disown<CR>
+" [script] Yank current directory path to clipboard
+nnoremap <silent> yd :!pwdclipboard &<CR>
+" [script] Yank current file path to clipboard
+nnoremap <silent> yf :!pwdclipboard %f &<CR>
+" [script] Yank current file path to clipboard (not full path)
+" nnoremap <silent> ys :!pwdclipboard -s %f &<CR>
+" [script] Set file as wallpaper
+nnoremap sw :!setwallpaper %f<CR>
+" [script] Extract archive
+nnoremap x :!for i in %f; do ext "$i"; done &<CR>
+vnoremap x :!for i in %f; do ext "$i"; done &<CR>
+" [script] Archive files
+" nnoremap X
+" Toggle wrapping in quick view
+nnoremap <space>w :set wrap!<cr>
+" Mappings for faster renaming
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+
+" vim: filetype=vifm
