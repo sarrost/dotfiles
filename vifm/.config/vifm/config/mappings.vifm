@@ -65,9 +65,11 @@ nnoremap o <s-tab>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "		MISC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Generate video previews
-nnoremap gp :!$(genpreviews $PWD; notify-send "genpreview" "generating previews for <u><b>$PWD</b></u>.") &<CR>
-" Cycle split view
+" [script] Fuzzy dir change
+nnoremap <space>f :fzfcd<CR>
+" [script] Generate video previews
+nnoremap gp :!$(genpreviews $PWD; notify-send " genpreview" "generating previews for <u><b>$PWD</b></u>.") &<CR>
+" [script] Cycle split view
 nnoremap <C-p> :!vifmimg clear; vifmsplittoggle &<CR>
 " Display sorting dialog
 nnoremap so :sort<cr>
