@@ -65,8 +65,10 @@ nnoremap o <s-tab>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "		MISC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Generate video previews
+nnoremap gp :!$(genpreviews $PWD; notify-send "genpreview" "generating previews for <u><b>$PWD</b></u>.") &<CR>
 " Cycle split view
-nnoremap <C-p> <C-w>z:!vifmsplittoggle &<CR>
+nnoremap <C-p> :!vifmimg clear; vifmsplittoggle &<CR>
 " Display sorting dialog
 nnoremap so :sort<cr>
 " Edit command in external editor
