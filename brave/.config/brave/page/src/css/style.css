@@ -1,0 +1,25 @@
+/***********************************************************
+	FONTS
+***********************************************************/
+* { padding: 0; margin: 0; }
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+  /* Location of the image */
+	background-image: url("../images/bg.jpg");
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  /* Background image doesn't tile */
+	background-repeat: no-repeat;
+	/* background image rescale based on the container's size */
+	background-size: cover;
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+	/* Stay put when scrolling */
+	background-attachment: fixed;
+}

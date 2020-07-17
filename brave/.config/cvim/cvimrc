@@ -1,0 +1,17 @@
+"〖愛〗cVim configuration file
+
+" Update settings via a local file
+let configpath = '/home/sarrost/.config/cvim/cvimrc'
+set localconfig
+
+" Search engine
+let searchengine searx = "https://searx.xyz/search?q=%s" 
+let defaultengine = "searx"
+
+map ; :
+map a :tabnew searx.xyz<CR>
+map <C-t> :tabnew file:///home/sarrost/.config/brave/page/src/index.html<CR>
+map <C-j> gt
+map <C-k> gT
+map <C-S-j> gxt
+map <C-S-k> gxT

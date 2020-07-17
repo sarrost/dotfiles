@@ -1,0 +1,23 @@
+                                                   = Vifm =
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------
+	* `j, s`			scroll down
+	* `k, w`			scroll up
+	* `h`					scroll left
+	* `l`					scroll right
+	* `d`					scroll half-page down
+	* `unmapped`	scroll full-page down
+	* `u, e`			scroll half-page up
+	* `unmapped`	scroll full-page up
+	* `gg`				scroll to the top of the page
+	* `G`					scroll to the bottom of the page
+	* `0`					scroll to the left of the page
+	* `$`					scroll to the right of the page
+	* `#`					reset the scroll focus to the main page
+	* `gi`				go to first input box
+	* `gI`				go to the last focused input box by gi
+	* `zz`				center page to current search match (middle)
+	* `zt`				center page to current search match (top)
+	* `zb`				center page to current search match (bottom)
+
