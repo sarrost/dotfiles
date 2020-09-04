@@ -29,10 +29,10 @@
 "set shiftwidth=2
 "set noexpandtab
 "
-"""" Load config files.
-"for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
-"	exe 'source' f
-"endfor
+""" Load config files.
+for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
+	exe 'source' f
+endfor
 
 
 
