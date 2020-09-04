@@ -5,6 +5,8 @@ set statusline="%u:%g %14A %14d %8E"
 " Enable miller columns
 set millerview
 set milleroptions=lsize:1,csize:2
+" Saved between sessions
+set vifminfo=chistory,shistory
 " Command used to edit files in various contexts.  
 set vicmd=nvim
 " Rely on internal applications to perform file operations.
@@ -37,8 +39,6 @@ set smartcase
 set incsearch
 " Try to leave some space from cursor to upper/lower border in lists
 set scrolloff=5
-" Saved between sessions
-set vifminfo=chistory,shistory
 " Enable preview pane
 set quickview
 " Flags enable legacy behaviour

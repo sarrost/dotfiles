@@ -15,7 +15,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Hack 14
+    font = SauceCodePro Nerd Font Mono 14
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
@@ -30,16 +30,14 @@
 
     ### Icons ###
     icon_position = off
-    max_icon_size = 32
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
     ### History ###
     sticky_history = yes
     history_length = 20
 
     ### Misc/Advanced ###
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/qutebrowser --target tab
+    #dmenu = /usr/bin/dmenu -p dunst:
+    #browser = /usr/bin/qutebrowser --target tab
     always_run_script = true
     title = Dunst
     class = Dunst
@@ -59,21 +57,14 @@
     per_monitor_dpi = false
 
 [shortcuts]
-
     # Close notification.
-    close = mod4+F9
-
+    #close = mod4+ctrl+d
     # Close all notifications.
-    close_all = mod4+F10
-
+    #close_all = mod4+shift+d
     # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1". Make sure this key actually exists on your keyboard layout,
-    # e.g. check output of 'xmodmap -pke'
-    history = mod4+F11
-
+    #history = mod4+ctrl+shift+d
     # Context menu.
-    context = mod4+shift+period
+    # context = mod4+mod1+shift+d
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.

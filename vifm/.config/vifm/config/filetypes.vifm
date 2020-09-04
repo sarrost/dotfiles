@@ -17,7 +17,7 @@ fileviewer *.pdf
 	\ vifmimg pdfpreview %px %py %pw %ph %c
 	\ %pc vifmimg clear
 " Source Code
-fileviewer Makefile,Makefile.*,*.c,*.cpp,*.h,*.mk,*.py,*.md,*.html,*.htm,*.css,*.ini,*.yml,*.pl,*.go,*.sh,*.json,*.js,*.conf
+fileviewer Makefile,Makefile.*,*.c,*.cpp,*.h,*.mk,*.py,*.md,*.html,*.htm,*.css,*.ini,*.yml,*.pl,*.go,*.sh,*.json,*.js,*.conf,*.vim
 	\ highlight -O xterm256 -s dante -t 2 %c
 " Office files
 fileviewer *.doc

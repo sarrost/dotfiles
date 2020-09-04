@@ -1,0 +1,41 @@
+#!/bin/sh
+
+#〖愛〗Xprofile configuration file.
+
+# This script is executed at the beginning of the X user 
+# session--before the window manager is started. Start 
+# daemons and run commands/scripts here.
+
+# Daemons and other.
+#start_dunst &           # notifications with 'dunst'
+start_compton &         # window compositor.
+#start_transmission &		# torrent daemon. 
+#unclutter &             # hide mouse when not needed.
+#mpd &                   # music player daemon.
+### nm-applet &             # network manager systray.
+### tmuxcustomconf &        # change tmux conf location.
+#start_mpd_trigger &
+genpreviews "$HOME" &
+
+# Needed for st to work properly
+xrdb -load ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
+
+## # Input method
+## export GTK_IM_MODULE=fcitx
+## export QT_IM_MODULE=fcitx
+## export XMODIFIERS="@im=fcitx"
+## export XMODIFIER="@im=fcitx"
+## fcitx & 
+
+## Remap certain keys
+remapkeys &
+
+## Disable screen blanking and screen saver
+## $(sleep 10; xset -dpms; xset s off) &
+#
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
+#xrandr --dpi 90
+
+# Set wallpaper
+setwallpaper &

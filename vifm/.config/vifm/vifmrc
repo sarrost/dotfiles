@@ -6,11 +6,11 @@ source ~/.local/share/vifm/Plugin/vifm_devicons/SETUP
 let $VIFM_SERVER_NAME = v:servername
 
 """ Load config files.
-source ~/.config/vifm/config/settings.vifm
-source ~/.config/vifm/config/mappings.vifm
-source ~/.config/vifm/config/filetypes.vifm
-source ~/.config/vifm/config/commands.vifm
-source ~/.config/vifm/config/shortcuts.vifm
+source "$XDG_CONFIG_HOME/vifm/config/settings.vifm"
+source "$XDG_CONFIG_HOME/vifm/config/mappings.vifm"
+source "$XDG_CONFIG_HOME/vifm/config/filetypes.vifm"
+source "$XDG_CONFIG_HOME/vifm/config/commands.vifm"
+source "$XDG_CONFIG_HOME/vifm/config/shortcuts.vifm"
 
 """ Load colorscheme
 colorscheme darqua-fruit.vifm

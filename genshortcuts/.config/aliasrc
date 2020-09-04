@@ -6,33 +6,28 @@
 # shell aliases in this file.
 
 alias	\
+jj="cd ~/wk/sarrost/sarrost-com/src/ && l" \
 activate="source bin/activate" \
-vifm="source $FILE_BROWSER" \
+vifm="source vpwd_vifm" \
+cf="source vpwd_cf" \
 sc="sc-im" \
 calcurse="calcurse -D "$HOME/.config/calcurse" -C "$HOME/.config/calcurse"" \
 g="git" \
 hc="herbstclient" \
 ls="ls --color=auto" \
-l="clear && echo "" && ls" \
-la="clear && echo "" && ls -a" \
-lk="clear && echo "" && ls -aC" \
-ll="clear && echo "" && ls -l" \
+l="ls" \
+la="ls -a" \
+lk="ls -aC" \
+ll="ls -l" \
 ni="npm install" \
 p="sudo pacman" \
-pi="sudo pip3 install" \
-pip="sudo pip3" \
+pi="sudo pip install" \
+pip="sudo pip" \
 py="python3" \
 pym="python3 manage.py" \
-s="sudo" \
 t="tig" \
-v="source $EDITOR" \
+v="source vpwd_nvim" \
 ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
-301="cd ~/Academia/301" \
-326="cd ~/Academia/326" \
-330="cd ~/Academia/330" \
-333="cd ~/Academia/333" \
-353="cd ~/Academia/353" \
-jj="cd ~/repo/sarrost-website && l" \
 r='SHELL=/usr/local/bin/r.shell ranger' \
 igpu='sudo set-intel.sh' \
 dgpu='sudo set-nvidia.sh' \

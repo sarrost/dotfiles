@@ -22,7 +22,7 @@ nnoremap <space>t :tree!<CR>
 nnoremap <space> <nop>
 nnoremap <C-n> <space>
 " Increase/decrease pane size
-nnoremap <C-l> <C-w>+
+" nnoremap <C-l> <C-w>+
 nnoremap <C-h> <C-w>-
 " Toggle visibility of preview window
 nnoremap w :view<cr>
@@ -34,8 +34,8 @@ vnoremap w :view<cr>gv
 " New tab
 nnoremap <C-t> :tabnew<CR>
 " Cycle tabs
-nnoremap <C-j> :tabnext<CR>
-nnoremap <C-k> :tabprev<CR>
+nnoremap <C-j> :!vifmimg clear &<CR>:tabnext<CR>
+nnoremap <C-k> :!vifmimg clear &<CR>:tabprev<CR>
 " Switch to numbered tab
 nnoremap <M-q> :tabnext 1<CR>
 nnoremap <M-w> :tabnext 2<CR>
@@ -65,12 +65,17 @@ nnoremap o <s-tab>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "		MISC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" [script] Tag music
+nnoremap at :!albumtag &<CR>
+" [script] Add web font
+nnoremap cf :!gencssfont %c >> ~/cd/css-fonts/fonts.css && sort -o ~/cd/css-fonts/fonts.css ~/cd/css-fonts/fonts.css &<CR>:echo "Generating ".expand('%c')." font..."<CR>
 " [script] Fuzzy dir change
 nnoremap <space>f :fzfcd<CR>
+nnoremap <space>h :fzfhome<CR>
 " [script] Generate video previews
 nnoremap gp :!$(genpreviews $PWD; notify-send " genpreview" "generating previews for <u><b>$PWD</b></u>.") &<CR>
 " [script] Cycle split view
-nnoremap <C-p> :!vifmimg clear; vifmsplittoggle &<CR>
+nnoremap <C-p> :!vifmimg clear &; vifmsplittoggle &<CR>
 " Display sorting dialog
 nnoremap so :sort<cr>
 " Edit command in external editor
@@ -78,8 +83,8 @@ nnoremap <C-v> q:
 " Reload
 nnoremap <space>re :reload<CR>
 " [program] Rename files
-nnoremap re :!vimv %f<CR>
-vnoremap re :!vimv %f<CR>
+nnoremap re :!vifmimg clear &; vimv %f<CR>
+vnoremap re :!vifmimg clear &; vimv %f<CR>
 " Launch terminal window with current dir
 nnoremap S :!($TERMINAL sh -c "cd %d; $SHELL") & disown<CR>
 " [script] Yank current directory path to clipboard
@@ -91,8 +96,8 @@ nnoremap <silent> yf :!pwdclipboard %f &<CR>
 " [script] Set file as wallpaper
 nnoremap sw :!setwallpaper %f<CR>
 " [script] Extract archive
-nnoremap x :!for i in %f; do ext "$i"; done &<CR>
-vnoremap x :!for i in %f; do ext "$i"; done &<CR>
+nnoremap x :!for i in %f; do ext "$i"; done & disown<CR>
+vnoremap x :!for i in %f; do ext "$i"; done & disown<CR>
 " [script] Archive files
 " nnoremap X
 " Toggle wrapping in quick view
