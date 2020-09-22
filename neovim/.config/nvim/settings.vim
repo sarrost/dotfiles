@@ -1,47 +1,55 @@
-""""
-"" Place all non-mapping settings, configurations and custom functions here.
-""""
-"let mapleader=" "
+"〖愛〗Neovim settings configuration file.
+
+" Place all non-plugin related, non-mapping settings, 
+" configurations and custom functions here. All .vim
+" files in ./config/ are sourced in this file. Mappings
+" are sourced at the end of this file.
+
+" disable startup message
+set shortmess+=I 
+let mapleader=" "
+set smartcase
 "set cursorline
 "set hidden
 ""set inccommand=nosplit      " show effects of command incrementally.
-"set incsearch
-"set listchars=eol:¬,space:␣,trail:+,tab:\ ┊
-"set number	                " line numbers
-"set numberwidth=6
-"set relativenumber
+set incsearch
+set listchars=eol:¬,space:␣,trail:+,tab:\ ┊
+" line numbers
+set number	                
+set relativenumber
 "set scrolloff=10
-"set wildmenu	            " completion in status line
-"set virtualedit=block
-"set splitbelow
-"set switchbuf=usetab
-"" how often swap file is written to disk. Plugins may use
-"" this for updating UI.
-"set updatetime=20
-"" Always use clipboard instead of + and * regs. This might
-"" give an error sometimes if you use `xclip` instead of say
-"" `xsel`.
-"set clipboard+=unnamedplus
-"" tabs are \t, they occupy to columns, spaces are promoted
-"" to tab upon expansion
-"set tabstop=2
-"set softtabstop=2
-"set shiftwidth=2
-"set noexpandtab
-"
-""" Load config files.
+set wildmenu			            " completion in status line
+set virtualedit=block
+set switchbuf=usetab
+set updatetime=100						" how often swap file is written to disk.
+" number of spaces a tab counts for
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+
+" Always use clipboard instead of + and * regs
+set clipboard+=unnamedplus
+let g:clipboard = {
+	\	'name': 'xsel_override',
+	\	'copy': {
+	\		'+': 'xsel --input --clipboard',
+	\	 	'*': 'xsel --input --primary',
+	\	 },
+	\	'paste': {
+	\		'+': 'xsel --output --clipboard',
+	\		'*': 'xsel --output --primary',
+	\	},
+	\	'cache_enabled': 1,
+	\	}
+
+" Load config files.
 for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
 	exe 'source' f
 endfor
 
-
-
-
-
-""""""          ~Custom
 " change working dir to current file dir in window.
 autocmd BufEnter * silent! lcd %:p:h
-
+" [script] call change vpwd
 autocmd BufEnter * silent! !vpwd "`pwd`"
 
 "" toggle qf/loc list
@@ -83,11 +91,15 @@ autocmd BufEnter * silent! !vpwd "`pwd`"
 "	autocmd VimResized * execute "normal! \<c-w>="
 "augroup END
 "
-"
-"
-"
-"exe 'source $HOME/.config/nvim/mappings.vim'
-"
-"
 "let g:asyncrun_open = 8
 "nnoremap <silent> \pb :AsyncTask project-build<CR>
+
+" Use persistent history.
+if !isdirectory("/tmp/vim-undo-dir")
+    call mkdir("/tmp/vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/vim-undo-dir
+set undofile
+
+exe 'source $HOME/.config/nvim/mappings.vim'
+

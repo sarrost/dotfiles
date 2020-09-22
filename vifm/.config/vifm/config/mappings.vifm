@@ -65,6 +65,8 @@ nnoremap o <s-tab>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "		MISC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" [script] install dotfiles
+nnoremap st :!./dot.sh %f &<CR>
 " [script] Tag music
 nnoremap at :!albumtag &<CR>
 " [script] Add web font
@@ -86,11 +88,12 @@ nnoremap <space>re :reload<CR>
 nnoremap re :!vifmimg clear &; vimv %f<CR>
 vnoremap re :!vifmimg clear &; vimv %f<CR>
 " Launch terminal window with current dir
-nnoremap S :!($TERMINAL sh -c "cd %d; $SHELL") & disown<CR>
+nnoremap S :!($TERMINAL sh -c "zsh") & disown<CR>
+" nnoremap S :!($TERMINAL sh -c "cd %d; $SHELL") & disown<CR>
 " [script] Yank current directory path to clipboard
 nnoremap <silent> yd :!pwdclipboard &<CR>
 " [script] Yank current file path to clipboard
-nnoremap <silent> yf :!pwdclipboard %f &<CR>
+nnoremap <silent> yf :!pwdclipboard %c &<CR>
 " [script] Yank current file path to clipboard (not full path)
 " nnoremap <silent> ys :!pwdclipboard -s %f &<CR>
 " [script] Set file as wallpaper
