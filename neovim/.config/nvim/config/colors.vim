@@ -7,7 +7,6 @@ autocmd InsertLeave * highlight	CursorLine cterm=none
 
 hi ColorColumn			ctermbg=235
 hi Comment					ctermfg=238
-" hi CursorLine				cterm=none			ctermbg=16
 hi CursorLine				cterm=none			ctermbg=none
 hi CursorLineNR			cterm=bold			ctermfg=51
 hi Directory				ctermfg=9
@@ -35,13 +34,14 @@ hi Todo							cterm=bold			ctermbg=234
 hi MatchParen				ctermbg=none			cterm=bold,underline,italic
 hi Special					ctermfg=92
 hi Title						ctermfg=99
+hi EndOfBuffer			ctermfg=0
 
 
-""" vim-lsp plugin
-hi LspErrorHighlight											ctermbg=none		cterm=bold,italic
-hi LspErrorText							ctermfg=35		ctermbg=none    cterm=bold,italic,underline
-hi LspWarningHighlight			cterm=italic,bold
-hi LspWarningText						ctermfg=237		ctermbg=none    cterm=bold,italic,underline
+" """ vim-lsp plugin
+" hi LspErrorHighlight											ctermbg=none		cterm=bold,italic
+" hi LspErrorText							ctermfg=35		ctermbg=none    cterm=bold,italic,underline
+" hi LspWarningHighlight			cterm=italic,bold
+" hi LspWarningText						ctermfg=237		ctermbg=none    cterm=bold,italic,underline
 
 " PopupWindow
 augroup lsp_float_colours
@@ -53,11 +53,16 @@ augroup lsp_float_colours
 augroup end
 
 " git-gutter plugin
-hi GitGutterAdd							cterm=bold		ctermfg=51
-hi GitGutterChange					cterm=bold		ctermfg=48
-hi GitGutterDelete					cterm=bold		ctermfg=56
+hi GitGutterAdd							cterm=bold		ctermfg=51	ctermbg=none
+hi GitGutterChange					cterm=bold		ctermfg=48	ctermbg=none
+hi GitGutterDelete					cterm=bold		ctermfg=56	ctermbg=none
 
+" sneak plugin
+highlight Sneak							ctermfg=0			ctermbg=48
+" highlight SneakScope 				ctermfg=none	ctermbg=50
+highlight SneakLabel 				ctermfg=0			ctermbg=48
 
-
-highlight QuickScopePrimary cterm=underline,bold
-highlight QuickScopeSecondary cterm=underline,bold,italic
+" sandwich plugin
+highlight OperatorSandwichAdd											ctermfg=0			ctermbg=48
+highlight OperatorSandwichChange	cterm=bold										ctermbg=234
+highlight OperatorSandwichDelete	cterm=reverse

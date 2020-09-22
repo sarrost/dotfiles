@@ -1,0 +1,51 @@
+#〖愛〗 LaTeX snippets
+
+snippet ar "\documentclass[11pt]{article}" bA
+\documentclass[${1:11pt}]{article}
+$0
+endsnippet
+
+snippet be "\begin{} \end{}" bA
+\begin{${1:env}}
+	$0
+\end{$1}
+endsnippet
+
+snippet ce "\centering{}" w
+\centering{$1}$0
+endsnippet
+
+snippet center "\begin{center} \end{center}" bA
+\begin{center}
+$0
+\end{center}
+endsnippet
+
+snippet do "\begin{document} \end{document}" bA
+\begin{document}
+$0
+\end{document}
+endsnippet
+
+snippet tbf "\textbf{}" wA
+\textbf{$1}$0
+endsnippet
+
+snippet tit "\textit{}" wA
+\textit{$1}$0
+endsnippet
+
+snippet ttt "\texttt{}" wA
+\texttt{$1}$0
+endsnippet
+
+snippet up "\usepackage{}" bA
+\usepackage`!p
+if t[1] != '': 
+	snip.rv = '['
+`$1`!p
+if t[1] != '': 
+	snip.rv = ']'
+`{$2}
+$0
+endsnippet
