@@ -7,7 +7,7 @@
 # daemons and run commands/scripts here.
 
 # Daemons and other.
-#start_dunst &           # notifications with 'dunst'
+start_dunst &           # notifications with 'dunst'
 start_compton &         # window compositor.
 #start_transmission &		# torrent daemon. 
 #unclutter &             # hide mouse when not needed.
