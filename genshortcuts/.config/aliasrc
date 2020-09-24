@@ -38,4 +38,5 @@ torr="transmission-remote-cli" \
 PQ="pacman -Q | grep" \
 LG="clear && echo "" && ls | grep" \
 vs="source vs" \
-
+emerge="doas emerge" \
+vw="v $RICE_NOTES_DIR/index.mdox" \
