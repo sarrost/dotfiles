@@ -5,6 +5,7 @@
 " files in ./config/ are sourced in this file. Mappings
 " are sourced at the end of this file.
 
+<<<<<<< HEAD
 set shortmess+=I							" disable startup message
 let mapleader=" "
 let maplocalleader=" "

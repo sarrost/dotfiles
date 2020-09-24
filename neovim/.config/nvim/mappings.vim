@@ -4,6 +4,7 @@
 
 " My suckless terminal build remaps specific keys onto new
 " keys. Map these keys back to their original keys.
+<<<<<<< HEAD
 nnoremap <F13> <C-I>
 " nnoremap <F14> <C-[>
 
