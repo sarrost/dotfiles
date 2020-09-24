@@ -134,7 +134,7 @@ bindkey '^O' fzf-cd-widget
 ###########################################################
 
 # bind vim, assuming v is aliased to vim
-bindkey -s "^E" "v"
+bindkey -s "^E" "v\n"
 # bind vifm
 bindkey -s "^F" "vifm\n"
 # bind cf
@@ -322,6 +322,8 @@ zle-line-init() {
 }
 zle -N zle-line-init
 
+############################################################
+[[ ! -f $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh ]] || source $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh
 ############################################################
 # Enable custom prompt
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
