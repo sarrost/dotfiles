@@ -1,36 +1,11 @@
-"〖愛〗Neovim settings configuration file.
+"〖愛〗Neovim settings file
 
 " Place all non-plugin related, non-mapping settings, 
 " configurations and custom functions here. All .vim
 " files in ./config/ are sourced in this file. Mappings
 " are sourced at the end of this file.
 
-set shortmess+=I							" disable startup message
-let mapleader=" "
-let maplocalleader=" "
-set ignorecase
-set smartcase									" only consider case when uppercase is used
-set number										" line numbers
-set relativenumber
-set cursorline
-"set hidden
-""set inccommand=nosplit      " show effects of command incrementally.
-set incsearch
-" whitesace characters
-set listchars=eol:¬,space:␣,trail:+,tab:\ ┊
-
-"set scrolloff=10
-set wildmenu			            " completion in status line
-set virtualedit=block
-set switchbuf=usetab
-set updatetime=100						" how often swap file is written to disk.
-" number of spaces a tab counts for
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-
-" Always use clipboard instead of + and * regs
-set clipboard+=unnamedplus
+set clipboard+=unnamedplus		" always use clipboard instead of + and * regs
 let g:clipboard = {
 	\	'name': 'xsel_override',
 	\	'copy': {
@@ -43,64 +18,54 @@ let g:clipboard = {
 	\	},
 	\	'cache_enabled': 1,
 	\	}
+set cmdheight=2								" give more space for displaying messages
+set cursorline								" enable hilighting for line with cursor
+set diffopt+=vertical,foldcolumn:1						" diff mode options
+set fillchars+=vert:\					" hide vertical separator
+set hidden										" buffer becomes hidden when abandoned
+set ignorecase								" ignorecase when searching
+set smartcase									" only consider case when uppercase is used
+set inccommand=nosplit				" show effects of command incrementally
+set incsearch									" move to nearest result while searching
+set listchars=eol:¬,space:␣,trail:+,tab:\ ┊		" whitespace characters representations
+set number										" show line numbers
+set relativenumber						" use relative line numbers
+set shiftwidth=0							" default to value of tabstop
+set shortmess+=I							" disable startup message
+set shortmess+=c							" don't pass messages to ins-completion-menu
+set signcolumn=yes						" always show signcolumn
+set switchbuf=usetab					" jump to first open window that has buffer
+set tabstop=2									" number of spaces a tab counts for
+set softtabstop=2
+if !isdirectory("/tmp/vim-undo-dir")					" use persistent undo history
+    call mkdir("/tmp/vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/vim-undo-dir
+set undofile
+set updatetime=50							" how often swap file is written to disk. also used for some plugin ui updates.
+set virtualedit=block					" select rectangles in visual block mode
+set wildmenu			            " completion in status line
+set nowritebackup							" do not create a backup file
 
-" Load config files.
-for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
-	exe 'source' f
-endfor
+" <leader> key
+let mapleader=" "
+let maplocalleader=" "
 
 " change working dir to current file dir in window.
 autocmd BufEnter * silent! lcd %:p:h
 " [script] call change vpwd
 autocmd BufEnter * silent! !vpwd "`pwd`"
 
-"" toggle qf/loc list
-"function! ToggleList(bufname, pfx)
-"  let buflist = GetBufferList()
-"  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-"    if bufwinnr(bufnum) != -1
-"      exec(a:pfx.'close')
-"      return
-"    endif
-"  endfor
-"  if a:pfx == 'l' && len(getloclist(0)) == 0
-"      echohl ErrorMsg
-"      echo "Location List is Empty."
-"      return
-"  endif
-"  let winnr = winnr()
-"  exec(a:pfx.'open')
-"  if winnr() != winnr
-"    wincmd p
-"  endif
-"endfunction
-"
-"nmap <silent> \i :call ToggleList("Location List", 'l')<CR>
-"nmap <silent> \ee :call ToggleList("Quickfix List", 'c')<CR>
-"
-"
-"" Auto resize windows when vim is resized.
-"" Counteracts psuedo-fullscreen.
-"augroup MyAutocmds
-"	autocmd!
-"	autocmd VimResized * execute "normal! \<c-w>="
-"augroup END
-"
-"" auto resize windows when vim is resized
-"" counteracts psuedo-fullscreen
-"augroup MyAutocmds
-"	autocmd!
-"	autocmd VimResized * execute "normal! \<c-w>="
-"augroup END
-"
-"let g:asyncrun_open = 8
-"nnoremap <silent> \pb :AsyncTask project-build<CR>
+" auto resize windows when vim is resized
+augroup MyAutocmds
+	autocmd!
+	autocmd VimResized * execute "normal! \<c-w>="
+augroup END
 
-" Use persistent history.
-if !isdirectory("/tmp/vim-undo-dir")
-    call mkdir("/tmp/vim-undo-dir", "", 0700)
-endif
-set undodir=/tmp/vim-undo-dir
-set undofile
+" load config files
+for f in split(glob('~/.config/nvim/config/*.vim'), '\n')
+	exe 'source' f
+endfor
 
-exe 'source $HOME/.config/nvim/mappings.vim'
+" load mappings
+source $HOME/.config/nvim/mappings.vim

@@ -1,4 +1,4 @@
-"〖愛〗Neovim mappings file.
+"〖愛〗Neovim mappings file
 
 " Put all non-plugin related mappings here.
 
@@ -7,21 +7,21 @@
 nnoremap <F13> <C-I>
 " nnoremap <F14> <C-[>
 
-" disable backspace, rely on C-H
-imap <BS> <nop>
-
-" make this actually useful
-nnoremap Y y$
-
-" write file as root
-nnoremap \ww :w !doas tee %<CR>:echo "'" . expand('%:f') . "', written as root"<CR>
-" reload nvim
-nnoremap <silent> \re :source ~/.config/nvim/init.vim<CR>:edit<CR>:echo '(N)vim reloaded'<CR>
-" clear search highligting
-nnoremap <silent> <space>n :noh<CR>
 " fullscreen buffer
 nnoremap <silent> <M-`> :only<CR>
-
+" toggle color column
+nnoremap <silent> <M-S-Bar> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60,80,100,120" : "")<CR>
+" disable backspace, rely on C-H
+imap <BS> <nop>
+" toggle hidden characters
+nnoremap <silent> <M-C-H> :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>
+" navigate tabs
+nnoremap <silent> <M-C-J> :tabnext<CR>
+nnoremap <silent> <M-C-K> :tabprev<CR>
+" clear search highligting
+nnoremap <silent> <space>n :noh<CR>
+" reload nvim
+nnoremap <space>re :source ~/.config/nvim/init.vim<CR>:echo 'instance reloaded'<CR>
 " kill trailing whitespace
 function! StripTrailingWhitespaces()
 	let l = line(".")
@@ -29,34 +29,23 @@ function! StripTrailingWhitespaces()
 	%s/\s\+$//e
 	call cursor(l, c)
 endfunction
-nnoremap <silent> <space>ws :call StripTrailingWhitespaces()<CR>:echo "'" . expand('%:f') . "' stripped of all trailing whitespace"<CR>
+nnoremap <space>ws :call StripTrailingWhitespaces()<CR>:echo "'" . expand('%:f') . "' stripped of all trailing whitespace"<CR>
+" write file as root
+nnoremap <space>ww :w !doas tee %<CR>:echo "'" . expand('%:f') . "', written as root"<CR>
+" yank to end of line
+nnoremap Y y$
 
-" toggle hidden characters
-nnoremap <silent> <M-C-H> :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>
+" " toggle spell-checking
+" nnoremap <silent> <M-C-S> :set spell!<CR>:echo "Toggle spelling"<CR>
 
-" toggle color column
-nnoremap <silent> <M-S-Bar> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60,80,100,120" : "")<CR>
+" " quickly fix spelling errors
+" inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
-
-""""					Vim-lsp
-"nnoremap <silent> ]n :LspNextDiagnostic<CR>
-"nnoremap <silent> [n :LspPreviousDiagnostic<CR>
-"nnoremap <silent> \ld :LspDocumentDiagnostics<CR>
-"nnoremap <silent> \ls :LspDocumentSymbol<CR>
-"nnoremap <silent> >d :LspDefinition<CR>
-"nnoremap <silent> >D :LspDeclaration<CR>
-"nnoremap <silent> <d :LspPeekDefinition<CR>
-"nnoremap <silent> <D :LspPeekDeclaration<CR>
-"
-"
 """"					IndentLines
 "" Toggle indent lines
 "nnoremap <silent> \<tab> :IndentLinesToggle<CR>
 
 """""""					Editing
-""""					auto-pairs
-"let g:AutoPairsShortcutToggle = '\ap'
-"
 """"					Macrobatics
 "" Play/record macros
 "nmap <silent> <M-q> <plug>(Mac_Play)
@@ -88,10 +77,6 @@ nnoremap <silent> <M-S-Bar> :execute "set colorcolumn=" . (&colorcolumn == "" ? 
 "nnoremap <silent> \cr :call ClearRegs()<CR>
 
 
-"" toggle spell-checking
-"nnoremap <silent> \sp :set spell!<CR>:echo "Toggle spelling"<CR>
-
-
 "nnoremap <silent> <space><space> /<\~\~><CR>:noh<CR>4xa
-"
+
 "nnoremap <space>gn :read !gennumseq<space>
