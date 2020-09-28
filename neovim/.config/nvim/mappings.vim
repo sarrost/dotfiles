@@ -12,9 +12,17 @@ nnoremap <silent> <M-`> :only<CR>
 " toggle color column
 nnoremap <silent> <M-S-Bar> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60,80,100,120" : "")<CR>
 " disable backspace, rely on C-H
-imap <BS> <nop>
+imap <bs> <nop>
+" move one char left
+cnoremap <M-h> <left>
+" move one word left
+cnoremap <M-C-H> <S-left>
 " toggle hidden characters
 nnoremap <silent> <M-C-H> :execute "set list!"<CR> :execute "set colorcolumn=" . (&colorcolumn == "" ? "60" : "")<CR>
+" move one char right
+cnoremap <M-l> <right>
+" move one word right
+cnoremap <M-C-L> <S-right>
 " navigate tabs
 nnoremap <silent> <M-C-J> :tabnext<CR>
 nnoremap <silent> <M-C-K> :tabprev<CR>
@@ -40,43 +48,3 @@ nnoremap Y y$
 
 " " quickly fix spelling errors
 " inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-
-""""					IndentLines
-"" Toggle indent lines
-"nnoremap <silent> \<tab> :IndentLinesToggle<CR>
-
-"""""""					Editing
-""""					Macrobatics
-"" Play/record macros
-"nmap <silent> <M-q> <plug>(Mac_Play)
-"nmap <C-q> <plug>(Mac_RecordNew)
-"" Rotate macro history
-"nmap [q <plug>(Mac_RotateBack)
-"nmap ]q <plug>(Mac_RotateForward)
-"" Append/prepend to macro
-"nmap >q <plug>(Mac_Append)
-"nmap <q <plug>(Mac_Prepend)
-"" Store macro in register
-"nmap <M-Q> <plug>(Mac_StoreCurrent)
-"" List macros
-"nmap \q :Macros<CR>
-"
-"
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"	MISCELLANEOUS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" clear registers
-"function! ClearRegs()
-"		let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
-"		for r in regs
-"				call setreg(r, [])
-"		endfor
-"		echo 'Registers cleared.'
-"endfunction
-"nnoremap <silent> \cr :call ClearRegs()<CR>
-
-
-"nnoremap <silent> <space><space> /<\~\~><CR>:noh<CR>4xa
-
-"nnoremap <space>gn :read !gennumseq<space>

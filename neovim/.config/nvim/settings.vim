@@ -25,7 +25,6 @@ set fillchars+=vert:\					" hide vertical separator
 set hidden										" buffer becomes hidden when abandoned
 set ignorecase								" ignorecase when searching
 set smartcase									" only consider case when uppercase is used
-set inccommand=nosplit				" show effects of command incrementally
 set incsearch									" move to nearest result while searching
 set listchars=eol:¬,space:␣,trail:+,tab:\ ┊		" whitespace characters representations
 set number										" show line numbers

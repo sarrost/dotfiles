@@ -55,13 +55,9 @@ Plug 'tpope/vim-repeat'											" support repeat op for plugins
 "Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting
 "Plug 'haya14busa/vim-asterisk'              " ✓ fancier star Searching
 "Plug 'wincent/loupe'                        " ✓ better search
-"Plug 'markonm/traces.vim'									" ✓ highlights patterns and ranges
+Plug 'markonm/traces.vim'										" highlights patterns and ranges
 Plug 'junegunn/vim-slash'										" clear highlighting on move
 Plug 'justinmk/vim-sneak'										" two letter search motion
-
-
-"Plug 'skywind3000/asynctasks.vim'
-"Plug 'skywind3000/asyncrun.vim'
 
 "" Plug 'inkarkat/vim-SpellCheck'						" 
 ""Plug 'kamykn/spelunker.vim'								" 
@@ -80,9 +76,7 @@ Plug 'christoomey/vim-conflicted'
 ""Plug 'reedes/vim-pencil'										" 
 ""Plug 'gabrielelana/vim-markdown'
 ""Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-""Plug 'nikvdp/neomux'
 ""Plug 'tpope/vim-unimpaired'
-""Plug 'valloric/MatchTagAlways'
 ""sedm0784/vim-you-autocorrect/
 
 call plug#end()

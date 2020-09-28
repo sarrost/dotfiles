@@ -34,7 +34,7 @@ hi Search						ctermfg=16			ctermbg=51
 hi SignColumn												ctermbg=none
 hi Special					ctermfg=92
 hi SpecialKey				ctermfg=238
-hi StatusLine				ctermfg=47			ctermbg=16	 	cterm=bold
+hi StatusLine				ctermfg=47			ctermbg=none	 	cterm=bold
 hi StatusLineNC			ctermfg=35			ctermbg=none 	cterm=none
 hi TabLine					ctermfg=45			ctermbg=none	cterm=none 
 hi TabLineFill											ctermbg=none	cterm=none

@@ -26,7 +26,7 @@ function s:encoding()
 endfunction
 " git branch
 function s:git()
-	set statusline+=\ \ %{FugitiveHead()}\ 
+	set statusline+=\ %{FugitiveHead()}\ 
 endfunction
 " conflicted version name
 function s:conflicted()
