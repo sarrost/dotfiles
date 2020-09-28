@@ -12,7 +12,7 @@ add_to_path "$HOME/.local/bin"
 #add_to_path '/opt/resolver/bin'
 
 # Programs
-#export BROWSER="brave"
+export BROWSER="firefox"
 export EDITOR="nvim"
 export FILE_BROWSER="vifm"
 export MANPAGER='nvim +Man!'
@@ -93,30 +93,12 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 mkdir -p "$XDG_DATA_HOME"/vim/{undo,swap,backup}
 export VIMINIT='if !has('\'nvim\'') | source $XDG_CONFIG_HOME/vim/vimrc | else | source $XDG_CONFIG_HOME/nvim/init.vim | endif'
 
-#export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
-#export CARGO_HOME="$XDG_DATA_HOME/cargo"
-#export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
-#export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
-#export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-#export GEM_HOME="$XDG_DATA_HOME/gem"
-#export GEM_SPEC_CACHE="$XDG_CACHE_HOME/gem"
-#export GOPATH="$HOME/.local/go"
-#export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
-#export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
-#export IPYTHONDIR="$XDG_CONFIG_HOME/jupyter"
-#export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
-#export NMBGIT="$XDG_DATA_HOME/notmuch/nmbug"
-#export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuchrc"
-#export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-#export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
-#export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
-#export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
-#export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
-#export PYLINTHOME="$XDG_CACHE_HOME/pylint"
-#export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/.pyrc"
-#export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-#export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
-#export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
+ 	
+
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug 
+
+export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
