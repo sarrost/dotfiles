@@ -7,13 +7,12 @@
 # daemons and run commands/scripts here.
 
 # Daemons and other.
-start_dunst &           # notifications with 'dunst'
-start_compton &         # window compositor.
+dunst &									# notifications with 'dunst'
+compton &								# window compositor.
 #start_transmission &		# torrent daemon. 
-#unclutter &             # hide mouse when not needed.
+unclutter &							# hide mouse when not needed.
+clipmenud &
 #mpd &                   # music player daemon.
-### nm-applet &             # network manager systray.
-### tmuxcustomconf &        # change tmux conf location.
 #start_mpd_trigger &
 genpreviews "$HOME" &
 
@@ -27,7 +26,7 @@ xrdb -load ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
 ## export XMODIFIER="@im=fcitx"
 ## fcitx & 
 
-## Remap certain keys
+# Remap certain keys
 remapkeys &
 
 ## Disable screen blanking and screen saver
