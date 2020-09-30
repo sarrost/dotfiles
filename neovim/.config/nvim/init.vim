@@ -12,11 +12,11 @@
 " just another attempt to keep things orderly.
 call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 
-""""         Auto-completion
-" Use release branch (recommend)
-Plug 'neoclide/coc.nvim', 
+""""         Auto-completion/LSP
+Plug 'neoclide/coc.nvim',										" auto completion and plugin environment
 	\ {'branch': 'release'}
 Plug 'sirver/UltiSnips'											" snippet management
+Plug 'lervag/vimtex'												" latex suite
 
 """"         Copy pasta (registers, clipboard etc.)
 Plug 'svermeulen/vim-yoink'                 " save and manipulate yank history
@@ -32,10 +32,8 @@ Plug 'christoomey/vim-sort-motion'          " provide sorting op (gs)
 Plug 'tpope/vim-commentary'									" provide commenting op (gc)
 Plug 'tpope/vim-abolish'										" manipulate variations of a word
 Plug 'junegunn/vim-easy-align'              " add complex align motion
-" Plug 'glts/vim-radical'											" ✓ convert between number representations
-" Plug 'svermeulen/vim-macrobatics'           " ✓ provide improved macro functionality
-" Plug 'svermeulen/vim-matchup'								" ✓ operate on matching sets of text
-" Plug 'mzlogin/vim-markdown-toc'							" create table of content in md
+Plug 'machakann/vim-sandwich'								" surround motion
+Plug 'mbbill/undotree'											" visualize and interact with undo/redo tree
 
 """"         Eye candy
 Plug 'ryanoasis/vim-devicons'               " fancy file icons
@@ -47,39 +45,40 @@ Plug 'junegunn/fzf.vim'                     " fuzzy file finder
 
 """"         Misc
 Plug 'tpope/vim-fugitive'                   " git wrapper
+Plug 'christoomey/vim-conflicted'						" improved git diff mode 
 Plug 'tpope/vim-repeat'											" support repeat op for plugins
-"Plug 'glts/vim-magnum'											" ✓ big int library
+Plug 'vimwiki/vimwiki'											" create personal wiki
+Plug 'kevinoid/vim-jsonc'										" JSONC syntax highlighting
 
 """"         Searching
-"Plug 'brooth/far.vim'												" 
-"Plug 'haya14busa/is.vim'                    " ✓ incremental search highlighting
-"Plug 'haya14busa/vim-asterisk'              " ✓ fancier star Searching
-"Plug 'wincent/loupe'                        " ✓ better search
+Plug 'haya14busa/vim-asterisk'              " fancier star Searching
 Plug 'markonm/traces.vim'										" highlights patterns and ranges
 Plug 'junegunn/vim-slash'										" clear highlighting on move
 Plug 'justinmk/vim-sneak'										" two letter search motion
 
-"" Plug 'inkarkat/vim-SpellCheck'						" 
-""Plug 'kamykn/spelunker.vim'								" 
-""Plug 'svermeulen/CamelCaseMotion'					" 
-"Plug 'mattn/emmet-vim'											" 
-Plug 'machakann/vim-sandwich'
 
-Plug 'mbbill/undotree'											" visualize and interact with undo/redo tree
-Plug 'vimwiki/vimwiki'											" create personal wiki
-Plug 'lervag/vimtex'
-Plug 'kevinoid/vim-jsonc'										" JSONC syntax highlighting
-Plug 'christoomey/vim-conflicted'
-"Konfekt/FastFold
-
-""Plug 'wellle/targets.vim'									" 
-""Plug 'reedes/vim-pencil'										" 
-""Plug 'gabrielelana/vim-markdown'
-""Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-""Plug 'tpope/vim-unimpaired'
-""sedm0784/vim-you-autocorrect/
+"	Plug 'glts/vim-magnum'											" ✓ big int library
+" Plug 'glts/vim-radical'											" ✓ convert between number representations
+" Plug 'svermeulen/vim-macrobatics'           " ✓ provide improved macro functionality
+" Plug 'svermeulen/vim-matchup'								" ✓ operate on matching sets of text
+" Plug 'mzlogin/vim-markdown-toc'							" create table of content in md
+" Plug 'Konfekt/FastFold'
+" Plug 'inkarkat/vim-SpellCheck'
+" Plug 'kamykn/spelunker.vim'	
+" Plug 'svermeulen/CamelCaseMotion'
+" Plug 'mattn/emmet-vim'
+" Plug 'wellle/targets.vim'
+" Plug 'reedes/vim-pencil'
+" Plug 'gabrielelana/vim-markdown'
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" Plug 'tpope/vim-unimpaired'
+" Plug 'sedm0784/vim-you-autocorrect'
 
 call plug#end()
 
 " source settings
 source $XDG_CONFIG_HOME/nvim/settings.vim
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)

@@ -2,7 +2,6 @@
 autocmd InsertEnter * highlight	CursorLine cterm=bold
 autocmd InsertLeave * highlight	CursorLine cterm=none
 
-
 " augroup coloring
 " 	autocmd BufEnter,WinEnter * hi StatusLine		ctermfg=47	ctermbg=232 	cterm=bold
 " 	autocmd BufLeave,WinLeave * hi StatusLine		ctermfg=35	ctermbg=none 	cterm=none
@@ -30,7 +29,7 @@ hi PmenuSbar				ctermfg=247			ctermbg=232
 hi PmenuSel					ctermfg=48			ctermbg=237		cterm=bold
 hi PmenuThumb												ctermbg=235
 hi PreProc					ctermfg=83
-hi Search						ctermfg=16			ctermbg=51			
+hi Search						ctermfg=16			ctermbg=48			
 hi SignColumn												ctermbg=none
 hi Special					ctermfg=92
 hi SpecialKey				ctermfg=238
