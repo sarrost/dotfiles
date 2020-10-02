@@ -1,34 +1,18 @@
 # My Dotfiles
-These are the dotfiles for my (Arch) Linux setup (optionally) deployed and managed with [GNU Stow](https://www.gnu.org/software/stow/). Included are the configurations for programs such as neovim, zsh, tmux, etc.
+
+The configuration files for my GNU/Linux setup.
 
 ![Desktop Preview](previews/desktop.png "Desktop Preview")
 
-# Table of Content
-<!-- vim-markdown-toc GFM -->
-
-* [Intro](#intro)
-* [Usage](#usage)
-	* [Stow](#stow)
-* [Rice](#rice)
-	* [Neovim](#neovim)
-	* [zsh](#zsh)
-	* [herbstluftwm](#herbstluftwm)
-	* [tmux](#tmux)
-* [Contact](#contact)
-
-<!-- vim-markdown-toc -->
-
-# Intro
-
-So what exactly is the purpose of this repo? The answer is similar to the reason why r/unixporn exists, to make fellow ricers happy :D.  
-
-I provide some commentary for _some_ of the tools I use in the Rice section. Not everything will work right out the box. For one I assume you know how to install the relevant 'packages' onto your system. For some of the programs I've (deliberately) changed the location(s) of where config files are housed, I'll typically state this in the config file itself. So please refer to the config file in such circumstances.
-
 # Usage
 
-You have two options. Simply copy-pasta what you need from the relevant files, or you can install and use [GNU Stow](https://www.gnu.org/software/stow/). If you are unfamiliar with `stow` then follow the instructions below.
+You have three options. 
 
-## Stow
+1. Simply copy-pasta what you need from the relevant files 
+2. [Recommended] Use the provided `dot.sh` script. ([GNU Stow](https://www.gnu.org/software/stow/) required)
+3. Install and use GNU Stow. The `dot.sh` is a wrapper script for `stow`.
+
+## Using dot.sh
 The files in this repo are organized as such so as to make deployment convenient. Clone this repo to your home directory with `git-clone`:
 
 ```bash
@@ -44,69 +28,44 @@ $ cd ~/dotfiles
 Then run the following command:
 
 ```bash
-$ stow <dir>
+$ ./dot.sh <dir>
 ```
 
 This will deploy the config files for application '`dir`' by creating symlinks.
 
 __NOTE__: Deleting the original file in the 'repo' directory will break the link between the file and symlink without destroying the deployed link. Basically, always delete both files when doing cleanup.
 
-# Rice
+For a full list of options run:
 
-This section is titled rice because I couldn't decide if I should have titled it either 'Programs', 'Applications', or 'Tools'. So I went with neither.  
+```bash
+$ ./dot.sh -h
+```
 
-The complete list of programs/tools/applications that have 
-configurations present in this repo: 
-[calcurse](https://calcurse.org/), 
-[compton](https://github.com/chjj/compton), 
-[dunst](https://dunst-project.org/), 
-[herbstluftwm](https://herbstluftwm.org/), 
-[mpd](https://www.musicpd.org/), 
-[ncmpcpp](https://rybczak.net/ncmpcpp/), 
-[neomutt](https://neomutt.org/), 
-[nvim](https://neovim.io/), 
-[ranger](https://ranger.github.io/), 
-[rofi](https://github.com/davatorium/rofi), 
-[sxhkd](https://github.com/baskerville/sxhkd), 
-[tmux](https://github.com/tmux/tmux/wiki), 
-[xorg](https://www.x.org/wiki/), 
-[zathura](https://pwmt.org/projects/zathura/)
+Which will print the following:
 
-## Neovim
+```
+Usage:
+  tag [OPTIONS] file
+Note:
+  Option -i is assumed if no options are given.
+Options:
+  -I,--install [program] --  install program
+  -i,--deploy [program]  --  deploy dotfiles
+  -r,--recall [program]  --  recall dotfiles
+  -R,--uninstall [program]  -- uninstall program
+  -s,--silent            --  silent output
+  -v,--verbose           --  verbose output
+  -h,--help              --  print this help message
+Note:
+  Need to run as root when using -I and -R. Running
+  -i and -r as root deploys/recalls dotfiles to/from
+  /root/. Recalling leaves behind empty folders.
+```
 
-## [zsh](https://www.zsh.org/)
-
-
-All configuration files are stored in `~/.config/zsh`. This 
-is not default behaviour.
-
-Configured with some cool plugins and features such as:
-
-|![zsh FZF](previews/zsh-fzf-integration.gif "zsh FZF")|
-|:--:| 
-| FZF (bindkey) integration |
-
-|![Menu completion](previews/zsh-menu-complete.gif "Menu completion")|
-|:--:| 
-| (Menu enabled) completion |
-
-|![Syntax highlighting](previews/zsh-syntax-highlighting.png "Syntax highlighting")|
-|:--:| 
-| Syntax highlighting |
-
-|![zsh notifications](previews/zsh-notification.png "zsh notifications")|
-|:--:| 
-| Notifications for time consuming commands upon completion |
-
-## herbstluftwm
-
-## tmux
+Installing /uninstalling programs only works on gentoo at the moment. I plan to add support for FreeBSD in the future.
 
 # Contact
 
-Feel free to contact me at `herbert.magaya@protonmail.com` 
-if you have any questions or something isn't working 
-properly for you.
+Feel free to contact me at `herbert@magaya.co.za` if you have any questions or something isn't working properly for you.
 
-Also feel free to use the Issues board if something is
-legitimately broken.
+Also feel free to use the Issues board if something is broken or confusing. Have a nice day :^)
