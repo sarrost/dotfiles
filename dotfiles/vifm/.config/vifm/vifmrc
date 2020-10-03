@@ -10,7 +10,7 @@ source "$XDG_CONFIG_HOME/vifm/config/settings.vifm"
 source "$XDG_CONFIG_HOME/vifm/config/mappings.vifm"
 source "$XDG_CONFIG_HOME/vifm/config/filetypes.vifm"
 source "$XDG_CONFIG_HOME/vifm/config/commands.vifm"
-source "$XDG_CONFIG_HOME/vifm/config/shortcuts.vifm"
+source "$XDG_DATA_HOME/vifm/shortcuts.vifm"
 
 """ Load colorscheme
 colorscheme darqua-fruit.vifm

@@ -28,7 +28,7 @@ hi Pmenu						ctermfg=247			ctermbg=232
 hi PmenuSbar				ctermfg=247			ctermbg=232			
 hi PmenuSel					ctermfg=48			ctermbg=237		cterm=bold
 hi PmenuThumb												ctermbg=235
-hi PreProc					ctermfg=83
+hi PreProc					ctermfg=39
 hi Search						ctermfg=16			ctermbg=48			
 hi SignColumn												ctermbg=none
 hi Special					ctermfg=92
