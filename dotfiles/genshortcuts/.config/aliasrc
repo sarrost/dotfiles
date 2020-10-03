@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#〖愛〗shell aliases file
+
+# This file is sourced by the shell config file. Put all 
+# shell aliases in this file.
+
+alias	\
+jj="cd ~/wk/sarrost/sarrost-com/src/ && l" \
+activate="source bin/activate" \
+vifm="source vpwd_vifm" \
+cf="source vpwd_cf" \
+sc="sc-im" \
+g="git" \
+ls="ls --color=auto" \
+l="ls" \
+la="ls -a" \
+lk="ls -aC" \
+ll="ls -l" \
+py="python3" \
+pym="python3 manage.py" \
+v="source vpwd_nvim" \
+ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
+z="zathura" \
+torr="transmission-remote-cli" \
+LG="clear && echo "" && ls | grep" \
+vs="source vs" \
+emerge="doas emerge" \
+eselect="doas eselect" \
+vw="v $RICE_NOTES_DIR/index.mdox" \

@@ -1,0 +1,33 @@
+#〖愛〗`genshortcuts` configuration file.
+
+# List shortcuts as key-value pairs in this file, then run
+# the `genshortcuts` script for changes to take effect.
+
+am		$RICE_GAMES_DIR
+an		$RICE_ANIME_DIR
+ar		$RICE_ARTICLES_DIR
+bl		$RICE_REPO_DIR/dwmblocks/src
+co		$XDG_CONFIG_HOME
+cd		$RICE_CODE_DIR
+dc		$XDG_DOCUMENTS_DIR
+dl		$XDG_DOWNLOAD_DIR
+dt		$RICE_DOTFILES_DIR
+hm		$HOME
+li		$RICE_LIBRARY_DIR
+ls		$XDG_DATA_HOME
+md		$RICE_MEDIA_DIR
+mu		$XDG_MUSIC_DIR
+no		$RICE_NOTES_DIR
+pc		$XDG_PICTURES_DIR
+lr		$RICE_REPO_DIR
+wr		$RICE_WORLD_REPO_DIR
+sh		$RICE_SCRIPTS_DIR
+ss		$RICE_SCREENSHOT_DIR
+st		$RICE_REPO_DIR/st/src
+tp		/tmp
+vd		$XDG_VIDEOS_DIR
+wk		$RICE_WORK_DIR
+wm		$RICE_REPO_DIR/dwm/src
+wp		$RICE_WALLPAPER_DIR
+u1		/mnt/usb1
+u2		/mnt/usb2
