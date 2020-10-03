@@ -16,14 +16,14 @@ You have three options.
 The files in this repo are organized as such so as to make deployment convenient. Clone this repo to any directory with `git-clone` and enter the dotfiles directory within the repo:
 
 ```shellscript
-	git clone https://github.com/sarrost/dotfiles
-	cd dotfiles/dotfiles
+git clone https://github.com/sarrost/dotfiles
+cd dotfiles/dotfiles
 ```
 
 Then run the following command:
 
 ```shellscript
-	./dot.sh <dir>
+./dot.sh <dir>
 ```
 
 This will deploy the config files for application '`dir`' by creating symlinks.
@@ -33,7 +33,7 @@ __NOTE__: Deleting the original file in the 'repo' directory will break the link
 For a full list of options run:
 
 ```shellscript
-	./dot.sh -h
+./dot.sh -h
 ```
 
 Which will print the following:
