@@ -5,16 +5,11 @@
 # REQUIRED: stow
 
 # TODO: 
-#   - system dotfiles 
 #   - support other distros/platforms
-
-REPOS_DIR="${RICE_WORLD_REPO_DIR}"
 
 help_msg() {
 	echo "Usage:
-    tag [OPTIONS] file
-  Note:
-    Option -i is assumed if no options are given.
+    ./dot.sh [OPTIONS] dir
   Options:
     -I,--install [program] --  install program
     -i,--deploy [program]  --  deploy dotfiles
@@ -23,7 +18,12 @@ help_msg() {
     -s,--silent            --  silent output
     -v,--verbose           --  verbose output
     -h,--help              --  print this help message
-  Note:
+
+    Option -i is assumed if no options are given.
+
+    Prepend directory with 'sys-' (e.g. sys-portage) to
+    deploy/recall system-wide (e.g. /etc/portage/).
+    
     Need to run as root when using -I and -R. Running
     -i and -r as root deploys/recalls dotfiles to/from
     /root/. Recalling leaves behind empty folders.
@@ -34,15 +34,18 @@ help_msg() {
 # Update as necessary
 get_package() {
 	case "$ARG_PROGRAM" in
-		compton) echo "x11-misc/compton" ;;
-		dunst) echo "x11-misc/dunst" ;;
-		neovim) echo "app-editors/neovim dev-python/neovim-remote" ;;
-		task) echo "app-misc/task" ;;
-		test) echo "app-editors/nano" ;;
-		vifm) echo "app-misc/vifm" ;;
-		vim) echo "app-editors/vim" ;;
-		zsh) echo "app-shells/zsh" ;;
+		compton) p="x11-misc/compton" ;;
+		dunst) p="x11-misc/dunst" ;;
+		neovim) p="app-editors/neovim"
+			p="$p dev-python/neovim-remote"
+			p="$p app-vim/gentoo-syntax" ;;
+		task) p="app-misc/task" ;;
+		test) p="app-editors/nano" ;;
+		vifm) p="app-misc/vifm" ;;
+		vim) p="app-editors/vim" ;;
+		zsh) p="app-shells/zsh" ;;
 	esac
+	echo "$p"
 }
 
 # Update as necessary
@@ -58,7 +61,7 @@ err_no_stow() { printf "Error: stow command not found. Install stow to continue.
 err_conflict() { printf "Error: conflicting actions.\n" && exit 1 ; }
 
 deploy() {
-	stow --no-folding --restow -t "$HOME" "$ARG_PROGRAM"
+	stow --no-folding --restow -t "$TARGET_DIR" "$ARG_PROGRAM"
 	[ -z "$BOOL_VERBOSE" ] || printf "Deployed: $ARG_PROGRAM\n"
 }
 
@@ -76,7 +79,7 @@ install() {
 }
 
 recall() {
-	stow --delete -t "$HOME" "$ARG_PROGRAM"
+	stow --delete -t "$TARGET_DIR" "$ARG_PROGRAM"
 	[ -z "$BOOL_VERBOSE" ] || printf "Recalled: $ARG_PROGRAM\n"
 }
 
@@ -120,6 +123,12 @@ command -v stow &>/dev/null || err_no_stow
 # Exit if no program arg is given
 [ -z "$1" ] && err_no_program
 ARG_PROGRAM="$1"
+
+# Determine target dir
+case "$ARG_PROGRAM" in
+	sys-*) TARGET_DIR=/ ;;
+	*) TARGET_DIR="$HOME" ;;
+esac
 
 # Cannot deploy/install and recall/uninstall
 ([ ! -z "$BOOL_INSTALL" ] || [ ! -z "$BOOL_DEPLOY" ]) && ([ ! -z "$BOOL_UNINSTALL" ] || [ ! -z "$BOOL_RECALL" ]) && err_conflict

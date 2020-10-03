@@ -1,0 +1,107 @@
+#〖愛〗per-package control of USE flags
+
+x11-misc/xwallpaper jpeg png
+x11-misc/dunst dunstify
+app-crypt/pinentry gtk
+media-video/ffmpeg x264
+media-video/ffmpegthumbnailer png
+media-sound/audacity ffmpeg
+media-gfx/gimp webp
+media-gfx/imagemagick jpeg png truetype 
+app-text/texlive extra graphics
+dev-texlive/* doc
+# disable openssl
+net-libs/nodejs -system-ssl
+
+# Try use latest python
+*/* PYTHON_TARGETS: python2_7 python3_8
+*/* PYTHON_SINGLE_TARGET: -* python3_8
+net-mail/notmuch PYTHON_TARGETS: -python3_8 python3_6
+net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
+
+# required by net-misc/networkmanager-1.26.2::gentoo[-iwd,wifi]
+# required by @selected
+# required by @world (argument)
+>=net-wireless/wpa_supplicant-2.9-r2 dbus
+# required by media-sound/ncmpcpp-0.8.2-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-libs/boost-1.74.0-r1 icu
+# required by media-gfx/graphviz-2.44.1-r1::gentoo
+# required by media-gfx/imagemagick-7.0.10.28::gentoo[graphviz]
+# required by @selected
+# required by @world (argument)
+>=media-libs/gd-2.3.0 jpeg truetype fontconfig png
+# required by www-client/firefox-80.0.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/libpng-1.6.37-r1 apng
+# required by media-gfx/gimp-2.10.20-r1::gentoo
+# required by gimp (argument)
+>=media-libs/gegl-0.4.24 cairo
+# required by sys-boot/os-prober-1.77::gentoo
+# required by os-prober (argument)
+>=sys-boot/grub-2.05_alpha20200310 mount
+# required by app-text/texlive-core-2020-r12::gentoo
+# required by virtual/tex-base-0::gentoo
+# required by app-text/lcdf-typetools-2.108::gentoo[kpathsea]
+# required by app-text/texlive-2020-r9::gentoo
+# required by texlive (argument)
+>=media-libs/harfbuzz-2.7.2 icu
+# required by dev-texlive/texlive-xetex-2020::gentoo
+# required by dev-texlive/texlive-formatsextra-2020-r2::gentoo
+# required by app-text/texlive-2020-r9::gentoo[extra,-xml]
+# required by @selected
+# required by @world (argument)
+>=app-text/texlive-core-2020-r12 xetex
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-lang/python-3.7.9:3.7 sqlite
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-python/PyQt5-5.15.1 svg widgets gui webchannel printsupport network
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-qt/qtwebengine-5.15.1 widgets
+# required by dev-qt/qtwebengine-5.15.1::gentoo
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-qt/qtwebchannel-5.15.1 qml
+# required by dev-qt/qtwebengine-5.15.1::gentoo
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-libs/libxml2-2.9.10-r1 icu
+# required by dev-qt/qtwebengine-5.15.1::gentoo
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=media-libs/libvpx-1.9.0 svc postproc
+# required by dev-qt/qtwebengine-5.15.1::gentoo
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by dev-qt/qtcore-5.15.1::gentoo
+# required by dev-qt/qtxml-5.15.1::gentoo
+# required by dev-python/PyQt5-5.15.1::gentoo
+# required by dev-python/PyQtWebEngine-5.15.1::gentoo
+# required by app-misc/anki-2.1.15::gentoo[python_single_target_python3_7]
+# required by anki (argument)
+>=dev-libs/libpcre2-10.35 pcre16
+# required by x11-misc/xdg-utils-1.1.3_p20200220-r1::gentoo
+# required by x11-misc/xdg-utils (argument)
+>=app-text/xmlto-0.0.28-r3 text
+# required by app-misc/neofetch-7.1.0::gentoo[X]
+# required by @selected
+# required by @world (argument)
+>=www-client/w3m-0.5.3_p20190105 imlib 
+# required by www-client/firefox-81.0.1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-lang/python-3.8.6:3.8 sqlite
+# dunno
+>=app-text/poppler-0.50 cairo
