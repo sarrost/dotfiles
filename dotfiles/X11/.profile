@@ -69,38 +69,20 @@ export ZATHURA_HELP_FILE="$XDG_CONFIG_HOME/zathura/help.mdox"
 export ZSH_HELP_FILE="$XDG_CONFIG_HOME/zsh/help.mdox"
 
 ## Cleanup $HOME
-# xinit
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-# taskwarrior
-# TODO mkdir
-export TASKDATA="$XDG_DATA_HOME"/task
-export TASKRC="$XDG_CONFIG_HOME"/task/taskrc
-# gnupg
-# TODO mkdir
-# chmod 600 ~/.gnupg/*
-# chmod 700 ~/.gnupg
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
-
-# pass
-# TODO mkdir
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
-
-# vim 
-mkdir -p "$XDG_DATA_HOME"/vim/{undo,swap,backup}
-export VIMINIT='if !has('\'nvim\'') | source $XDG_CONFIG_HOME/vim/vimrc | else | source $XDG_CONFIG_HOME/nvim/init.vim | endif'
-
- 	
-
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug 
-
-export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
-
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
+export TASKDATA="$XDG_DATA_HOME/task"
+export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
+mkdir -p "$XDG_DATA_HOME"/vim/{undo,swap,backup}
+export VIMINIT='if !has('\'nvim\'') | source $XDG_CONFIG_HOME/vim/vimrc | else | source $XDG_CONFIG_HOME/nvim/init.vim | endif' 
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export mbsyncrc="$XDG_CONFIG_HOME"/isync/mbsyncrc
 
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
