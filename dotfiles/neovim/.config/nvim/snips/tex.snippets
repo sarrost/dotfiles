@@ -29,6 +29,44 @@ $0
 \end{document}
 endsnippet
 
+snippet bf "\begin{figure} \end{figure}" bA
+\begin{figure}`!p
+if t[1] != '': 
+	snip.rv = '['
+`$1`!p
+if t[1] != '': 
+	snip.rv = ']'
+`
+	$0
+\end{figure}
+endsnippet
+
+snippet ii "\item" bA
+\item $0
+endsnippet
+
+snippet ig "\includegraphics{}" bA
+\includegraphics`!p
+if t[1] != '': 
+	snip.rv = '['
+`$1`!p
+if t[1] != '': 
+	snip.rv = ']'
+`{$2}
+$0
+endsnippet
+
+snippet it "\begin{itemize} \end{itemize}" bA
+\begin{itemize}
+	\item $0
+\end{itemize}
+endsnippet
+
+snippet se "\section{}" bA
+\section{${1:section}}
+$0
+endsnippet
+
 snippet tbf "\textbf{}" wA
 \textbf{$1}$0
 endsnippet

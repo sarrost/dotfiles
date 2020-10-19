@@ -29,7 +29,7 @@ nnoremap <silent> <M-C-K> :tabprev<CR>
 " clear search highligting
 nnoremap <silent> <space>n :noh<CR>
 " reload nvim
-nnoremap <space>re :source ~/.config/nvim/init.vim<CR>:echo 'instance reloaded'<CR>
+nnoremap <space>re :source ~/.config/nvim/init.vim<CR>:call UltiSnips#RefreshSnippets()<CR>:echo 'instance reloaded'<CR>
 " kill trailing whitespace
 function! StripTrailingWhitespaces()
 	let l = line(".")
