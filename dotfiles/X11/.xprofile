@@ -12,7 +12,7 @@ compton &								# window compositor
 transmission-daemon &		# start torrent daemon
 unclutter &							# hide mouse when not needed
 clipmenud &
-#mpd &                   # music player daemon
+mpd &                   # music player daemon
 #start_mpd_trigger &
 cleanempty &						# remove empty directories and files
 genpreviews "$HOME" &
