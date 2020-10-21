@@ -13,7 +13,7 @@ transmission-daemon &		# start torrent daemon
 unclutter &							# hide mouse when not needed
 clipmenud &
 mpd &                   # music player daemon
-#start_mpd_trigger &
+mpd_trigger localhost -p 6600 -e "pkill -RTMIN+17 dwmblocks"
 cleanempty &						# remove empty directories and files
 genpreviews "$HOME" &
 

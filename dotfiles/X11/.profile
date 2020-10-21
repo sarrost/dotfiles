@@ -72,6 +72,7 @@ export ZSH_HELP_FILE="$XDG_CONFIG_HOME/zsh/help.mdox"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
 export LESSKEY="$XDG_CONFIG_HOME/less/lesskey"
+export MBSYNCRC="$XDG_CONFIG_HOME"/isync/mbsyncrc
 export NMBGIT="$XDG_DATA_HOME"/notmuch/nmbug 
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
@@ -82,7 +83,6 @@ export VIMINIT='if !has('\'nvim\'') | source $XDG_CONFIG_HOME/vim/vimrc | else |
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export mbsyncrc="$XDG_CONFIG_HOME"/isync/mbsyncrc
 
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
