@@ -31,3 +31,4 @@ up="doas up" \
 vw="v $RICE_NOTES_DIR/index.mdox" \
 cp="cpg -g" \
 mv="mvg -g" \
+n="source n" \
