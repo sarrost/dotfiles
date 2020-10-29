@@ -12,7 +12,7 @@ add_to_path "$HOME/.local/bin"
 # Programs
 export BROWSER="firefox"
 export EDITOR="nvim"
-export FILE_BROWSER="vifm"
+export FILE_BROWSER="n"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
 
