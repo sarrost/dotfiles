@@ -1,5 +1,11 @@
-snippet case
+snippet case "case statement" bA
 case ${1:word} in
 	${2:pattern} ) $0;;
 esac
+endsnippet
+
+snippet if "if statement" bA
+if [ $1 ]; then
+	$0
+fi
 endsnippet

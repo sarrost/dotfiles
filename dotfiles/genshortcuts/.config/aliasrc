@@ -12,10 +12,10 @@ vifm="source vpwd_vifm" \
 cf="source vpwd_cf" \
 sc="sc-im" \
 g="git" \
-ls="ls --color=auto" \
-l="ls" \
+ls='ls --color=auto' \
+l='ls' \
 la="ls -a" \
-lk="ls -aC" \
+lk='ls -a | cut -c1-20 | column -c "${COLUMNS:-80}"' \
 ll="ls -l" \
 py="python3" \
 pym="python3 manage.py" \
@@ -27,4 +27,7 @@ LG="clear && echo "" && ls | grep" \
 vs="source vs" \
 emerge="doas emerge" \
 eselect="doas eselect" \
+up="doas up" \
 vw="v $RICE_NOTES_DIR/index.mdox" \
+cp="cpg -g" \
+mv="mvg -g" \

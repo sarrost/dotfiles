@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Description: Navigate to directory using autojump
+#
+# Dependencies: autojump - https://github.com/wting/autojump
+#
+# Note: autojump STORES NAVIGATION PATTERNS
+
+# Config file
+dirs="${XDG_CONFIG_HOME:-$HOME/.config}/genshortcuts/dirsrc"
+
+# Remove comment, empty & whitespace-only lines
+prepared_kv=$(sed "/^\s*$/d;/\s*#.*$/d" "$dirs")
+
+dir=$(echo "$prepared_kv" | fzf)
+[ -z "$dir" ] && exit
+odir=$(echo "$dir" | awk '{print $2}')
+odir=$(envsubst <<< "$odir")
+printf "%s" "0c$odir" > "$NNN_PIPE"

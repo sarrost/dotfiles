@@ -116,10 +116,10 @@ bindkey '^O' fzf-cd-widget
 ### General key bindings
 # bind vim, assuming v is aliased to vim
 bindkey -s "^E" "v\n"
-# bind vim, assuming v is aliased to vim
+# bind fugitive, assuming v is aliased to vim
 bindkey -s "^G" "nvim -c 'G' -c 'only'\n"
-# bind vifm
-bindkey -s "^F" "vifm\n"
+# bind nnn
+bindkey -s "^F" "n\n"
 # bind cf
 bindkey -s "^S" "cf\n"
 # bind pwdclipboard [script]
@@ -297,3 +297,4 @@ source $HOME/cd/world/powerlevel10k/powerlevel10k.zsh-theme
 if [ -f "$RICE_WORLD_REPO_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]; then
 	source "$RICE_WORLD_REPO_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" 
 fi
+

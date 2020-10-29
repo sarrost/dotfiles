@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf "create dir : "
+read -r data
+mkdir -p "$data"

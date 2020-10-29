@@ -57,6 +57,7 @@ Plug 'junegunn/vim-slash'										" clear highlighting on move
 Plug 'justinmk/vim-sneak'										" two letter search motion
 Plug 'lambdalisue/suda.vim'
 
+Plug 'mcchrish/nnn.vim'
 "	Plug 'glts/vim-magnum'											" ✓ big int library
 " Plug 'glts/vim-radical'											" ✓ convert between number representations
 " Plug 'svermeulen/vim-macrobatics'           " ✓ provide improved macro functionality

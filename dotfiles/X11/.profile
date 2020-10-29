@@ -8,8 +8,6 @@ add_to_path() {
 	export PATH="$PATH:$(du -L "$1" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 }
 add_to_path "$HOME/.local/bin"
-#add_to_path "$HOME/.local/go/bin"
-#add_to_path '/opt/resolver/bin'
 
 # Programs
 export BROWSER="firefox"
@@ -20,7 +18,6 @@ export MANWIDTH=999
 
 export READER="zathura"
 export STATUSBAR="dwmblocks"
-#export SUDO_ASKPASS="dmenupass"
 export TERMINAL="st"
 
 # RICE (treated like XDG dirs, but custom)
@@ -56,18 +53,6 @@ export XDG_PICTURES_DIR="$RICE_MEDIA_DIR/pc"
 export RICE_SCREENSHOT_DIR="$XDG_PICTURES_DIR/sc"
 export RICE_WALLPAPER_DIR="$XDG_PICTURES_DIR/wp"
 
-# Help files TODO
-export BRAVE_HELP_FILE="$XDG_CONFIG_HOME/brave/help.mdox"
-export MUTT_HELP_FILE="$XDG_CONFIG_HOME/mutt/help.mdox"
-export NVIM_HELP_FILE="$XDG_CONFIG_HOME/nvim/help.mdox"
-export RICE_HELP_DIR="$RICE_NOTES_DIR/help"
-export RICE_TASKS_DIR="$RICE_NOTES_DIR/tasks"
-export RICE_TASK_FILE="$RICE_TASKS_DIR/rice.mdox"
-export SYSTEM_HELP_FILE="$RICE_REPOSITORY_DIR/dwm/help.mdox"
-export VIFM_HELP_FILE="$XDG_CONFIG_HOME/vifm/help.mdox"
-export ZATHURA_HELP_FILE="$XDG_CONFIG_HOME/zathura/help.mdox"
-export ZSH_HELP_FILE="$XDG_CONFIG_HOME/zsh/help.mdox"
-
 ## Cleanup $HOME
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export LESSHISTFILE="$XDG_CACHE_HOME/less/history"
@@ -83,6 +68,8 @@ export VIMINIT='if !has('\'nvim\'') | source $XDG_CONFIG_HOME/vim/vimrc | else |
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export GOPATH="$XDG_DATA_HOME"/go
+add_to_path "$GOPATH/bin"
 
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"

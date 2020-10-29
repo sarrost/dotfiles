@@ -10,6 +10,8 @@ media-gfx/gimp webp
 media-gfx/imagemagick jpeg png truetype 
 app-text/texlive extra graphics
 dev-texlive/* doc
+dev-java/openjdk javafx
+media-sound/mpc doc
 # disable openssl
 net-libs/nodejs -system-ssl
 
@@ -105,3 +107,148 @@ net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
 >=dev-lang/python-3.8.6:3.8 sqlite
 # dunno
 >=app-text/poppler-0.50 cairo
+# required by dev-java/openjfx-11.0.9_p0::gentoo
+# required by dev-java/openjdk-11.0.8_p10::gentoo[javafx]
+# required by openjdk (argument)
+>=dev-java/swt-4.10 cairo opengl
+# required by net-print/cups-filters-1.28.3::gentoo[postscript]
+# required by net-print/cups-2.3.3-r1::gentoo
+# required by dev-java/openjdk-11.0.8_p10::gentoo
+# required by dev-java/openjfx-11.0.9_p0::gentoo[-doc]
+>=app-text/ghostscript-gpl-9.53.3 cups
+# required by app-portage/pfl-3.1-r1::gentoo[network-cron]
+# required by app-portage/pfl (argument)
+>=sys-apps/util-linux-2.36 caps
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/minitest-5.14.2 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/net-telnet-0.2.0 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/power_assert-1.2.0 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/rake-13.0.1 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/test-unit-3.3.6 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/xmlrpc-0.3.0 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-lang/ruby-2.6.6-r2::gentoo[rdoc]
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/bundler-2.1.4 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/did_you_mean-1.4.0 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/bundler-2.1.4::gentoo[doc,ruby_targets_ruby26]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/json-2.3.1 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo[rdoc]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+>=dev-ruby/rdoc-6.2.0 ruby_targets_ruby27
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by net-libs/webkit-gtk-2.28.4::gentoo
+# required by webkit-gtk (argument)
+>=virtual/rubygems-16 ruby_targets_ruby27
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby25]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-lang/ruby-2.7.2::gentoo[rdoc]
+# required by net-libs/webkit-gtk-2.28.4::gentoo
+# required by webkit-gtk (argument)
+>=dev-ruby/rubygems-3.1.4 ruby_targets_ruby27
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.7.2::gentoo[rdoc]
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/racc-1.4.16-r1::gentoo
+>=dev-ruby/kpeg-1.1.0-r1 ruby_targets_ruby27
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.7.2::gentoo[rdoc]
+# required by virtual/ruby-ssl-11::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby27]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by dev-ruby/did_you_mean-1.4.0::gentoo[ruby_targets_ruby25]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/bundler-2.1.4::gentoo[ruby_targets_ruby26]
+>=dev-ruby/racc-1.4.16-r1 ruby_targets_ruby27
+# required by dev-ruby/racc-1.4.16-r1::gentoo[ruby_targets_ruby27]
+# required by dev-ruby/rdoc-6.2.0::gentoo[ruby_targets_ruby25]
+# required by dev-lang/ruby-2.7.2::gentoo[rdoc]
+# required by dev-ruby/rubygems-3.1.4::gentoo[ruby_targets_ruby27]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.5.8-r1::gentoo
+# required by dev-ruby/did_you_mean-1.4.0::gentoo[ruby_targets_ruby25]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/bundler-2.1.4::gentoo[ruby_targets_ruby26]
+>=virtual/ruby-ssl-11 ruby_targets_ruby27
