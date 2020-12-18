@@ -1,0 +1,8 @@
+#〖愛〗lf main configuration file
+# vi:ft=conf
+
+# Load sub-config files
+source ~/.config/lf/settings
+source ~/.config/lf/commands
+source ~/.config/lf/mappings
+source ~/.local/share/lf/shortcuts

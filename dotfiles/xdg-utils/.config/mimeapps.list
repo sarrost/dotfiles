@@ -1,0 +1,4 @@
+[Default Applications]
+application/pdf=zathura.desktop
+text/plain=nvim.desktop
+application/x-bittorrent=torrent.desktop

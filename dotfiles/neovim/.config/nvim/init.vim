@@ -83,3 +83,7 @@ map *  <Plug>(asterisk-z*)
 map #  <Plug>(asterisk-z#)
 map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
+
+
+let g:python3_host_prog = '/usr/bin/python' " -------- Set python 3 provider
+let g:python_host_prog = '/usr/bin/python2' " ---------- Set python 2 provider

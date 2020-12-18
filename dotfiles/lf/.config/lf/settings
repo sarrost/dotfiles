@@ -1,0 +1,24 @@
+#〖愛〗lf settings file
+# vi:ft=conf
+
+# Previewer program path.
+set previewer ~/.config/lf/scripts/preview
+# Fork of lf with better previewer capabilities: https://gitlab.com/Provessor/lfp
+# [lfp only] Script to run the first time a directory is previewed after a regular file is previewed.
+set cleaner ~/.config/lf/scripts/clear
+# Show Nerd Font icons before each item in the list.
+set icons
+# Draw boxes around panes with box drawing characters. 
+set drawbox
+# Jump to the first match after each keystroke during searching. 
+set incsearch
+# Format string of the prompt shown in the top line. Color format is:  \033[38;5;Xm  where X is in {0..255}.
+set promptfmt "\033[1;38;5;51m[\033[38;5;39m%u\033[38;5;51m@\033[38;5;39m%h\033[38;5;51m] \033[0;38;5;49m%w\033[38;5;48m%f\033[0m"
+# Number of space characters to show for horizontal tab. 
+set tabstop 4
+# Format string of the file modification time shown in the bottom line. 
+set timefmt '[2006-01-02 Mon] [15:04:05]'
+# Truncate character shown at the end when the file name does not fit to the pane. 
+set truncatechar ⋯
+
+set ifs "\n"

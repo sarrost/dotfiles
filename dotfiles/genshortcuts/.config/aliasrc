@@ -6,29 +6,35 @@
 # shell aliases in this file.
 
 alias	\
-jj="cd ~/wk/sarrost/sarrost-com/src/ && l" \
-activate="source bin/activate" \
-vifm="source vpwd_vifm" \
-cf="source vpwd_cf" \
-sc="sc-im" \
-g="git" \
-ls='ls --color=auto' \
-l='ls' \
-la="ls -a" \
-lk='ls -a | cut -c1-20 | column -c "${COLUMNS:-80}"' \
-ll="ls -l" \
-py="python3" \
-pym="python3 manage.py" \
-v="source vpwd_nvim" \
-ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
-z="zathura" \
-torr="transmission-remote-cli" \
 LG="clear && echo "" && ls | grep" \
-vs="source vs" \
+activate="source bin/activate" \
+cf="source vpwd_cf" \
+cp="cpg -g" \
 emerge="doas emerge" \
 eselect="doas eselect" \
-up="doas up" \
-vw="v $RICE_NOTES_DIR/index.mdox" \
-cp="cpg -g" \
+g="git" \
+gc="git clone" \
+jj="cd ~/wk/sarrost-software/client/one-world/wk/one-world-web && l" \
+l='ls' \
+la="ls -a" \
+f="source vpwd_lf" \
+lk='ls -a | cut -c1-20 | column -c "${COLUMNS:-80}"' \
+ll="ls -l" \
+ls='ls --color=auto' \
+lxa="lxmk; lxin; lxgr" \
+lxgr="doas grub-mkconfig -o /boot/grub/grub.cfg" \
+lxin="doas make install && doas make modules_install" \
+lxmk="doas make -j$(nproc) && doas make -j$(nproc) modules" \
 mv="mvg -g" \
 n="source n" \
+py="python3" \
+pym="python3 manage.py" \
+sc="sc-im" \
+t="task" \
+torr="transmission-remote-cli" \
+up="doas up" \
+v="nvim" \
+vs="vs" \
+vw="v $RICE_NOTES_DIR/index.mdox" \
+ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
+z="zathura" \

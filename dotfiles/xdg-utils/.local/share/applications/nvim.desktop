@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+Exec=st -e vim %F

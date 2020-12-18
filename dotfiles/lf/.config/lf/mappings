@@ -1,0 +1,30 @@
+#〖愛〗lf mappings file
+# vi:ft=conf
+
+# Unmap
+map zh
+map zn
+map gh
+map r
+
+# Toggle hidden files.
+map . set hidden!
+# Show no item info
+map zz set info
+# Trash items
+map D trash
+# Toggle selection
+map <c-j> :toggle; down
+map <c-k> :toggle; up
+# FZF
+map <space> fzf
+map <backspace> fzf-home
+# Symlink
+map al symlink
+map af symlink-force
+# Clear buffer
+map c clear-wrapper
+# Quit
+map <c-f> quit
+# Rename files
+map r vi-rename

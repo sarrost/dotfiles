@@ -1,0 +1,94 @@
+#〖愛〗lf commands file
+# vi:ft=conf
+
+# Run on changing dir
+cmd on-cd &{{
+	# display git repository status in your prompt
+	source /usr/share/git/git-prompt.sh
+	GIT_PS1_SHOWDIRTYSTATE=auto
+	GIT_PS1_SHOWSTASHSTATE=auto
+	GIT_PS1_SHOWUNTRACKEDFILES=auto
+	GIT_PS1_SHOWUPSTREAM=auto
+	git=$(__git_ps1 "[%s]") || true
+	fmt="\033[1;38;5;51m[\033[38;5;39m%u\033[38;5;51m@\033[38;5;39m%h\033[38;5;51m] \033[1;38;5;50m$git \033[0;38;5;49m%w\033[38;5;48m%f\033[0m"
+	lfp -remote "send $id set promptfmt \"$fmt\""
+	# update vpwd
+	vpwd "$PWD"
+}}
+
+# How to open files
+cmd open ${{
+	case $(file --mime-type "$f" -b) in
+		text/*) nvim $fx;;
+		video/*) mpv $fx;;
+		application/pdf) zathura "$f";;
+		*) for f in $fx; do 
+				xdg-open "$f" &>/dev/null & 
+			done
+			;;
+	esac
+}}
+
+# FZF
+cmd fzf ${{
+	DIR=$(fd -t d | fzf)
+	[ -z "$DIR" ] || lf -remote "send $id cd '$DIR'"
+}}
+cmd fzf-home ${{
+	DIR=$(fd -t d . "$HOME" | fzf)
+	[ -z "$DIR" ] || lf -remote "send $id cd '$DIR'"
+}}
+
+# Trash items
+cmd trash &{{
+	load=$(lf -remote 'load')
+	list=$(echo "$load" | sed '1d')
+	if [ -z "$list" ]; then
+		lf -remote "send $id echo 'No files in buffer.'"
+	else
+		lf -remote "send $id echo 'Trashing files...'"
+		trash-put $list
+		lf -remote 'send load'
+		lf -remote 'send clear'
+		lf -remote "send $id reload"
+		lf -remote "send $id echo 'Trashing files... Done.'"
+	fi
+}}
+
+# Create symlinks
+cmd symlink &{{
+	load=$(lf -remote 'load')
+	list=$(echo "$load" | sed '1d')
+	if [ -z "$list" ]; then
+		lf -remote "send $id echo 'No files in buffer.'"
+	else
+		ln -s $list "$PWD"
+		lf -remote 'send load'
+		lf -remote 'send clear'
+	fi
+}}
+cmd symlink-force &{{
+	load=$(lf -remote 'load')
+	list=$(echo "$load" | sed '1d')
+	if [ -z "$list" ]; then
+		lf -remote "send $id echo 'No files in buffer.'"
+	else
+		ln -sf $list "$PWD"
+		lf -remote 'send load'
+		lf -remote 'send clear'
+	fi
+}}
+
+# Clear buffers
+cmd clear-wrapper :{{
+	clear
+	echo 'Cleared buffer.'
+}}
+
+# Rename files using editor
+cmd vi-rename ${{
+	vimv $fx
+	lf -remote "send $id echo '$(cat /tmp/.vimv-latest)'"
+	lf -remote 'send load'
+	lf -remote 'send clear'
+}}

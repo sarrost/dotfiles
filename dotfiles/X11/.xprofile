@@ -6,6 +6,10 @@
 # session--before the window manager is started. Start 
 # daemons and run commands/scripts here.
 
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
+# xrandr --dpi 96
+
 # Daemons and other.
 dunst &									# notifications with 'dunst'
 compton &								# window compositor
@@ -13,22 +17,20 @@ transmission-daemon &		# start torrent daemon
 unclutter &							# hide mouse when not needed
 clipmenud &
 mpd &                   # music player daemon
-mpdtrig &
-cleanempty &						# remove empty directories and files
+mpd_trigger localhost -p 6600 -e "pkill -RTMIN+17 dwmblocks" &
+# cleanempty &						# remove empty directories and files
 genpreviews "$HOME" &
 
-# Needed for st to work properly
-xrdb -load ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
-
-## # Input method
-## export GTK_IM_MODULE=fcitx
-## export QT_IM_MODULE=fcitx
-## export XMODIFIERS="@im=fcitx"
-## export XMODIFIER="@im=fcitx"
-## fcitx & 
-
+# Input method
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+export XMODIFIER="@im=fcitx"
 # Remap certain keys
-remapkeys &
+(fcitx; sleep 3 && remapkeys) & 
 
 # Set wallpaper
 setwallpaper &
+
+# Needed for st to work properly
+xrdb -load ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
