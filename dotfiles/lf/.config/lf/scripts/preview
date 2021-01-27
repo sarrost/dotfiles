@@ -1,10 +1,10 @@
 #!/bin/sh
 
 # Ueberzug image viewer script
-IMAGE=$HOME/.config/lf/scripts/draw
+IMAGE="$XDG_CONFIG_HOME"/lf/scripts/draw
 
 # Clear the last preview (if any)
-. ~/.config/lf/scripts/clear
+. "$XDG_CONFIG_HOME"/lf/scripts/clear
 
 # Calculate where the image should be placed on the screen.
 X=$(printf "%0.f\n" "`echo "$(tput cols) / 2 + 1" | bc`")
@@ -22,11 +22,21 @@ case "$1" in
 	*.tar.bz2|*.tbz2) tar tjf "$1";;
 	*.tar.txz|*.txz) xz --list "$1";;
 	*.tar) tar tf "$1";;
-	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1";;
 	*.rar) unrar l "$1";;
 	*.7z) 7z l "$1";;
 	*.o) nm "$1" | less ;;
 	*.torrent) transmission-show "$1";;
+	*.zip|*.jar) bsdtar tf "$1" ;;
+	*.mp3|*.opus) 
+		audioinfo "$1"
+		FILE=$(ls "$DIR"/cover.* | head -n 1)
+		if [ -z "$FILE" ]; then
+			p="$PWD"; cd "$DIR"; cd ..; P_DIR="$PWD"; cd "$p"
+			FILE=$(ls "$P_DIR"/cover.* | head -n 1)
+		fi
+		[ -z "$FILE" ] ||
+		"$IMAGE" "$FILE" "$X" "$((Y + 9))" "$MAX_WIDTH" "$((MAX_HEIGHT - 9))"
+		;;
 	*.pdf)
 		[ ! -d "${THUMB_DIR}$DIR" ] && mkdir -p "${THUMB_DIR}$DIR"
 		[ ! -f "${THUMB_DIR}$FILE.jpg" ] && 
@@ -51,6 +61,6 @@ case "$1" in
 		FILE="${THUMB_DIR}$FILE.png" 
 		"$IMAGE" "$FILE" "$X" "$Y" "$MAX_WIDTH" "$MAX_HEIGHT"
 		;;
-	*) highlight --out-format ansi "$1" || cat "$1";;
+	*) pistol "$1";;
 esac
 exit 1

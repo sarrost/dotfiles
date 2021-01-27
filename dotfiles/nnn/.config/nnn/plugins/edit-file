@@ -1,5 +1,0 @@
-#!/bin/sh
-
-printf "edit : "
-read -r file
-"$EDITOR" "$file"

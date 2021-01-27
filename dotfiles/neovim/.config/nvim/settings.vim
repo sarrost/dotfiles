@@ -6,18 +6,18 @@
 " are sourced at the end of this file.
 
 set clipboard+=unnamedplus		" always use clipboard instead of + and * regs
-let g:clipboard = {
-	\	'name': 'xsel_override',
-	\	'copy': {
-	\		'+': 'xsel --input --clipboard',
-	\	 	'*': 'xsel --input --primary',
-	\	 },
-	\	'paste': {
-	\		'+': 'xsel --output --clipboard',
-	\		'*': 'xsel --output --primary',
-	\	},
-	\	'cache_enabled': 1,
-	\	}
+" let g:clipboard = {
+" 	\	'name': 'xsel_override',
+" 	\	'copy': {
+" 	\		'+': 'xsel --input --clipboard',
+" 	\	 	'*': 'xsel --input --primary',
+" 	\	 },
+" 	\	'paste': {
+" 	\		'+': 'xsel --output --clipboard',
+" 	\		'*': 'xsel --output --primary',
+" 	\	},
+" 	\	'cache_enabled': 1,
+" 	\	}
 set cmdheight=2								" give more space for displaying messages
 set cursorline								" enable hilighting for line with cursor
 set diffopt+=vertical,foldcolumn:1						" diff mode options

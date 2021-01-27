@@ -19,13 +19,25 @@ cmd on-cd &{{
 # How to open files
 cmd open ${{
 	case $(file --mime-type "$f" -b) in
-		text/*) nvim $fx;;
+		text/*|application/json) nvim $fx;;
 		video/*) mpv $fx;;
 		application/pdf) zathura "$f";;
+		application/zip|application/gzip|application/x-tar|application/x-archive|application/x-bzip) 
+			amount "$f" &
+			lf -remote "send $id cd '/media/$(whoami)/archive$f'"
+			;;
 		*) for f in $fx; do 
 				xdg-open "$f" &>/dev/null & 
 			done
 			;;
+	esac
+}}
+
+# Edit files
+map e ${{
+	case $(file --mime-type "$f" -b) in
+		image/*) gimp $fx ;;
+		*) "$EDITOR" $fx ;;
 	esac
 }}
 
@@ -37,6 +49,10 @@ cmd fzf ${{
 cmd fzf-home ${{
 	DIR=$(fd -t d . "$HOME" | fzf)
 	[ -z "$DIR" ] || lf -remote "send $id cd '$DIR'"
+}}
+cmd fzf-edit ${{
+	FILES=$(fd -t f | fzf)
+	[ -z "$FILES" ] || "$EDITOR" "$FILES"
 }}
 
 # Trash items
@@ -50,7 +66,6 @@ cmd trash &{{
 		trash-put $list
 		lf -remote 'send load'
 		lf -remote 'send clear'
-		lf -remote "send $id reload"
 		lf -remote "send $id echo 'Trashing files... Done.'"
 	fi
 }}
@@ -87,8 +102,154 @@ cmd clear-wrapper :{{
 
 # Rename files using editor
 cmd vi-rename ${{
-	vimv $fx
+	# Get relative paths from abs paths
+	while IFS= read -r FILE; do
+		REL=$(realpath --relative-to="${PWD}" "$FILE")
+		if [ -z "$FX" ]; then
+			FX=$(echo -e "${REL}")
+		else
+			FX=$(echo -e "${FX}\n${REL}")
+		fi
+	done <<< "$fx"
+	vimv $FX
 	lf -remote "send $id echo '$(cat /tmp/.vimv-latest)'"
 	lf -remote 'send load'
 	lf -remote 'send clear'
+}}
+
+# Create dirs
+cmd mkdir %{{
+	printf "mkdir: " && read -r DIR
+	mkdir -p "$DIR" &&
+	echo "Successfully created dir: $DIR"
+}}
+
+# Touch files
+cmd touch-select &{{
+	if [ -z "$fx" ]; then
+		lf -remote "send $id echo 'No files selected.'"
+	else
+		lf -remote "send $id echo 'Touching files...'"
+		touch $fx
+		lf -remote "send $id load"
+	fi
+}}
+cmd touch-prompt %{{
+	printf "touch: " && read -r FILES
+	touch "$FILES" &&
+	echo "Touched: $FILES"
+}}
+
+# Set wallpaper
+cmd setwallpaper &setwallpaper "$f" 
+
+# Extract archives
+cmd extract &{{
+	( lf -remote "send $id echo 'Extracting files...'"
+		ext $fx &&
+		lf -remote "send $id load" &&
+		lf -remote "send $id echo 'Extracting files... Done.'"
+		notify-send "Done extracting files '$f ...'"
+	) & disown
+}}
+
+# Compress archives
+cmd compress ${{
+	# Get filename
+	printf "archive name: "
+	read -r OUT_FILE
+	# Get extension
+	EXT=$(printf "zip\ntar.gz" | fzf \
+		--layout=reverse \
+		--header='Choose archive method:'
+	)
+	# Get relative paths from abs paths
+	while IFS= read -r FILE; do
+		REL=$(realpath --relative-to="${PWD}" "$FILE")
+		FX=$(echo -e "${REL}\n${FX}")
+	done <<< "$fx"
+	while IFS= read -r FILE; do
+		notify-send 'a' "$FILE"
+	done <<< "$FX"
+	# Compress into archive
+	lf -remote "send $id echo 'Compressing files...'" 
+	(	compress -o "$OUT_FILE.$EXT" $FX &>/dev/null &&
+		lf -remote "send $id load"
+		lf -remote "send $id unselect"
+		lf -remote "send $id echo 'Compressing files... Done'" 
+	) & disown
+}}
+
+# Quick compress archives
+cmd compress-zip ${{
+	# Get filename
+	printf "zip archive name: "
+	read -r OUT_FILE
+	# Get relative paths from abs paths
+	while IFS= read -r FILE; do
+		REL=$(realpath --relative-to="${PWD}" "$FILE")
+		FX=$(echo -e "${REL}\n${FX}")
+	done <<< "$fx"
+	while IFS= read -r FILE; do
+		notify-send 'a' "$FILE"
+	done <<< "$FX"
+	# Compress into archive
+	lf -remote "send $id echo 'Compressing files...'" 
+	(	compress -o "$OUT_FILE.zip" $FX &>/dev/null &&
+		lf -remote "send $id load"
+		lf -remote "send $id unselect"
+		lf -remote "send $id echo 'Compressing files... Done'" 
+	) & disown
+}}
+cmd compress-tar ${{
+	# Get filename
+	printf "tar archive name: "
+	read -r OUT_FILE
+	# Get relative paths from abs paths
+	while IFS= read -r FILE; do
+		REL=$(realpath --relative-to="${PWD}" "$FILE")
+		FX=$(echo -e "${REL}\n${FX}")
+	done <<< "$fx"
+	while IFS= read -r FILE; do
+		notify-send 'a' "$FILE"
+	done <<< "$FX"
+	# Compress into archive
+	lf -remote "send $id echo 'Compressing files...'" 
+	(	compress -o "$OUT_FILE.tar.gz" $FX &>/dev/null &&
+		lf -remote "send $id load"
+		lf -remote "send $id unselect"
+		lf -remote "send $id echo 'Compressing files... Done'" 
+	) & disown
+}}
+
+# Overwrite updir to support mounting archives
+cmd updir-wrapper &{{
+	case "$PWD" in
+		/media/*/archive/**/*.tar.gz|/media/*/archive/**/*.zip) 
+			# Get full path to archive
+			DIR="${PWD#/media/*/archive}"
+			# Get path to dir of archive
+			DIR="${DIR%/*}"
+			lf -remote "send $id cd '$DIR'"
+			;;
+		*) lf -remote "send $id cd .."
+	esac
+}}
+
+cmd pwdclipboard &pwdclipboard
+cmd pwdclipboard-file &pwdclipboard $f 
+
+cmd chmod ${{
+	(	chmod_fzf $fx
+		lf -remote "send $id load"
+		lf -remote "send $id unselect"
+		lf -remote "send $id echo 'Chmod files... Done'" 
+	) & disown
+}}
+cmd chmod-recursive ${{
+	(	chmod_fzf -r $fx
+		lf -remote "send $id load"
+		lf -remote "send $id unselect"
+		lf -remote "send $id echo 'Chmod files... Done'" 
+	) & disown
 }}

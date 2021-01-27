@@ -38,3 +38,9 @@ vs="vs" \
 vw="v $RICE_NOTES_DIR/index.mdox" \
 ydv="youtube-dl -i --add-metadata -o '[%(upload_date)s] %(title)s.%(ext)s'" \
 z="zathura" \
+bbb="bitcoin-chart-cli -w 60 -d 7" \
+btt="bitcoin-chart-cli -w 60 -h 12 -d 30" \
+btc="bitcoin-chart-cli -w 60 -h 12 -d 90" \
+
+
+

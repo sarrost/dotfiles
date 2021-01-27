@@ -1,25 +1,39 @@
 #〖愛〗per-package control of USE flags
 
-x11-misc/xwallpaper jpeg png
-x11-misc/dunst dunstify
 app-crypt/pinentry gtk
-media-video/ffmpeg x264
-media-video/ffmpegthumbnailer png
-media-sound/audacity ffmpeg
+app-i18n/fcitx gtk2
+app-i18n/mozc fcitx4
+app-text/texlive extra graphics
+dev-java/openjdk javafx
+dev-qt/qtgui jpeg
+dev-qt/qtxmlpatterns qml
+dev-texlive/* doc
 media-gfx/gimp webp
 media-gfx/imagemagick jpeg png truetype 
-app-text/texlive extra graphics
-dev-texlive/* doc
-dev-java/openjdk javafx
+media-sound/audacity ffmpeg
 media-sound/mpc doc
-# disable openssl
+media-video/ffmpeg x264
+media-video/ffmpegthumbnailer png
+media-video/mpv doc cuda
 net-libs/nodejs -system-ssl
+# x11-drivers/nvidia-drivers uvm
+x11-misc/dunst dunstify
+x11-misc/xwallpaper jpeg png
+# ?
+mail-mta/msmtp sasl
+net-mail/isync sasl
+mail-client/neomutt sasl
+app-portage/layman git
+app-emulation/virt-manager gtk
+app-emulation/qemu usbredir -alsa -pulseaudio -curl spice
+#app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
 
-# Try use latest python
+
+# # Try use latest python
 */* PYTHON_TARGETS: python2_7 python3_8
 */* PYTHON_SINGLE_TARGET: -* python3_8
-net-mail/notmuch PYTHON_TARGETS: -python3_8 python3_6
-net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
+# net-mail/notmuch PYTHON_TARGETS: -python3_9 python3_6
+# net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
 
 # required by net-misc/networkmanager-1.26.2::gentoo[-iwd,wifi]
 # required by @selected
@@ -252,3 +266,152 @@ net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
 # required by dev-lang/ruby-2.6.6-r2::gentoo
 # required by dev-ruby/bundler-2.1.4::gentoo[ruby_targets_ruby26]
 >=virtual/ruby-ssl-11 ruby_targets_ruby27
+# required by net-p2p/monero-0.17.1.1::monero
+# required by net-p2p/monero (argument)
+>=net-dns/unbound-1.12.0-r1 threads
+# required by dev-util/nvidia-cuda-sdk-10.2.89::gentoo[examples]
+# required by nvidia-cuda-sdk (argument)
+>=x11-drivers/nvidia-drivers-455.38 uvm
+# required by app-emulation/qemu-5.1.0-r1::gentoo[-static,static-user]
+# required by qemu (argument)
+>=dev-libs/glib-2.64.5 static-libs
+# required by app-emulation/qemu-5.1.0-r1::gentoo[-static,static-user]
+# required by qemu (argument)
+>=sys-libs/zlib-1.2.11-r3 static-libs
+# required by app-emulation/qemu-5.1.0-r1::gentoo[-static,static-user,xattr]
+# required by qemu (argument)
+>=sys-apps/attr-2.4.48-r4 static-libs
+# required by dev-libs/glib-2.64.5::gentoo
+# required by app-emulation/qemu-5.1.0-r1::gentoo[-static,static-user]
+# required by qemu (argument)
+>=dev-libs/libpcre-8.44 static-libs
+# required by app-editors/neovim-0.4.4::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-lua/mpack-1.0.8 luajit
+# required by www-client/chromium-87.0.4280.88::gentoo
+# required by www-client/chromium (argument)
+>=net-libs/nodejs-15.3.0 inspector
+# required by x11-libs/cairo-1.16.0-r4::gentoo
+# required by dev-python/pycairo-1.20.0::gentoo[-test]
+# required by dev-python/pygobject-3.38.0::gentoo[cairo]
+# required by net-misc/networkmanager-1.26.6::gentoo[-test,introspection]
+# required by @selected
+# required by @world (argument)
+>=media-libs/freetype-2.10.4 png
+# required by app-i18n/mozc-2.26.4220_p20201212102434_p20201219202429::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-cpp/abseil-cpp-20200923.2 cxx17
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.4::gentoo
+# required by app-crypt/pinentry-1.1.0-r3::gentoo[gnome-keyring]
+# required by @selected
+# required by @world (argument)
+>=app-crypt/gcr-3.36.0 gtk
+# required by gnome-base/gnome-keyring-3.36.0::gentoo
+# required by app-crypt/libsecret-0.20.4::gentoo
+# required by net-im/teams-1.3.00.30857::gentoo
+# required by teams (argument)
+>=app-crypt/pinentry-1.1.0-r3 gnome-keyring
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[virt-network]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=net-dns/dnsmasq-2.82-r100 script
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=dev-libs/libxml2-2.9.10-r4 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=x11-libs/pixman-0.40.0 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,aio]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=dev-libs/libaio-0.3.112 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,bzip2]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=app-arch/bzip2-1.0.8-r1 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,caps]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=sys-libs/libcap-ng-0.8.2-r1 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,curl]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=net-misc/curl-7.74.0-r2 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,fdt]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=sys-apps/dtc-1.6.0 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,ncurses]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=sys-libs/ncurses-6.2-r1 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[png,static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=media-libs/libpng-1.6.37-r2 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[seccomp,static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=sys-libs/libseccomp-2.4.4 static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,slirp]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=net-libs/libslirp-4.4.0 static-libs
+# required by net-misc/curl-7.74.0-r2::gentoo[openssl,-libressl,ssl]
+# required by app-emulation/qemu-5.2.0-r1::gentoo[static,curl]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=dev-libs/openssl-1.1.1i static-libs
+# required by app-emulation/qemu-5.2.0-r1::gentoo[jpeg,static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=virtual/jpeg-100 static-libs
+# required by virtual/jpeg-100::gentoo
+# required by app-emulation/qemu-5.2.0-r1::gentoo[jpeg,static]
+# required by app-emulation/libvirt-6.10.0-r2::gentoo[qemu]
+# required by app-emulation/libvirt-glib-3.0.0::gentoo
+# required by app-emulation/virt-manager-3.2.0::gentoo
+# required by app-emulation/virt-manager (argument)
+>=media-libs/libjpeg-turbo-2.0.6 static-libs
+# required by app-emulation/virt-manager-3.2.0::gentoo[gtk]
+# required by app-emulation/virt-manager (argument)
+>=net-misc/spice-gtk-0.38-r1 usbredir
+# required by app-emulation/qemu-5.1.0-r2::gentoo[xkb,static]
+# required by =app-emulation/qemu-5.1.0-r2 (argument)
+>=x11-libs/libxkbcommon-1.0.3 static-libs
+# required by dev-libs/libappindicator-12.10.0-r301::gentoo
+# required by net-p2p/lbry-9999::rice
+# required by lbry (argument)
+>=dev-libs/libdbusmenu-16.04.0-r1 gtk3

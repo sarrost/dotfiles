@@ -73,7 +73,116 @@ zstyle -e ':completion:*:approximate:*' \
 
 zstyle ':completion:*' squeeze-slashes true
 
-export LS_COLORS="di=36:ln=33:so=32:pi=32:ex=32:bd=32:cd=32:su=32:sg=32:tw=32:ow=32:"
+export LS_COLORS="rs=0:"`			# normal
+`"di=1;38;5;49:"`							#	dir
+`"ln=38;5;63:"`								# symlink
+`"mh=00:"`            	    	
+`"pi=38;5;201:"`							# pipe
+`"so=38;5;197:"`							# socket
+`"do=01;35:"`									# door
+`"bd=40;33;01:"`							# block device driver
+`"cd=40;33;01:"`							# character device driver
+`"or=40;31;01:"`							# orphan links
+`"su=37;41:"`									# setuid (u+s)
+`"sg=30;43:"`									# setuid (g+s)
+`"ca=30;41:"`	        	    	
+`"tw=30;42:"`									# sticky other writable
+`"ow=34;42:"`									# other writable
+`"st=37;44:"`									# sticky (not other writable)
+`"ex=38;5;86:"`        	    	# executable
+`"*.htm=38;5;195:"`						# HTML
+`"*.html=38;5;195:"`
+`"*.md=38;5;27:"`							# Markdown
+`"*.mdox=38;5;27:"`						# VimWiki
+`"*.js=38;5;32:"`							# Javascript
+`"*.json=38;5;32:"`
+`"*.py=38;5;202:"`						# Python
+`"*.pyc=38;5;172:"`
+`"*.cpp=38;5;82:"`						# C and C++
+`"*.c=38;5;82:"`
+`"*.h=38;5;84:"`
+`"*.mk=38;5;85:"`
+`"*.o=38;5;79:"`
+`"*.sh=38;5;87:"`							# Shell scripting
+`"*.conf=38;5;195:"`
+`"*.ini=38;5;195:"`
+`"*.css=38;5;195:"`
+`"*.sqlite3=38;5;195:"`
+`"*.tex=38;5;195:"`
+`"*.log=38;5;195:"`
+`"*.sc=38;5;195:*.srt=38;5;195:"`
+`"*.zip=1;38;5;47:"`					# archives	
+`"*.tar=1;38;5;83:*.tgz=1;38;5;83:*.gz=1;38;5;83:*.bz2=1;38;5;83:*.tb2=1;38;5;83:*.lz=1;38;5;83:*.tbz=1;38;5;83:*.tbz2=1;38;5;83:*.tz=1;38;5;83:*.tz2=1;38;5;83:*.lzma=1;38;5;83:*.tlz=1;38;5;83:*.lzo=1;38;5;83:*.xz=1;38;5;83:*.Z=1;38;5;83:*.tZ=1;38;5;83:*.taZ=1;38;5;83:*.zst=1;38;5;83:*.tzst=1;38;5;83:"`	
+`"*.arj=1;38;5;40:"`	
+`"*.taz=1;38;5;40:"`	
+`"*.lzh=1;38;5;40:"`	
+`"*.txz=1;38;5;40:"`	
+`"*.z=1;38;5;40:"`	
+`"*.dz=1;38;5;40:"`	
+`"*.bz=1;38;5;40:"`	
+`"*.deb=1;38;5;40:"`	
+`"*.rpm=1;38;5;40:"`	
+`"*.jar=1;38;5;40:"`	
+`"*.rar=1;38;5;40:"`	
+`"*.ace=1;38;5;40:"`	
+`"*.zoo=1;38;5;40:"`	
+`"*.cpio=1;38;5;40:"`	
+`"*.7z=1;38;5;40:"`	
+`"*.rz=1;38;5;40:"`	
+`"*.png=38;5;99:"`						# images	
+`"*.jpg=38;5;97:*.jpeg=38;5;97:"`	
+`"*.svg=38;5;103:*.svgz=38;5;103:"`	
+`"*.gif=38;5;91:"`	
+`"*.bmp=38;5;99:"`	
+`"*.xcf=38;5;57:"`	
+`"*.ico=38;5;111:"`	
+`"*.pbm=38;5;99:"`	
+`"*.pgm=38;5;99:"`	
+`"*.ppm=38;5;99:"`	
+`"*.tga=38;5;99:"`	
+`"*.xbm=38;5;99:"`	
+`"*.xpm=38;5;99:"`	
+`"*.tif=38;5;99:"`	
+`"*.tiff=38;5;99:"`	
+`"*.mng=38;5;99:"`	
+`"*.pcx=38;5;99:"`	
+`"*.emf=38;5;99:"`	
+`"*.cgm=38;5;99:"`	
+`"*.xwd=38;5;99:"`	
+`"*.mkv=38;5;93:"`						# video	
+`"*.mp4=38;5;91:"`	
+`"*.mov=38;5;90:"`
+`"*.mpg=38;5;90:"`	
+`"*.mpeg=38;5;90:"`	
+`"*.m2v=38;5;90:"`	
+`"*.ogm=38;5;90:"`	
+`"*.m4v=38;5;90:"`	
+`"*.mp4v=38;5;90:"`	
+`"*.vob=38;5;90:"`	
+`"*.qt=38;5;90:"`	
+`"*.nuv=38;5;90:"`	
+`"*.wmv=38;5;90:"`	
+`"*.asf=38;5;90:"`	
+`"*.rm=38;5;90:"`	
+`"*.rmvb=38;5;90:"`	
+`"*.flc=38;5;90:"`	
+`"*.avi=38;5;90:"`	
+`"*.fli=38;5;90:"`	
+`"*.flv=38;5;90:"`	
+`"*.gl=38;5;90:"`	
+`"*.axv=38;5;90:"`	
+`"*.yuv=38;5;90:"`	
+`"*.mp3=38;5;207:"`						# audio	
+`"*.opus=38;5;206:"`	
+`"*.flac=38;5;205:"`	
+`"*.m4a=38;5;204:"`	
+`"*.aac=38;5;203:"`	
+`"*.ogv=38;5;207:*.ogx=38;5;207:*.au=38;5;207:*.mid=38;5;207:*.midi=38;5;207:*.mka=38;5;207:*.mpc=38;5;207:*.ogg=38;5;207:*.ra=38;5;207:*.wav=38;5;207:*.axa=38;5;207:*.oga=38;5;207:*.spx=38;5;207:*.xspf=38;5;207:"`
+`"*.pdf=38;5;51:"`						# documents
+`"*.djvu=38;5;51:"`
+`"*.epub=38;5;51:"`
+`"*.docx=38;5;116:"`
+`"*.anx=38;5;51:"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # partial completion suggestions
@@ -105,12 +214,13 @@ bindkey '^Z' fancy-ctrl-z
 #-----------------------------------------------------------
 ### FZF
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow'
-export FZF_DEFAULT_OPTS="--color='hl:48,hl+:50,bg+:234,gutter:-1,pointer:49,marker:50,info:51,prompt:47'"
+export FZF_DEFAULT_OPTS="--reverse --color='hl:48,hl+:50,bg+:234,gutter:-1,pointer:49,marker:50,info:51,prompt:47'"
 # Auto-completion
 [[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
 # Key bindings
 source "/usr/share/fzf/key-bindings.zsh"
 bindkey '^O' fzf-cd-widget
+bindkey -s "^B" "edit_fzf\n"
 
 #-----------------------------------------------------------
 ### General key bindings

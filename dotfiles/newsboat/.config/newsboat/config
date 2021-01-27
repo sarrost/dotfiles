@@ -1,0 +1,38 @@
+auto-reload yes
+show-keymap-hint no
+
+# Unmap old key bindings
+unbind-key ENTER
+unbind-key ^T
+unbind-key DOWN
+unbind-key UP
+unbind-key PPAGE
+unbind-key NPAGE
+unbind-key HOME
+unbind-key END
+
+# Map new key bindings
+## Movement
+bind-key l open
+bind-key j down
+bind-key k up
+bind-key J next-feed
+bind-key K prev-feed
+bind-key ^J next
+bind-key ^K prev
+bind-key h quit
+bind-key . toggle-show-read-feeds
+bind-key g home
+bind-key G end
+bind-key ^D pagedown
+bind-key ^U pageup
+## Actions
+bind-key T clear-tag
+
+# Colors
+color article color254 default		# article text
+color info color49 color232 bold	# info bars on top/bottom
+color listfocus color48 default		# current item
+color listfocus_unread color48 default bold
+color listnormal color244 default	# normal list item
+search-highlight-colors color0 color47

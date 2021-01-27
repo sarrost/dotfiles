@@ -11,5 +11,12 @@ mkfifo "$FIFO_UEBERZUG"
 trap cleanup EXIT
 tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser bash &
 
+
+# Create global var file if not exist
+DIR=/tmp/.lf/var
+FILE="$DIR/$TERM_ID"
+[ -d "$DIR" ] || mkdir -p $DIR
+[ -f "$FILE" ] || touch "$FILE"
+
 vpwd
 lfp "$@"

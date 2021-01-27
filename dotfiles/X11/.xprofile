@@ -18,8 +18,9 @@ unclutter &							# hide mouse when not needed
 clipmenud &
 mpd &                   # music player daemon
 mpd_trigger localhost -p 6600 -e "pkill -RTMIN+17 dwmblocks" &
-# cleanempty &						# remove empty directories and files
+cleanempty &						# remove empty directories and files
 genpreviews "$HOME" &
+rm -rf /media/$(whoami)/archive/* &		# cleanup dir
 
 # Input method
 export GTK_IM_MODULE=fcitx
@@ -32,5 +33,10 @@ export XMODIFIER="@im=fcitx"
 # Set wallpaper
 setwallpaper &
 
+# For some reason I can't get udev rules to work, compromise
+(doas chmod g+rw /dev/fuse
+doas chgrp fuse /dev/fuse) &
+
 # Needed for st to work properly
 xrdb -load ${XDG_CONFIG_HOME:-$HOME/.config}/X11/xresources
+

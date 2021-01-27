@@ -12,7 +12,7 @@ add_to_path "$HOME/.local/bin"
 # Programs
 export BROWSER="firefox"
 export EDITOR="nvim"
-export FILE_BROWSER="lf"
+export FILE_BROWSER="f"
 export VPWD_FILE_BROWSER="source vpwd_lf"
 export MANPAGER='nvim +Man!'
 export MANWIDTH=999
@@ -30,7 +30,6 @@ export RICE_SCRIPTS_DIR="$RICE_REPO_DIR/scripts/scripts"
 export RICE_DOTFILES_DIR="$RICE_REPO_DIR/dt"
 add_to_path "$RICE_SCRIPTS_DIR"
 export RICE_MEDIA_DIR="$HOME/md"
-export RICE_AUDIO_DIR="$HOME/au"
 export RICE_WORK_DIR="$HOME/wk"
 # XDG
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -49,8 +48,11 @@ export XDG_MUSIC_DIR="$RICE_MEDIA_DIR/ms"
 export XDG_VIDEOS_DIR="$RICE_MEDIA_DIR/vd"
 export RICE_ANIME_DIR="$RICE_MEDIA_DIR/an"
 export RICE_ARTICLES_DIR="$RICE_MEDIA_DIR/article"
+export RICE_AUDIO_DIR="$RICE_MEDIA_DIR/au"
 export RICE_GAMES_DIR="$RICE_MEDIA_DIR/game"
 export RICE_LIBRARY_DIR="$RICE_MEDIA_DIR/li"
+export RICE_MOVIE_DIR="$RICE_MEDIA_DIR/mv"
+export RICE_TV_DIR="$RICE_MEDIA_DIR/tv"
 # Images
 export XDG_PICTURES_DIR="$RICE_MEDIA_DIR/pc"
 export RICE_SCREENSHOT_DIR="$XDG_PICTURES_DIR/sc"
@@ -76,6 +78,7 @@ export PYTHONSTARTUP=~/.config/python/pythonrc
 export GOPATH="$XDG_DATA_HOME"/go
 add_to_path "$GOPATH/bin"
 
+export RICE_CSS_FONTS_DIR="$RICE_REPO_DIR"/css-fonts
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 # remapkeys

@@ -6,6 +6,8 @@ map zh
 map zn
 map gh
 map r
+map m
+map c
 
 # Toggle hidden files.
 map . set hidden!
@@ -19,12 +21,36 @@ map <c-k> :toggle; up
 # FZF
 map <space> fzf
 map <backspace> fzf-home
+map <c-b> fzf-edit
+# map <c-n> fzf-open
 # Symlink
 map al symlink
 map af symlink-force
 # Clear buffer
-map c clear-wrapper
+map C clear-wrapper
 # Quit
 map <c-f> quit
 # Rename files
 map r vi-rename
+# Craete dirs
+map mk mkdir
+# Touch files
+map ts touch-select
+# Create file
+map tp touch-prompt
+# Go up dir
+map h updir-wrapper
+# Extract/compress archives
+map x extract
+map X compress
+map Z compress-zip
+map T compress-tar
+# Set wallpaper
+map sw setwallpaper
+# Get full path of file/dir
+map <c-p> pwdclipboard
+map <a-p> pwdclipboard-file
+# Chmod/chown
+map cm chmod
+map cM chmod-recursive
+# co/ch

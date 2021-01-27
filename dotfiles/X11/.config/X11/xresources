@@ -1,17 +1,18 @@
 !〖愛〗Xresources configuration file.
+! vi:ft=xdefaults
 !
 ! This file is used to configure X resources such as,
 ! terminal settings, X font settings, Xcursor theme,
 ! XScreenSaver theme, and low level X applications, etc.
 
 ! Cursor theme
-Xcursor.theme: Oxyb
+Xcursor.theme: DragonCursors
 
 !-----------------------------------------------------------
 ! Terminal
 !-----------------------------------------------------------
 ! Font settings
-st.font: SauceCodePro Nerd Font Mono:pixelsize=22:antialias=true:autohint=true;
+/* st.font: SauceCodePro Nerd Font Mono:pixelsize=22:antialias=true:autohint=true; */
 st.termname: st-256color
 
 ! padding
@@ -33,30 +34,30 @@ st.borderpx: 10
 !6 Cyan      14 Cyan
 !7 White     15 White
 
-*background: black
-*foreground: white
-*cursorColor: white
+*.background: black
+*.foreground: white
+*.cursorColor: white
 
-*color0: #000000
-*color8: #585858
+*.color0: #000000
+*.color8: #585858
 
-*color1: #12d1db
-*color9: #12d1db
+*.color1: #12d1db
+*.color9: #12d1db
 
-*color2: #4286ab
-*color10: #4286ab
+*.color2: #4286ab
+*.color10: #4286ab
 
-*color3: #002a94
-*color11: #002a94
+*.color3: #002a94
+*.color11: #002a94
 
-*color4: #0b70b3
-*color12: #0b70b3
+*.color4: #0b70b3
+*.color12: #0b70b3
 
-*color5: #4aa18d
-*color13: #4aa18d
+*.color5: #4aa18d
+*.color13: #4aa18d
 
-*color6: #09e8a5
-*color14: #09e8a5
+*.color6: #09e8a5
+*.color14: #09e8a5
 
-*color7: #d8d8d8
-*color15: #f8f8f8
+*.color7: #d8d8d8
+*.color15: #f8f8f8

@@ -1,7 +1,7 @@
 #〖愛〗prevent certain packages from being installed
 
-dev-libs/openssl
-
 # TODO: retest
 # xwallpaper has bugs on this version
 >=sys-libs/libseccomp-2.5.0
+# Stay on current kernel
+>sys-kernel/gentoo-sources-5.10.6

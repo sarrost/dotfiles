@@ -55,9 +55,10 @@ Plug 'haya14busa/vim-asterisk'              " fancier star Searching
 Plug 'markonm/traces.vim'										" highlights patterns and ranges
 Plug 'junegunn/vim-slash'										" clear highlighting on move
 Plug 'justinmk/vim-sneak'										" two letter search motion
-Plug 'lambdalisue/suda.vim'
+" Plug 'lambdalisue/suda.vim'
 
-Plug 'mcchrish/nnn.vim'
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
 "	Plug 'glts/vim-magnum'											" ✓ big int library
 " Plug 'glts/vim-radical'											" ✓ convert between number representations
 " Plug 'svermeulen/vim-macrobatics'           " ✓ provide improved macro functionality
@@ -74,6 +75,8 @@ Plug 'mcchrish/nnn.vim'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Plug 'tpope/vim-unimpaired'
 " Plug 'sedm0784/vim-you-autocorrect'
+
+" Plug 'skamsie/vim-lineletters'
 
 call plug#end()
 
