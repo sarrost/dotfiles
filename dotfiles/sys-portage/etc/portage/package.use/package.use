@@ -1,10 +1,12 @@
 #〖愛〗per-package control of USE flags
 
-app-crypt/pinentry gtk
+dev-lang/php curl
+app-crypt/pinentry qt5
 app-i18n/fcitx gtk2
 app-i18n/mozc fcitx4
 app-text/texlive extra graphics
 dev-java/openjdk javafx
+#dev-java/openjdk-bin gentoo-vm
 dev-qt/qtgui jpeg
 dev-qt/qtxmlpatterns qml
 dev-texlive/* doc
@@ -19,6 +21,7 @@ net-libs/nodejs -system-ssl
 # x11-drivers/nvidia-drivers uvm
 x11-misc/dunst dunstify
 x11-misc/xwallpaper jpeg png
+x11-misc/compton opengl
 # ?
 mail-mta/msmtp sasl
 net-mail/isync sasl
@@ -27,6 +30,11 @@ app-portage/layman git
 app-emulation/virt-manager gtk
 app-emulation/qemu usbredir -alsa -pulseaudio -curl spice
 #app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
+app-editors/neovim -lua_single_target_lua5-1 lua_single_target_luajit
+media-libs/mesa video_cards_intel video_cards_i965 video_cards_i915
+media-sound/pulseaudio dbus -bluetooth
+x11-misc/picom opengl
+sys-block/f3 extra
 
 
 # # Try use latest python
@@ -415,3 +423,109 @@ app-emulation/qemu usbredir -alsa -pulseaudio -curl spice
 # required by net-p2p/lbry-9999::rice
 # required by lbry (argument)
 >=dev-libs/libdbusmenu-16.04.0-r1 gtk3
+# required by app-editors/neovim-9999::gentoo
+# required by neovim (argument)
+>=dev-lua/luv-1.32.0.0-r102 -lua_single_target_lua5-1 lua_single_target_luajit
+# required by app-editors/neovim-9999::gentoo[lua_single_target_luajit]
+# required by @selected
+# required by @world (argument)
+>=dev-lua/lpeg-1.0.2-r101 lua_targets_luajit
+# required by app-editors/neovim-9999::gentoo[lua_single_target_luajit]
+# required by @selected
+# required by @world (argument)
+>=dev-lua/mpack-1.0.8-r100 lua_targets_luajit
+
+# required by x11-drivers/xf86-video-intel-2.99.917_p20201215::gentoo
+# required by xf86-video-intel (argument)
+>=x11-libs/libdrm-2.4.104 video_cards_intel
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/minitest-5.14.3 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/power_assert-1.2.0 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/rake-13.0.3-r1 ruby_targets_ruby30
+# required by dev-ruby/typeprof-0.12.0::gentoo[ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/rbs-1.0.4 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/rexml-3.2.4 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/rss-0.2.9 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/test-unit-3.4.0 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/typeprof-0.12.0 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/bundler-2.2.8 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/did_you_mean-1.5.0 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/json-2.5.1-r1 ruby_targets_ruby30
+# required by dev-lang/ruby-3.0.0-r1::gentoo[rdoc]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/kpeg-1.1.0-r1::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/rdoc-6.3.0 ruby_targets_ruby30
+# required by dev-ruby/rdoc-6.3.0::gentoo[ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo[rdoc]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/did_you_mean-1.5.0::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/kpeg-1.1.0-r1 ruby_targets_ruby30
+# required by dev-ruby/rdoc-6.3.0::gentoo[ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo[rdoc]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/kpeg-1.1.0-r1::gentoo[-test,ruby_targets_ruby30]
+>=dev-ruby/racc-1.5.2-r1 ruby_targets_ruby30
+# required by dev-ruby/did_you_mean-1.5.0::gentoo[-test,ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by dev-ruby/minitest-5.14.3::gentoo[ruby_targets_ruby30]
+>=virtual/rubygems-16 ruby_targets_ruby30
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by dev-ruby/minitest-5.14.3::gentoo[ruby_targets_ruby30]
+>=dev-ruby/rubygems-3.2.7 ruby_targets_ruby30
+# required by dev-ruby/rubygems-3.2.7::gentoo[ruby_targets_ruby30]
+# required by virtual/rubygems-16::gentoo[ruby_targets_ruby30]
+# required by dev-ruby/rdoc-6.3.0::gentoo[ruby_targets_ruby26,-test]
+# required by dev-ruby/bundler-2.2.8::gentoo[doc,ruby_targets_ruby30]
+# required by dev-lang/ruby-3.0.0-r1::gentoo
+# required by dev-ruby/did_you_mean-1.5.0::gentoo[ruby_targets_ruby30]
+# required by dev-lang/ruby-2.7.2::gentoo
+# required by dev-ruby/minitest-5.14.3::gentoo[ruby_targets_ruby27]
+# required by dev-lang/ruby-2.6.6-r2::gentoo
+# required by dev-ruby/power_assert-1.2.0::gentoo[ruby_targets_ruby26]
+# required by dev-ruby/test-unit-3.4.0::gentoo[ruby_targets_ruby27]
+>=virtual/ruby-ssl-11 ruby_targets_ruby30
+# required by www-client/qutebrowser-2.1.0::gentoo
+# required by qutebrowser (argument)
+>=dev-python/PyQt5-5.15.2 declarative sql opengl multimedia
+# required by dev-python/PyQt5-5.15.2::gentoo[multimedia]
+# required by www-client/qutebrowser-2.1.0::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtmultimedia-5.15.2 widgets
+# required by www-client/qutebrowser-2.2.0-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/PyQt5-5.15.2 dbus
+

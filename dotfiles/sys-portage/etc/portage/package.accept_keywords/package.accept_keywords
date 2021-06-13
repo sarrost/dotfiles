@@ -1,3 +1,5 @@
 #〖愛〗per-package definitions of ACCEPT_KEYWORDS statements
 
 */*::monero ~amd64
+~app-editors/neovim-9999 **
+~x11-misc/picom-9999 **

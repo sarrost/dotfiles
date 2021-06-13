@@ -33,7 +33,7 @@ help_msg() {
 
 # Update as necessary
 get_package() {
-	case "$ARG_PROGRAM" in
+	case "${arg_program}" in
 		compton) p="x11-misc/compton" ;;
 		dunst) p="x11-misc/dunst" ;;
 		neovim) p="app-editors/neovim"
@@ -50,64 +50,65 @@ get_package() {
 
 # Update as necessary
 custom_install() {
-	case "$ARG_PROGRAM" in
+	case "${arg_program}" in
 		neovim) echo "Doing custom install";;
 		test) echo "Doing custom install";;
 	esac
 }
 
-err_no_program() { printf "Error: no program specified.\n" && exit 1 ; }
-err_no_stow() { printf "Error: stow command not found. Install stow to continue.\n" && exit 1 ; }
-err_conflict() { printf "Error: conflicting actions.\n" && exit 1 ; }
+err_no_program() { printf "Error: no program specified.\\n" && exit 1 ; }
+err_no_stow() { printf "Error: stow command not found. Install stow to continue.\\n" && exit 1 ; }
+err_conflict() { printf "Error: conflicting actions.\\n" && exit 1 ; }
 
 deploy() {
-	stow --no-folding --restow -t "$TARGET_DIR" "$ARG_PROGRAM"
-	[ -z "$BOOL_VERBOSE" ] || printf "Deployed: $ARG_PROGRAM\n"
+	stow --no-folding --restow -t "${TARGET_DIR}" "${arg_program}"
+	[ -z "${bool_verbose}" ] || printf "Deployed: %s\\n" "${arg_program}"
 }
 
 install() {
 	# Install packages from package manager
-	PACKAGES="$(get_package)"
-	cmd='emerge -q "$PACKAGES"'
-	[ -z "$BOOL_SILENT" ] || cmd="$cmd &>/dev/null"
-	[ -z "$PACKAGES" ] || eval "$cmd"
+	packages="$(get_package)"
+	cmd="emerge -q ${packages}"
+	[ -z "${BOOL_SILENT}" ] || cmd="${cmd} &>/dev/null"
+	[ -z "${packages}" ] || eval "${cmd}"
 	# Install using custom cmd
 	cmd='custom_install'
-	[ -z "$BOOL_SILENT" ] || cmd="$cmd &>/dev/null"
-	eval "$cmd"
-	[ -z "$BOOL_VERBOSE" ] || printf "Installed: $ARG_PROGRAM\n"
+	[ -z "${BOOL_SILENT}" ] || cmd="$cmd &>/dev/null"
+	eval "${cmd}"
+	[ -z "${bool_verbose}" ] || printf "Installed: %s\\n" "${arg_program}"
 }
 
 recall() {
-	stow --delete -t "$TARGET_DIR" "$ARG_PROGRAM"
-	[ -z "$BOOL_VERBOSE" ] || printf "Recalled: $ARG_PROGRAM\n"
+	stow --delete -t "${TARGET_DIR}" "${arg_program}"
+	[ -z "${bool_verbose}" ] || printf "Recalled: %s\\n" "${arg_program}"
 }
 
 uninstall() {
-	PACKAGES="$(get_package "$ARG_PROGRAM")"
-	cmd='emerge --deselect -q "$PACKAGES"'
-	[ -z "$BOOL_SILENT" ] || cmd="$cmd &>/dev/null"
-	[ -z "$PACKAGES" ] || eval "$cmd"
-	[ -z "$BOOL_VERBOSE" ] || printf "Uninstalled: $ARG_PROGRAM\n"
+	packages="$(get_package "${arg_program}")"
+	cmd="emerge --deselect -q ${packages}"
+	[ -z "${BOOL_SILENT}" ] || cmd="${cmd} &>/dev/null"
+	[ -z "${packages}" ] || eval "${cmd}"
+	[ -z "${bool_verbose}" ] || printf "Uninstalled: %s\\n" "${arg_program}"
 }
 
 # Process Args
-OPTS=$(getopt -o IirRsvh \
+if OPTS=$(getopt -o IirRsvh \
 -l install-deploy,deploy,recall,uninstall-recall,silent,verbose,help \
--n 'parse-options' -- "$@")
+-n 'parse-options' -- "$@"); then
+	echo "Failed parsing options." >&2
+	exit 1
+fi
 
-if [ $? != 0 ] ; then echo "Failed parsing options." >&2 ; exit 1 ; fi
-
-eval set -- "$OPTS"
+eval set -- "${OPTS}"
 
 while true; do
 	case "$1" in
 		-I | --install-deploy ) BOOL_INSTALL=true; shift ;;
-		-i | --deploy ) BOOL_DEPLOY=true; shift ;;
+		-i | --deploy ) bool_deploy=true; shift ;;
 		-r | --recall ) BOOL_RECALL=true; shift ;;
-		-R | --uninstall-recall ) BOOL_UNINSTALL=true; shift ;;
+		-R | --uninstall-recall ) bool_uninstall=true; shift ;;
 		-s | --silent ) BOOL_SILENT=true; shift ;;
-		-v | --verbose ) BOOL_VERBOSE=true; shift ;;
+		-v | --verbose ) bool_verbose=true; shift ;;
 		-h | --help ) BOOL_HELP=true; shift ;;
 		-- ) shift; break ;;
 		* ) break ;;
@@ -115,30 +116,32 @@ while true; do
 done
 
 # Print help and exit
-[ ! -z "$BOOL_HELP" ] && help_msg
+[ -n "${BOOL_HELP}" ] && help_msg
 
 # Check if stow is installed
-command -v stow &>/dev/null || err_no_stow
+command -v stow >/dev/null 2>&1 || err_no_stow
 
 # Exit if no program arg is given
 [ -z "$1" ] && err_no_program
-ARG_PROGRAM="$1"
+arg_program="$1"
 
 # Determine target dir
-case "$ARG_PROGRAM" in
+case "${arg_program}" in
 	sys-*) TARGET_DIR=/ ;;
-	*) TARGET_DIR="$HOME" ;;
+	*) TARGET_DIR="${HOME}" ;;
 esac
 
 # Cannot deploy/install and recall/uninstall
-([ ! -z "$BOOL_INSTALL" ] || [ ! -z "$BOOL_DEPLOY" ]) && ([ ! -z "$BOOL_UNINSTALL" ] || [ ! -z "$BOOL_RECALL" ]) && err_conflict
+{ [ -n "${BOOL_INSTALL}" ] || [ -n "${bool_deploy}" ]; } && 
+	{ [ -n "${bool_uninstall}" ] || [ -n "${BOOL_RECALL}" ]; } && 
+	err_conflict
 
 # Main job
-if [ ! -z "$BOOL_INSTALL" ]; then
+if [ -n "${BOOL_INSTALL}" ]; then
 	install
-elif [ ! -z "$BOOL_UNINSTALL" ]; then
+elif [ -n "${bool_uninstall}" ]; then
 	uninstall
-elif [ ! -z "$BOOL_RECALL" ]; then
+elif [ -n "${BOOL_RECALL}" ]; then
 	recall
 else
 	deploy

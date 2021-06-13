@@ -1,5 +1,0 @@
-cross-aarch64-unknown-linux-gnu/binutils arm64 ~arm64 -amd64 -~amd64
-cross-aarch64-unknown-linux-gnu/gcc arm64 ~arm64 -amd64 -~amd64
-cross-aarch64-unknown-linux-gnu/linux-headers arm64 ~arm64 -amd64 -~amd64
-cross-aarch64-unknown-linux-gnu/glibc arm64 ~arm64 -amd64 -~amd64
-cross-aarch64-unknown-linux-gnu/gdb arm64 ~arm64 -amd64 -~amd64
