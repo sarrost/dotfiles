@@ -3,5 +3,5 @@
 # TODO: retest
 # xwallpaper has bugs on this version
 >=sys-libs/libseccomp-2.5.0
-# Stay on current kernel
->sys-kernel/gentoo-sources-5.10.6
+## Stay on current kernel
+#>sys-kernel/gentoo-sources-5.10.6
