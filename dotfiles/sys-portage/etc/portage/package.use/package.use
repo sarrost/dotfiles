@@ -1,10 +1,10 @@
 #〖愛〗per-package control of USE flags
 
-dev-lang/php curl
 app-crypt/pinentry qt5
 app-i18n/fcitx gtk2
 app-i18n/mozc fcitx4
 app-text/texlive extra graphics
+dev-lang/php curl
 dev-java/openjdk javafx
 #dev-java/openjdk-bin gentoo-vm
 dev-qt/qtgui jpeg
@@ -26,7 +26,6 @@ x11-misc/compton opengl
 mail-mta/msmtp sasl
 net-mail/isync sasl
 mail-client/neomutt sasl
-app-portage/layman git
 app-emulation/virt-manager gtk
 app-emulation/qemu usbredir -alsa -pulseaudio -curl spice
 #app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
@@ -43,10 +42,7 @@ sys-block/f3 extra
 # net-mail/notmuch PYTHON_TARGETS: -python3_9 python3_6
 # net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
 
-# required by net-misc/networkmanager-1.26.2::gentoo[-iwd,wifi]
-# required by @selected
-# required by @world (argument)
->=net-wireless/wpa_supplicant-2.9-r2 dbus
+
 # required by media-sound/ncmpcpp-0.8.2-r1::gentoo
 # required by @selected
 # required by @world (argument)
@@ -300,13 +296,13 @@ sys-block/f3 extra
 # required by www-client/chromium-87.0.4280.88::gentoo
 # required by www-client/chromium (argument)
 >=net-libs/nodejs-15.3.0 inspector
-# required by x11-libs/cairo-1.16.0-r4::gentoo
-# required by dev-python/pycairo-1.20.0::gentoo[-test]
-# required by dev-python/pygobject-3.38.0::gentoo[cairo]
-# required by net-misc/networkmanager-1.26.6::gentoo[-test,introspection]
-# required by @selected
-# required by @world (argument)
->=media-libs/freetype-2.10.4 png
+## required by x11-libs/cairo-1.16.0-r4::gentoo
+## required by dev-python/pycairo-1.20.0::gentoo[-test]
+## required by dev-python/pygobject-3.38.0::gentoo[cairo]
+## required by net-misc/networkmanager-1.26.6::gentoo[-test,introspection]
+## required by @selected
+## required by @world (argument)
+#>=media-libs/freetype-2.10.4 png
 # required by app-i18n/mozc-2.26.4220_p20201212102434_p20201219202429::gentoo
 # required by @selected
 # required by @world (argument)

@@ -1,0 +1,4 @@
+# required by net-misc/networkmanager-1.26.2::gentoo[-iwd,wifi]
+# required by @selected
+# required by @world (argument)
+>=net-wireless/wpa_supplicant-2.9-r2 dbus
