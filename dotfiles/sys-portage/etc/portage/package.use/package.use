@@ -27,7 +27,7 @@ mail-mta/msmtp sasl
 net-mail/isync sasl
 mail-client/neomutt sasl
 app-emulation/virt-manager gtk
-app-emulation/qemu usbredir -alsa -pulseaudio -curl spice
+app-emulation/qemu usbredir -alsa -pulseaudio -curl spice usb
 #app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
 app-editors/neovim -lua_single_target_lua5-1 lua_single_target_luajit
 media-libs/mesa video_cards_intel video_cards_i965 video_cards_i915
@@ -37,8 +37,8 @@ sys-block/f3 extra
 
 
 # # Try use latest python
-*/* PYTHON_TARGETS: python2_7 python3_8
-*/* PYTHON_SINGLE_TARGET: -* python3_8
+*/* PYTHON_TARGETS: python2_7 python3_9
+*/* PYTHON_SINGLE_TARGET: -* python3_9
 # net-mail/notmuch PYTHON_TARGETS: -python3_9 python3_6
 # net-mail/notmuch PYTHON_SINGLE_TARGET: -* python3_6
 
