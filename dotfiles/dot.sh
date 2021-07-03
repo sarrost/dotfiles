@@ -1,148 +1,104 @@
 #!/bin/sh
 
-#〖愛〗dot.sh - dotfile management
+#-----------------------------------------------------------
+#                          SETUP
+#-----------------------------------------------------------
+#----------------------- VARIABLES -----------------------#
+c=$(printf '\033[0m')
+light_red=$(printf '\033[1;31m')  ; red=$(printf '\033[0;31m')
+light_cyan=$(printf '\033[1;36m') ; cyan=$(printf '\033[0;36m')
 
-# REQUIRED: stow
+error="${light_red}ERROR ${red}=>${c} "
+header="${light_cyan}DOT ${cyan}=>${c} "
 
-# TODO: 
-#   - support other distros/platforms
+#------------------------- ERRORS -------------------------#
+err_install() { printf '%s\n' "${error}Cannot install."; exit 1; }
+err_recall() { printf '%s\n' "${error}Cannot recall."; exit 1; }
+err_conflict() { printf '%s\n' "${error}Conflicting actions."; exit 1 ; }
+err_no_configs() { printf '%s\n' "${error}No program specified."; exit 1 ; }
+err_no_stow() { printf '%s\n' "${error}Stow command not found. Install stow to continue."; exit 1 ; }
 
-help_msg() {
+#------------------------ GENERAL ------------------------#
+# Print help message and exit
+show_help() {
 	echo "Usage:
     ./dot.sh [OPTIONS] dir
   Options:
-    -I,--install [program] --  install program
-    -i,--deploy [program]  --  deploy dotfiles
-    -r,--recall [program]  --  recall dotfiles
-    -R,--uninstall [program]  -- uninstall program
-    -s,--silent            --  silent output
-    -v,--verbose           --  verbose output
-    -h,--help              --  print this help message
+    -i,--install [program]  --  deploy dotfiles
+    -r,--recall [program]   --  recall dotfiles
+    -h,--help               --  print this help message
 
-    Option -i is assumed if no options are given.
+    Running -i and -r as root deploys/recalls dotfiles 
+    to/from /root/. Recalling leaves behind empty folders.
 
     Prepend directory with 'sys-' (e.g. sys-portage) to
     deploy/recall system-wide (e.g. /etc/portage/).
-    
-    Need to run as root when using -I and -R. Running
-    -i and -r as root deploys/recalls dotfiles to/from
-    /root/. Recalling leaves behind empty folders.
   "
 	exit
 }
 
-# Update as necessary
-get_package() {
-	case "${arg_program}" in
-		compton) p="x11-misc/compton" ;;
-		dunst) p="x11-misc/dunst" ;;
-		neovim) p="app-editors/neovim"
-			p="$p dev-python/neovim-remote"
-			p="$p app-vim/gentoo-syntax" ;;
-		task) p="app-misc/task" ;;
-		test) p="app-editors/nano" ;;
-		vifm) p="app-misc/vifm" ;;
-		vim) p="app-editors/vim" ;;
-		zsh) p="app-shells/zsh" ;;
-	esac
-	echo "$p"
-}
-
-# Update as necessary
-custom_install() {
-	case "${arg_program}" in
-		neovim) echo "Doing custom install";;
-		test) echo "Doing custom install";;
-	esac
-}
-
-err_no_program() { printf "Error: no program specified.\\n" && exit 1 ; }
-err_no_stow() { printf "Error: stow command not found. Install stow to continue.\\n" && exit 1 ; }
-err_conflict() { printf "Error: conflicting actions.\\n" && exit 1 ; }
-
-deploy() {
-	stow --no-folding --restow -t "${TARGET_DIR}" "${arg_program}"
-	[ -z "${bool_verbose}" ] || printf "Deployed: %s\\n" "${arg_program}"
-}
-
+# Install dotfiles
 install() {
-	# Install packages from package manager
-	packages="$(get_package)"
-	cmd="emerge -q ${packages}"
-	[ -z "${BOOL_SILENT}" ] || cmd="${cmd} &>/dev/null"
-	[ -z "${packages}" ] || eval "${cmd}"
-	# Install using custom cmd
-	cmd='custom_install'
-	[ -z "${BOOL_SILENT}" ] || cmd="$cmd &>/dev/null"
-	eval "${cmd}"
-	[ -z "${bool_verbose}" ] || printf "Installed: %s\\n" "${arg_program}"
+	stow --no-folding --restow -t "$(target_dir "$1")" "$1" || err_install
+	printf '%s\n' "${header}Deploy ${cyan}${1}${c}."
 }
 
+# Recall dotfiles
 recall() {
-	stow --delete -t "${TARGET_DIR}" "${arg_program}"
-	[ -z "${bool_verbose}" ] || printf "Recalled: %s\\n" "${arg_program}"
+	stow --delete -t "$(target_dir "$1")" "$1" || err_recall
+	printf '%s\n' "${header}Recall ${cyan}${1}${c}."
 }
 
-uninstall() {
-	packages="$(get_package "${arg_program}")"
-	cmd="emerge --deselect -q ${packages}"
-	[ -z "${BOOL_SILENT}" ] || cmd="${cmd} &>/dev/null"
-	[ -z "${packages}" ] || eval "${cmd}"
-	[ -z "${bool_verbose}" ] || printf "Uninstalled: %s\\n" "${arg_program}"
+# Determine target directory to use as root for deployment
+target_dir() {
+	case "$1" in
+		sys-*) printf '%s' '/' ;;
+		*) printf '%s' "${HOME}" ;;
+	esac
 }
 
-# Process Args
-if OPTS=$(getopt -o IirRsvh \
--l install-deploy,deploy,recall,uninstall-recall,silent,verbose,help \
--n 'parse-options' -- "$@"); then
-	echo "Failed parsing options." >&2
-	exit 1
-fi
+# Trim whitespace from string
+trim() { echo "$1" | sed 's/^\s*//; s/\s*$//'; }
 
-eval set -- "${OPTS}"
+#-----------------------------------------------------------
+#                           MAIN
+#-----------------------------------------------------------
+#------------------------ CLI ARGS ------------------------#
+getopt -qQ -o ir: --long help,install,recall: -n 'parse-options' -- "$@" || err_parse_opts 
 
 while true; do
 	case "$1" in
-		-I | --install-deploy ) BOOL_INSTALL=true; shift ;;
-		-i | --deploy ) bool_deploy=true; shift ;;
-		-r | --recall ) BOOL_RECALL=true; shift ;;
-		-R | --uninstall-recall ) bool_uninstall=true; shift ;;
-		-s | --silent ) BOOL_SILENT=true; shift ;;
-		-v | --verbose ) bool_verbose=true; shift ;;
-		-h | --help ) BOOL_HELP=true; shift ;;
+		-i | --install ) install_configs="$install_configs $2"; shift; shift ;;
+		-r | --recall ) recall_configs="$recall_configs $2"; shift; shift ;;
+		--help ) help=1; shift ;;
 		-- ) shift; break ;;
 		* ) break ;;
 	esac
 done
 
-# Print help and exit
-[ -n "${BOOL_HELP}" ] && help_msg
+# Print help message.
+[ -z "$help" ] || show_help
 
 # Check if stow is installed
 command -v stow >/dev/null 2>&1 || err_no_stow
 
-# Exit if no program arg is given
-[ -z "$1" ] && err_no_program
-arg_program="$1"
+# Fail if no configs specified.
+[ -z "$install_configs" ] && [ -z "$recall_configs" ] && err_no_configs
 
-# Determine target dir
-case "${arg_program}" in
-	sys-*) TARGET_DIR=/ ;;
-	*) TARGET_DIR="${HOME}" ;;
-esac
+# Fail if attempting to both install and recall.
+[ -n "$install_configs" ] && [ -n "$recall_configs" ] && err_conflict
 
-# Cannot deploy/install and recall/uninstall
-{ [ -n "${BOOL_INSTALL}" ] || [ -n "${bool_deploy}" ]; } && 
-	{ [ -n "${bool_uninstall}" ] || [ -n "${BOOL_RECALL}" ]; } && 
-	err_conflict
+#--------------------- INSTALL/RECALL ---------------------#
+if [ -n "$install_configs" ]; then
+	install_configs=$(trim "$install_configs")
+	for config in $install_configs; do
+		install	"$config"
+	done
+fi
 
-# Main job
-if [ -n "${BOOL_INSTALL}" ]; then
-	install
-elif [ -n "${bool_uninstall}" ]; then
-	uninstall
-elif [ -n "${BOOL_RECALL}" ]; then
-	recall
-else
-	deploy
+if [ -n "$recall_configs" ]; then
+	recall_configs=$(trim "$recall_configs")
+	for config in $recall_configs; do
+		recall "$config"
+	done
 fi
