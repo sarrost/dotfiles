@@ -4,4 +4,7 @@
 ## xwallpaper has bugs on this version
 #>=sys-libs/libseccomp-2.5.0
 # Stay on current version
->sys-kernel/gentoo-sources-5.12.10
+>sys-kernel/gentoo-sources-5.9.6
+
+# Stay on current version
+#>x11-drivers/nvidia-drivers-390.141-r2

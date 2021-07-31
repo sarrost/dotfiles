@@ -1,5 +1,8 @@
 #〖愛〗per-package definitions of ACCEPT_KEYWORDS statements
 
+# Accept all packages
 */*::monero ~amd64
+# Accept all 9999 packages
+*/*::rice **
 ~app-editors/neovim-9999 **
 ~x11-misc/picom-9999 **

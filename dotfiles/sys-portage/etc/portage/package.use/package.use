@@ -18,22 +18,26 @@ media-video/ffmpeg x264
 media-video/ffmpegthumbnailer png
 media-video/mpv doc cuda
 net-libs/nodejs -system-ssl
-# x11-drivers/nvidia-drivers uvm
+x11-drivers/nvidia-drivers -uvm -kms
+x11-drivers/xf86-video-intel xmvc
+x11-misc/bumblebee bbswitch
 x11-misc/dunst dunstify
 x11-misc/xwallpaper jpeg png
 x11-misc/compton opengl
+x11-drivers/xf86-video-intel tools
 # ?
 mail-mta/msmtp sasl
 net-mail/isync sasl
 mail-client/neomutt sasl
 app-emulation/virt-manager gtk
-app-emulation/qemu usbredir -alsa -pulseaudio -curl spice usb
+app-emulation/qemu usbredir -alsa pulseaudio -curl spice usb
 #app-emulation/qemu QEMU_SOFTMMU_TARGETS: arm x86_64 sparc QEMU_USER_TARGETS: x86_64
 app-editors/neovim -lua_single_target_lua5-1 lua_single_target_luajit
 media-libs/mesa video_cards_intel video_cards_i965 video_cards_i915
-media-sound/pulseaudio dbus -bluetooth
+media-sound/pulseaudio dbus bluetooth
 x11-misc/picom opengl
 sys-block/f3 extra
+app-admin/doas persist
 
 
 # # Try use latest python
@@ -275,7 +279,7 @@ sys-block/f3 extra
 >=net-dns/unbound-1.12.0-r1 threads
 # required by dev-util/nvidia-cuda-sdk-10.2.89::gentoo[examples]
 # required by nvidia-cuda-sdk (argument)
->=x11-drivers/nvidia-drivers-455.38 uvm
+#>=x11-drivers/nvidia-drivers-455.38 uvm
 # required by app-emulation/qemu-5.1.0-r1::gentoo[-static,static-user]
 # required by qemu (argument)
 >=dev-libs/glib-2.64.5 static-libs
@@ -524,4 +528,18 @@ sys-block/f3 extra
 # required by @selected
 # required by @world (argument)
 >=dev-python/PyQt5-5.15.2 dbus
+# required by dev-util/gource-0.51::gentoo
+# required by gource (argument)
+>=media-libs/libsdl2-2.0.14-r2 opengl
+# required by dev-util/gource-0.51::gentoo
+# required by gource (argument)
+>=media-libs/sdl2-image-2.0.5_p20210328 jpeg png
+# required by x11-libs/pango-1.48.7::gentoo
+# required by media-gfx/graphviz-2.47.3::gentoo[cairo]
+# required by @selected
+# required by @world (argument)
+>=media-libs/freetype-2.10.4 harfbuzz
+# required by mail-client/evolution-3.40.2::gentoo
+# required by evolution (argument)
+>=dev-libs/glib-2.68.3-r1 dbus
 
