@@ -84,7 +84,8 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export RICE_CSS_FONTS_DIR="$RICE_REPO_DIR"/css-fonts
 
 # Start graphical server if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
+{ [ "$(tty)" = "/dev/tty1" ] || [ "$(tty)" = "/dev/pts/0" ]; } && 
+	! pgrep -x dwm >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc"
 
 # Run when logout
 #trap 'doas prime-switch; exit 0' 0
