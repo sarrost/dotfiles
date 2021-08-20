@@ -10,15 +10,19 @@
 # xrandr --auto
 # xrandr --dpi 96
 
+/usr/bin/prime-offload
+
 # Daemons and other.
-dunst &									# notifications with 'dunst'
-compton &								# window compositor
-transmission-daemon &		# start torrent daemon
-unclutter &							# hide mouse when not needed
-clipmenud &
-mpd &                   # music player daemon
+syncthing & # start syncthing
+dunst &															# notifications with 'dunst'
+picom -b --experimental-backends &	# window compositor
+transmission-daemon -er &						# start torrent daemon
+unclutter &													# hide mouse when not needed
+mpd &                   						# music player daemon
+clipster --daemon &									# clipboard manager
 mpd_trigger localhost -p 6600 -e "pkill -RTMIN+17 dwmblocks" &
-cleanempty &						# remove empty directories and files
+# TODO: update to ignore hidden folders for mail and syncthing
+#cleanempty &												# remove empty directories and files
 genpreviews "$HOME" &
 rm -rf /media/$(whoami)/archive/* &		# cleanup dir
 

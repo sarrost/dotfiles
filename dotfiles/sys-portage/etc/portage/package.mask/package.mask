@@ -8,3 +8,4 @@
 
 # Stay on current version
 #>x11-drivers/nvidia-drivers-390.141-r2
+>media-sound/pulseaudio-15.0
