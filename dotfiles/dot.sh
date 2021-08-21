@@ -22,7 +22,7 @@ err_no_stow() { printf '%s\n' "${error}Stow command not found. Install stow to c
 # Print help message and exit
 show_help() {
 	echo "Usage:
-    ./dot.sh [OPTIONS] dir
+    ./dot.sh OPTIONS dir
   Options:
     -i,--install [program]  --  deploy dotfiles
     -r,--recall [program]   --  recall dotfiles
@@ -72,7 +72,8 @@ while true; do
 		-r | --recall ) recall_configs="$recall_configs $2"; shift; shift ;;
 		--help ) help=1; shift ;;
 		-- ) shift; break ;;
-		* ) break ;;
+		'' ) break ;;
+		* ) install_configs="$install_configs $2"; shift; ;;
 	esac
 done
 
