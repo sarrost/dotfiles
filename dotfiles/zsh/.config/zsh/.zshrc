@@ -23,9 +23,12 @@ export TERM_ID=$PPID
 #-----------------------------------------------------------
 ### Aliases and shortcuts
 # load aliases
-[ -f "$XDG_CONFIG_HOME/aliasrc" ] && source "$XDG_CONFIG_HOME/aliasrc"
+file="$XDG_CONFIG_HOME"/aliasrc
+[ ! -f "$file" ] || source "$file"
+
 # load dir switching shortcuts
-[ -f "$XDG_DATA_HOME/zsh/shortcuts.zsh" ] && source "$XDG_DATA_HOME/zsh/shortcuts.zsh"
+file="$XDG_DATA_HOME"/zsh/shortcuts.zsh
+[ ! -f "$file" ] || source "$file"
 
 #-----------------------------------------------------------
 ### General settings
@@ -34,7 +37,7 @@ setopt auto_cd
 # enable comments in interactive mode
 setopt INTERACTIVE_COMMENTS
 # enable history
-export HISTSIZE=2000
+export HISTSIZE=20000
 export SAVEHIST=$HISTSIZE
 [ -d "$XDG_DATA_HOME/zsh/history" ] || mkdir -p $XDG_DATA_HOME/zsh
 export HISTFILE="$XDG_DATA_HOME/zsh/history"
@@ -150,6 +153,7 @@ export LS_COLORS="rs=0:"`			# normal
 `"*.cgm=38;5;99:"`	
 `"*.xwd=38;5;99:"`	
 `"*.mkv=38;5;93:"`						# video	
+`"*.webm=38;5;93:"`
 `"*.mp4=38;5;91:"`	
 `"*.mov=38;5;90:"`
 `"*.mpg=38;5;90:"`	
@@ -392,20 +396,22 @@ zle-line-init() {
 zle -N zle-line-init
 
 #-----------------------------------------------------------
-### Forgit
-# Load forgit
-if [ -f $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh ]; then
-	source $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh
-fi
+#### Forgit
+## Load forgit
+#if [ -f $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh ]; then
+#	source $RICE_WORLD_REPO_DIR/forgit/forgit.plugin.zsh
+#fi
 
 #-----------------------------------------------------------
-### Prompt
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source $HOME/cd/world/powerlevel10k/powerlevel10k.zsh-theme
-[[ ! -f .config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+
+# Load p10k
+file=/usr/share/zsh-themes/powerlevel10k/powerlevel10k.zsh-theme
+[ ! -f "$file" ] || source "$file"
+
+# Load custom p10k theming
+file="$HOME"/.config/zsh/p10k.zsh
+[ ! -f "$file" ] || source "$file"
 
 # Load zsh-syntax-highlighting (must be sourced at end)
-if [ -f "$RICE_WORLD_REPO_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]; then
-	source "$RICE_WORLD_REPO_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" 
-fi
-
+file=/usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+[ ! -f "$file" ] || source "$file"
