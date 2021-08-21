@@ -1,5 +1,6 @@
 #!/bin/sh
 
-echo 'a' > /tmp/foobar
-#git clone https://github.com/wbthomason/packer.nvim\
-#~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# Install packer plugin manager for neovim
+packer_dir="$XDG_DATA_HOME"/nvim/site/pack/packer/start/packer.nvim
+packer_repo_url='https://github.com/wbthomason/packer.nvim'
+[ -d "$dir" ] || git clone "$packer_repo_url" "$packer_dir"
