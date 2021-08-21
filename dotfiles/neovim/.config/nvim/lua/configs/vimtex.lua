@@ -1,3 +1,5 @@
+vim.api.nvim_exec([[
+
 " assume *.tex are latex
 let g:tex_flavor = 'latex'
 " default pdf viewer
@@ -6,10 +8,7 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_view_automatic = 0
 
 " config toc menu
-let g:vimtex_toc_config = { 
-	\ 'show_help' : 0, 
-	\ 'split_width' : 30,
-	\ }
+let g:vimtex_toc_config = { 'show_help' : 0, 'split_width' : 30 }
 
 let g:vimtex_compiler_progname = 'nvr'
 
@@ -25,3 +24,5 @@ endfunction
 
 " toggle toc menu
 nmap <M-C-T> <plug>(vimtex-toc-toggle) 
+
+]], false)

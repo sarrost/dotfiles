@@ -1,0 +1,70 @@
+# TODO figure out how to do optional placeholders
+# snippet ( "(arg)" iA
+# (${1:arg})$0
+# endsnippet
+
+# TODO do not work in strings
+snippet : ":" iA
+: 
+endsnippet
+
+snippet = "=" iA
+ = 
+endsnippet
+
+snippet , "," iA
+, 
+endsnippet
+
+snippet case "case val: " bA
+case $1:
+	
+endsnippet
+
+snippet def "default: " bA
+default:
+	
+endsnippet
+
+snippet func "function () {}" wA
+function ($1) {
+	${2:// code...}
+}
+endsnippet
+
+snippet if "if () {}" bA
+if ($1) {
+	${2:// code...}
+}
+endsnippet
+
+snippet els "else {}" Awi
+else {
+	${1:// code...}
+}
+endsnippet
+
+snippet eli "else if () {}" Awi
+ else if ($1) {
+	${2:// code...}
+}
+endsnippet
+
+# TODO can this be done with context instead?
+snippet new "new" Aw
+new 
+endsnippet
+
+snippet ret "return" Ab
+return 
+endsnippet
+
+snippet switch "switch () {}" bA
+switch (${1:var}) {
+	$2
+}
+endsnippet
+
+snippet var "var" Ab
+var 
+endsnippet

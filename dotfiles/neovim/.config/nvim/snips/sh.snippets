@@ -16,3 +16,17 @@ while IFS= read -r ${1:line}; do
 	$0
 done <<< "\$${2:lines}"
 endsnippet
+
+
+# Custom headings
+snippet h1 "Heading" bA
+#-----------------------------------------------------------
+#`!p snip.rv = ' ' * int((58 - len(t[1])) / 2)`$1
+#-----------------------------------------------------------
+$0
+endsnippet
+
+snippet h2 "Heading" bA
+#`!p snip.rv = '-' * int((56 - len(t[1])) / 2)` $1 `!p snip.rv = '-' * int((56 - len(t[1])) / 2)`#
+$0
+endsnippet

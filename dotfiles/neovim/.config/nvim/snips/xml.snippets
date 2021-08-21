@@ -1,0 +1,570 @@
+snippet = "=quotes" iA
+="$1"
+endsnippet
+
+##a
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet al "ariaLabel" bAe
+ariaLabel="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet adb "ariaDescribedBy" bAe
+ariaDescribedBy="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet app "<App></App>" bAe
+<App${1:
+	}>
+	$2
+</App>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ar "accessibleRole" bAe
+accessibleRole="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet at "<attributes></attributes>" bAe
+<attributes${1:
+	}>
+	$2
+</attributes>
+endsnippet
+
+##b
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet bu "<Button/>" bAe
+<Button
+	$1/>
+endsnippet
+
+##c
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet ce "<cells></cells>" bAe
+<cells>
+	$1
+</cells>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet clb "contentLabel" bAe
+contentLabel="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet cli "<ColumnListItem/>" bAe
+<ColumnListItem${1:
+	$2}>
+	$3
+</ColumnListItem>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet clm "<Column></Column>" bAe
+<Column${1:
+	$2}>
+	$3
+</Column>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet cls "<columns></columns>" bAe
+<columns>
+	$1
+</columns>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet cls "class" bAe
+class="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet co "<content></content>" bAe
+<content>
+	$1
+</content>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet cn "controllerName" bAe
+controllerName="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet cr "contentRole" bAe
+contentRole="$1"
+endsnippet
+
+##d
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet dp "demandPopin" bAe
+demandPopin="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet di "<Dialog/>" bAe
+<Dialog
+	$1/>
+endsnippet
+
+##e
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet em "emphasized" bAe
+emphasized="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet exp "expandable" bAe
+expandable="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet exd "expanded" bAe
+expanded="$1"
+endsnippet
+
+##f
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet fr "<core:FragmentDefinition></core:FragmentDefinition>" bAe
+<core:FragmentDefinition
+	xmlns:"sap.m"
+	xmlns:core="sap.ui.core">
+	$1
+</core:FragmentDefinition>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet fs "<firstStatus></firstStatus>" bAe
+<firstStatus>
+	$1
+</firstStatus>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet fso "fullScreenOptimized" bAe
+fullScreenOptimized="$1"
+endsnippet
+
+##g
+
+##h
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ha "hAlign" bAe
+hAlign="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet hc "<headerContent></headerContent>" bAe
+<headerContent>
+	$1
+</headerContent>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet hr "headerRole" bAe
+headerRole="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ha "headerLabel" bAe
+headerLabel="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet ht "<headerToolbar></headerToolbar>" bAe
+<headerToolbar>
+	$1
+</headerToolbar>
+endsnippet
+
+##i
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet ic "<core:Icon/>" bAe
+<core:Icon
+	$1/>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ic "icon" bAe
+icon="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet id "id" bAe
+id="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet in "intro" bAe
+intro="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet it "<items></items>" bAe
+<items>
+	$1
+</items>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet it "items" bAe
+items="$1"
+endsnippet
+
+##j
+
+##k
+
+##l
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet lmi "<landmarkInfo></landmarkInfo>" bAe
+<landmarkInfo>
+	$2
+</landmarkInfo>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet li "<List></List>" bAe
+<List${1:
+	}>
+	$2
+</List>
+endsnippet
+
+##m
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet msw "minScreenWidth" bAe
+minScreenWidth="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet mvc "<mvc:View></mvc:View>" bAe
+<mvc:View
+	${1:controllerName="$2"
+	}xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+	$3
+</mvc:View>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet mvx "<mvc:XMLView/>" bAe
+<mvc:XMLView
+	${1:viewName="$2"}/>
+endsnippet
+
+##n
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet nbp "navButtonPress" bAe
+navButtonPress="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet nr "number" bAe
+number="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet nu "numberUnit" bAe
+numberUnit="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ns "numberState" bAe
+numberState="$1"
+endsnippet
+
+##o
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet oa "<ObjectAttribute/>" bAe
+<ObjectAttribute
+	$1/>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet oa "</ObjectAttribute>" bAe
+</ObjectAttribute>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet oh "<ObjectHeader/>" bAe
+<ObjectHeader
+	$2/>${1:
+	$3
+</ObjectHeader>}
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet /oh "</ObjectHeader>" bAe
+</ObjectHeader>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet oi "<ObjectIdentifier/>" bAe
+<ObjectIdentifier
+	$1/>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet oli "<ObjectListItem/>" bAe
+<ObjectListItem
+	$1/>
+endsnippet
+
+snippet /oli "</ObjectListItem>" bA
+</ObjectListItem>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet on "<ObjectNumber/>" bAe
+<ObjectNumber
+	$1/>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet os "<ObjectStatus/>" bAe
+<ObjectStatus
+	$1/>
+endsnippet
+
+##p
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet pali "<PageAccessibleLandmarkInfo></PageAccessibleLandmarkInfo>" bAe
+<PageAccessibleLandmarkInfo>
+	$2
+</PageAccessibleLandmarkInfo>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet pan "<Panel></Panel>" bAe
+<Panel${2:
+	$3}`!p
+if t[1] == '':
+	snip.rv = '/'`>$4${1:
+</Panel>}
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ph "placeholder" bAe
+placeholder="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet pg "<Page></Page>" bAe
+<Page${1:
+	}>
+	$2
+</Page>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet pr "press" bAe
+press="$1"
+endsnippet
+
+##r
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet re "responsive" bAe
+responsive="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet rl "rootLabel" bAe
+rootLabel="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet rr "rootRole" bAe
+rootRole="$1"
+endsnippet
+
+##s
+
+# TODO contexes, inside a string
+snippet sap-icon "sap-icon://" iA
+sap-icon://
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet se "search" bAe
+search="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet sf "<SearchField></SearchField>" bAe
+<SearchField
+	$1/>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet snb "showNavButton" bAe
+showNavButton="$1"
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet st "state" bAe
+state="$1"
+endsnippet
+
+##t
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet ti "<Title></Title>" bAe
+<Title
+	$1/>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ti "title" bAe
+title="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet tb "<Toolbar></Toolbar>" bAe
+<Toolbar>
+	$1
+</Toolbar>
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet te "<Text></Text>" bAe
+<Text
+	$1/>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet te "text" bAe
+text="$1"
+endsnippet
+
+# As tag
+context re.match('(.*>$|^$)', snip.buffer[snip.line-1]) 
+snippet ts "<ToolbarSpacer/>" bAe
+<ToolbarSpacer/>
+endsnippet
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet ty "type" bAe
+type="$1"
+endsnippet
+
+##u
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet un "unit" bAe
+unit="$1"
+endsnippet
+
+##v
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet vn "viewName" bAe
+viewName="$1"
+endsnippet
+
+##w
+
+# As attribute
+context re.match('.*(\w|\")$', snip.buffer[snip.line-1])
+snippet wi "width" bAe
+width="$1"
+endsnippet
+
+##x
+
+##y
+
+##z
+
+
+
+
