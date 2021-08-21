@@ -10,8 +10,9 @@ LG="clear && echo "" && ls | grep" \
 activate="source bin/activate" \
 cf="source vpwd_cf" \
 cp="cpg -g" \
+d="doas" \
 emerge="doas emerge" \
-eselect="doas eselect" \
+eix-sync="doas eix-sync" \
 g="git" \
 gc="git clone" \
 jj="cd ~/wk/sarrost-software/client/one-world/wk/one-world-web && l" \
@@ -41,6 +42,3 @@ z="zathura" \
 bbb="bitcoin-chart-cli -w 60 -d 7" \
 btt="bitcoin-chart-cli -w 60 -h 12 -d 30" \
 btc="bitcoin-chart-cli -w 60 -h 12 -d 90" \
-
-
-
